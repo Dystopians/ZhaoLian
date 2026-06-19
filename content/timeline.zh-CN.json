@@ -1,0 +1,142 @@
+[
+  {
+    "id": "TL-001",
+    "date": "1942",
+    "kind": "later-research",
+    "label": "郁达夫辗转离开新加坡后进入苏门答腊叙述范围。",
+    "claimIds": ["HIS-001"]
+  },
+  {
+    "id": "TL-002",
+    "date": "1942-1944",
+    "kind": "later-research",
+    "label": "赵廉身份、酒厂和译员工作逐渐交叠。",
+    "claimIds": ["HIS-002", "HIS-003"]
+  },
+  {
+    "id": "TL-003",
+    "date": "1942-1944",
+    "kind": "testimony",
+    "label": "保护性翻译和被怀疑的社会观感同时出现。",
+    "claimIds": ["HIS-004"]
+  },
+  {
+    "id": "TL-004",
+    "date": "1944",
+    "kind": "testimony",
+    "label": "梦话担忧作为证言材料进入案卷。",
+    "claimIds": ["HIS-003"]
+  },
+  {
+    "id": "TL-005",
+    "date": "1945",
+    "kind": "testimony",
+    "label": "“郁先生”称呼显示身份暴露。",
+    "claimIds": ["HIS-005"]
+  },
+  {
+    "id": "TL-006",
+    "date": "1945-08-15",
+    "kind": "documented",
+    "label": "日本投降消息传来；地方权力交接并未即时完成。",
+    "claimIds": ["HIS-006"]
+  },
+  {
+    "id": "TL-007",
+    "date": "1945-08-15/28",
+    "kind": "reconstruction",
+    "label": "回国路线、账目和家中安排显示对未来的实际处理。",
+    "claimIds": ["HIS-021"]
+  },
+  {
+    "id": "TL-008",
+    "date": "1945-08-29 night",
+    "kind": "testimony",
+    "label": "青年到家中呼唤，称呼首音无法恢复。",
+    "claimIds": ["HIS-007", "HIS-013"]
+  },
+  {
+    "id": "TL-009",
+    "date": "1945-08-29 night",
+    "kind": "testimony",
+    "label": "赵廉穿睡衣和木屐离家。",
+    "claimIds": ["HIS-007"]
+  },
+  {
+    "id": "TL-010",
+    "date": "1945-08-29 night",
+    "kind": "unresolved",
+    "label": "青年身份、车辆人员和离家后路线保持未决。",
+    "claimIds": ["HIS-014", "HIS-015"]
+  },
+  {
+    "id": "TL-011",
+    "date": "1945-08-30 dawn",
+    "kind": "reconstruction",
+    "label": "等待进入寻找，家庭用语开始在迟归、失踪、尚不能判断之间摇摆。",
+    "claimIds": ["HIS-016"]
+  },
+  {
+    "id": "TL-012",
+    "date": "1945-08-30",
+    "kind": "testimony",
+    "label": "女儿出生；父亲状态仍为尚未归来。",
+    "claimIds": ["HIS-008"]
+  },
+  {
+    "id": "TL-013",
+    "date": "1945-08-30",
+    "kind": "testimony",
+    "label": "咖啡店与路旁证言提供有限线索。",
+    "claimIds": ["HIS-014", "HIS-015"]
+  },
+  {
+    "id": "TL-014",
+    "date": "1945-09",
+    "kind": "later-research",
+    "label": "胡愈之调查强烈指向日本宪兵责任。",
+    "claimIds": ["HIS-009"]
+  },
+  {
+    "id": "TL-015",
+    "date": "1945-09-17",
+    "kind": "later-research",
+    "label": "早期传播簇给出9月17日与枪杀说法。",
+    "claimIds": ["HIS-010"]
+  },
+  {
+    "id": "TL-016",
+    "date": "later",
+    "kind": "later-research",
+    "label": "后续调查簇提出29/30日与不同死亡方式。",
+    "claimIds": ["HIS-011"]
+  },
+  {
+    "id": "TL-017",
+    "date": "later",
+    "kind": "unresolved",
+    "label": "无遗骸和完整司法记录。",
+    "claimIds": ["HIS-012"]
+  },
+  {
+    "id": "TL-018",
+    "date": "present",
+    "kind": "reconstruction",
+    "label": "玩家作为编辑重排材料，不改变历史结果。",
+    "claimIds": ["HIS-022", "HIS-023"]
+  },
+  {
+    "id": "TL-019",
+    "date": "present",
+    "kind": "documented",
+    "label": "游戏记录无遥测和本地存档政策。",
+    "claimIds": ["HIS-025"]
+  },
+  {
+    "id": "TL-020",
+    "date": "release",
+    "kind": "documented",
+    "label": "外部史学、语言和无障碍签字仍需真实人类完成。",
+    "claimIds": ["HIS-026"]
+  }
+]

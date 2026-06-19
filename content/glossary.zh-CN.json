@@ -1,0 +1,137 @@
+[
+  {
+    "id": "G_YU_DAFU",
+    "term": "郁达夫",
+    "latin": "Yu Dafu",
+    "definition": "现代中国作家、抗日文化工作者；在苏门答腊最后岁月中以赵廉身份生活。"
+  },
+  {
+    "id": "G_ZHAO_LIAN",
+    "term": "赵廉",
+    "latin": "Zhao Lian",
+    "definition": "郁达夫在西苏门答腊使用的社会身份，关联地方生活、商业掩护和家庭关系。"
+  },
+  {
+    "id": "G_ZHAO_BOSS",
+    "term": "赵老板",
+    "latin": "Zhao Boss",
+    "definition": "游戏中地方人物对赵廉的称呼，用于强调社会关系而非文学纪念。"
+  },
+  {
+    "id": "G_PAYAKUMBUH",
+    "term": "巴爷公务",
+    "latin": "Payakumbuh",
+    "definition": "西苏门答腊城市；中文译名有历史变体，需地方语境审读。"
+  },
+  {
+    "id": "G_BUKITTINGGI",
+    "term": "武吉丁宜",
+    "latin": "Bukittinggi",
+    "definition": "西苏门答腊城市，部分材料中与译员工作环境相关。"
+  },
+  {
+    "id": "G_SUMATRA",
+    "term": "苏门答腊",
+    "latin": "Sumatra",
+    "definition": "印尼大岛；本作聚焦西苏门答腊地方社会，不把其当作异域背景。"
+  },
+  {
+    "id": "G_HU_YUZHI",
+    "term": "胡愈之",
+    "latin": "Hu Yuzhi",
+    "definition": "作家、编辑和早期调查者，相关文本是关键但仍需版本核验的材料。"
+  },
+  {
+    "id": "G_ZHAO_YU_JI",
+    "term": "赵豫记",
+    "latin": "Zhao Yu Ji",
+    "definition": "材料关联的酒厂或商业名；游戏中的账簿为重构道具。"
+  },
+  {
+    "id": "G_KEMPEITAI",
+    "term": "日本宪兵",
+    "latin": "Kempeitai / Japanese military police",
+    "definition": "本作中责任指向的占领机构术语；需历史顾问复核具体称谓。"
+  },
+  {
+    "id": "G_DOSSIER",
+    "term": "案卷",
+    "latin": "dossier",
+    "definition": "游戏内证据、主张、时间线、来源和词汇的集合。"
+  },
+  {
+    "id": "G_CLAIM",
+    "term": "主张",
+    "latin": "claim",
+    "definition": "关于历史的一句话，必须有材料层级、支持来源和冲突关系。"
+  },
+  {
+    "id": "G_EVIDENCE",
+    "term": "证据卡",
+    "latin": "evidence card",
+    "definition": "玩家在当前轮取得的观察、证言或文献条目。"
+  },
+  {
+    "id": "G_SOURCE_CLASS",
+    "term": "材料层级",
+    "latin": "source class",
+    "definition": "文献、证言、后来调查、复合、重构、未决的区分。"
+  },
+  {
+    "id": "G_RIGOR",
+    "term": "证据克制",
+    "latin": "rigor",
+    "definition": "隐藏编辑倾向，偏向保留空白和材料边界，不是道德分。"
+  },
+  {
+    "id": "G_CARE",
+    "term": "见证关怀",
+    "latin": "care",
+    "definition": "隐藏编辑倾向，偏向保留家庭、日常和证人不确定性。"
+  },
+  {
+    "id": "G_CLOSURE",
+    "term": "叙事封闭",
+    "latin": "closure",
+    "definition": "隐藏编辑倾向，偏向把不完整记录写成完整句子。"
+  },
+  {
+    "id": "G_THRESHOLD",
+    "term": "门槛规则",
+    "latin": "threshold rule",
+    "definition": "赵廉离家后，叙事不再跟随他，只处理等待和材料。"
+  },
+  {
+    "id": "G_CURRENT_RUN",
+    "term": "当前轮证据",
+    "latin": "current-run evidence",
+    "definition": "本次游玩实际取得的证据；不同于跨轮知识。"
+  },
+  {
+    "id": "G_META_ARCHIVE",
+    "term": "跨轮知识",
+    "latin": "meta archive",
+    "definition": "此前完成轮次见过的材料，不可自动进入当前报告。"
+  },
+  { "id": "G_D", "term": "文献", "latin": "D", "definition": "较强文献或机构记录支持的材料。" },
+  { "id": "G_T", "term": "证言", "latin": "T", "definition": "目击、回忆或后来转述材料。" },
+  {
+    "id": "G_L",
+    "term": "后来调查",
+    "latin": "L",
+    "definition": "后来的研究、采访或综合调查材料。"
+  },
+  {
+    "id": "G_C",
+    "term": "复合",
+    "latin": "C",
+    "definition": "多个材料合并成可读场景，不能作为单个事实。"
+  },
+  {
+    "id": "G_R",
+    "term": "重构",
+    "latin": "R",
+    "definition": "为可玩性和理解而写的戏剧性连接，必须标明。"
+  },
+  { "id": "G_U", "term": "未决", "latin": "U", "definition": "材料冲突或缺失，不能被界面补完。" }
+]

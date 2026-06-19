@@ -1,0 +1,1888 @@
+{
+  "contentVersion": "1.0.0",
+  "startSceneId": "ch00_archive_name",
+  "sharedFinalLine": "无论你如何编目，他都没有从门外回来。",
+  "lockedLines": [
+    { "id": "LOCK_CASE_TITLE", "text": "案卷题名：＿＿＿＿失踪案" },
+    { "id": "LOCK_CONTRACT", "text": "你不能改变这件事。你将改变它留下来的文字。" },
+    {
+      "id": "LOCK_TOWN_TRANSLATOR",
+      "text": "在小镇上，一个人与日本人说话。有人因此怀疑他。有人因此活下来。"
+    },
+    {
+      "id": "LOCK_DAY_NIGHT_TRANSLATION",
+      "text": "白天，他替别人翻译。夜里，他担心自己的话被别人翻译。"
+    },
+    { "id": "LOCK_YU_SENSEI", "text": "郁先生。" },
+    {
+      "id": "LOCK_AFTER_EXPOSURE",
+      "text": "那天以后，日本人知道赵廉是谁。赵廉也知道，日本人知道。第二天，酒厂仍然开门。"
+    },
+    {
+      "id": "LOCK_RADIO_STREETS",
+      "text": "战争在广播里结束了。街上的汽车、枪和档案，还在日本人手中。"
+    },
+    { "id": "LOCK_OUT_FOR_A_WHILE", "text": "有点事情，我出去一趟。" },
+    { "id": "LOCK_DAUGHTER_STATUS", "text": "女儿出生：1945年8月30日。父亲状态：尚未归来。" },
+    { "id": "LOCK_SHARED_FINAL", "text": "无论你如何编目，他都没有从门外回来。" }
+  ],
+  "scenes": [
+    {
+      "id": "ch00_archive_name",
+      "chapter": "CH00",
+      "title": "请填写姓名",
+      "dateLabel": "现在",
+      "locationLabel": "档案桌",
+      "historicalClasses": ["R", "U"],
+      "mode": "standard",
+      "visual": "VIS_ARCHIVE_DESK",
+      "ambience": "AMB_ROOM_FAN",
+      "entry": [
+        {
+          "id": "ch00_p1",
+          "text": "案卷题名：＿＿＿＿失踪案",
+          "classes": ["R"],
+          "lockedId": "LOCK_CASE_TITLE",
+          "claimIds": ["HIS-019"]
+        },
+        {
+          "id": "ch00_p2",
+          "text": "铅字等着你。它不催促，也不解释。一个名字可以把人送进纪念碑，也可以把人留在邻里、账目和家门口。",
+          "classes": ["R"],
+          "claimIds": ["HIS-019"]
+        }
+      ],
+      "choices": [
+        {
+          "id": "CH00_NAME_YU",
+          "label": "写下“郁达夫”。",
+          "response": [
+            {
+              "id": "ch00_yu_r1",
+              "text": "你先写下了后来的人最熟悉的名字。1945年8月29日晚，小镇上的多数人并不这样称呼他。",
+              "classes": ["L"],
+              "claimIds": ["HIS-019"]
+            }
+          ],
+          "effects": {
+            "editorial": { "closure": 1 },
+            "set": { "openingName": "yu" },
+            "claimIds": ["HIS-019"]
+          }
+        },
+        {
+          "id": "CH00_NAME_ZHAO",
+          "label": "写下“赵廉”。",
+          "response": [
+            {
+              "id": "ch00_zhao_r1",
+              "text": "你先写下了当时小镇最熟悉的名字。后来的纪念碑不会只写这个名字。",
+              "classes": ["L"],
+              "claimIds": ["HIS-019"]
+            }
+          ],
+          "effects": {
+            "editorial": { "care": 1 },
+            "set": { "openingName": "zhao" },
+            "claimIds": ["HIS-019"]
+          }
+        },
+        {
+          "id": "CH00_NAME_BLANK",
+          "label": "暂不填写。",
+          "response": [
+            {
+              "id": "ch00_blank_r1",
+              "text": "档案接受空白。纪念仪式通常不能。",
+              "classes": ["R"],
+              "claimIds": ["HIS-022"]
+            }
+          ],
+          "effects": {
+            "editorial": { "rigor": 1 },
+            "set": { "openingName": "blank" },
+            "claimIds": ["HIS-022"]
+          }
+        }
+      ],
+      "completion": [
+        {
+          "id": "ch00_contract",
+          "text": "你不能改变这件事。你将改变它留下来的文字。",
+          "classes": ["R"],
+          "lockedId": "LOCK_CONTRACT",
+          "claimIds": ["HIS-023"]
+        },
+        {
+          "id": "ch00_drawers",
+          "text": "案卷开启三个空抽屉：名字、译文、日期。它们暂时都是空的。",
+          "classes": ["R"],
+          "evidenceIds": ["E_THRESHOLD_RULE"],
+          "claimIds": ["HIS-024"]
+        }
+      ],
+      "nextSceneId": "ch01_zhao_boss"
+    },
+    {
+      "id": "ch01_zhao_boss",
+      "chapter": "CH01",
+      "title": "赵老板",
+      "dateLabel": "1942-1944，重构",
+      "locationLabel": "赵豫记酒厂",
+      "historicalClasses": ["C", "R", "L"],
+      "mode": "standard",
+      "visual": "VIS_WINE_FACTORY",
+      "ambience": "AMB_RAIN_DAY",
+      "requiredChoiceCount": 2,
+      "entry": [
+        {
+          "id": "ch01_p1",
+          "text": "雨从屋檐往下掉。伙计把酒搬到门边。日本军人说了一句话，赵老板用日语回答。两个人都笑了。",
+          "classes": ["C", "R"],
+          "claimIds": ["HIS-002", "HIS-003"]
+        },
+        {
+          "id": "ch01_p2",
+          "text": "柜台旁的人低声说：“他和宪兵倒很熟。”伙计没有立刻反驳，只把账页压平。过了一会儿，他才说：“上星期被抓走的那个，也是他带回来的。”",
+          "classes": ["C", "R"],
+          "claimIds": ["HIS-004"]
+        },
+        {
+          "id": "ch01_p3",
+          "text": "你只能先检查两件材料。多看一件，就会漏掉另一件。",
+          "classes": ["R"],
+          "claimIds": ["HIS-024"]
+        }
+      ],
+      "choices": [
+        {
+          "id": "CH01_LISTEN_JAPANESE",
+          "label": "听日语谈话。",
+          "response": [
+            {
+              "id": "ch01_listen_r1",
+              "text": "你听见他把一句命令拆得很慢。语气不是同伴之间的轻松，更像把锋利的东西放回纸套。",
+              "classes": ["R"],
+              "evidenceIds": ["E_JAPANESE_FLUENCY"],
+              "claimIds": ["HIS-003"]
+            }
+          ],
+          "effects": { "evidenceIds": ["E_JAPANESE_FLUENCY"], "claimIds": ["HIS-003"] }
+        },
+        {
+          "id": "CH01_ASK_RETURNED",
+          "label": "询问回来的人。",
+          "response": [
+            {
+              "id": "ch01_returned_r1",
+              "text": "这个人没有名字。他由几条回忆合成，只能说明一种可能：翻译有时让人多活一天。你保留了“复合”标签。",
+              "classes": ["C"],
+              "evidenceIds": ["E_PROTECTIVE_INTERVENTION_COMPOSITE"],
+              "claimIds": ["HIS-004"]
+            }
+          ],
+          "effects": {
+            "editorial": { "care": 1 },
+            "evidenceIds": ["E_PROTECTIVE_INTERVENTION_COMPOSITE"],
+            "claimIds": ["HIS-004"]
+          }
+        },
+        {
+          "id": "CH01_LEDGER",
+          "label": "查看酒厂账簿。",
+          "response": [
+            {
+              "id": "ch01_ledger_r1",
+              "text": "账页上写着赵廉。米、糖、酒瓶、欠款和归还日期排在一起。这个名字不是谜底，它在这里工作。",
+              "classes": ["R"],
+              "evidenceIds": ["E_LEDGER_ZHAO_LIAN"],
+              "claimIds": ["HIS-001", "HIS-002"]
+            }
+          ],
+          "effects": { "evidenceIds": ["E_LEDGER_ZHAO_LIAN"], "claimIds": ["HIS-001", "HIS-002"] }
+        },
+        {
+          "id": "CH01_OBSERVE_ATTITUDE",
+          "label": "观察军人的态度。",
+          "response": [
+            {
+              "id": "ch01_attitude_r1",
+              "text": "对方等他翻译，像等一件工具被递过来。工具不会因此拥有权力。",
+              "classes": ["R"],
+              "evidenceIds": ["E_UTILIZED_BY_OCCUPIERS"],
+              "claimIds": ["HIS-003"]
+            }
+          ],
+          "effects": { "evidenceIds": ["E_UTILIZED_BY_OCCUPIERS"], "claimIds": ["HIS-003"] }
+        }
+      ],
+      "completion": [
+        {
+          "id": "ch01_locked",
+          "text": "在小镇上，一个人与日本人说话。有人因此怀疑他。有人因此活下来。",
+          "classes": ["L", "C"],
+          "lockedId": "LOCK_TOWN_TRANSLATOR",
+          "claimIds": ["HIS-003", "HIS-004"]
+        },
+        {
+          "id": "ch01_classify",
+          "text": "案卷请你把一句话分开：他同日本人说话，是行动；“他很熟”，是解释。",
+          "classes": ["R"],
+          "claimIds": ["HIS-024"]
+        }
+      ],
+      "nextSceneId": "ch02_time_slot"
+    },
+    {
+      "id": "ch02_time_slot",
+      "chapter": "CH02",
+      "title": "译员：时间",
+      "dateLabel": "占领时期，重构",
+      "locationLabel": "军警办公室",
+      "historicalClasses": ["C", "R"],
+      "mode": "standard",
+      "visual": "VIS_POLICE_OFFICE",
+      "ambience": "AMB_ROOM_FAN",
+      "entry": [
+        {
+          "id": "ch02_time_p1",
+          "text": "桌上有三个人名。军警把名单推来，意思是：今晚以前，把他们带来问话。",
+          "classes": ["C", "R"],
+          "claimIds": ["HIS-003", "HIS-004"]
+        },
+        {
+          "id": "ch02_time_p2",
+          "text": "你先决定时间怎样进入译文。界面不会告诉你哪个词是正确答案，因为这里没有词汇考试。",
+          "classes": ["R"],
+          "claimIds": ["HIS-018"]
+        }
+      ],
+      "choices": [
+        {
+          "id": "CH02_TIME_TONIGHT",
+          "label": "今晚以前。",
+          "response": [
+            {
+              "id": "ch02_tonight_r1",
+              "text": "他照字面译出时间。名单上三个人没有得到额外空隙。",
+              "classes": ["R"],
+              "claimIds": ["HIS-004"]
+            }
+          ],
+          "effects": { "editorial": { "suspicion": -1 }, "set": { "translationTime": "tonight" } }
+        },
+        {
+          "id": "CH02_TIME_TOMORROW",
+          "label": "明天上午。",
+          "response": [
+            {
+              "id": "ch02_tomorrow_r1",
+              "text": "他把今晚拖到明天上午。半天在纸上不长，在街上很长。",
+              "classes": ["R"],
+              "evidenceIds": ["E_TRANSLATION_DELAY"],
+              "claimIds": ["HIS-004"]
+            }
+          ],
+          "effects": {
+            "editorial": { "suspicion": 1 },
+            "evidenceIds": ["E_TRANSLATION_DELAY"],
+            "claimIds": ["HIS-004"],
+            "set": { "translationTime": "tomorrow" }
+          }
+        },
+        {
+          "id": "CH02_TIME_DAYS",
+          "label": "过几天。",
+          "response": [
+            {
+              "id": "ch02_days_r1",
+              "text": "译文一下子离原句太远。保护变得明显，危险也变得明显。",
+              "classes": ["R"],
+              "evidenceIds": ["E_TRANSLATION_DELAY_STRONG"],
+              "claimIds": ["HIS-004"]
+            }
+          ],
+          "effects": {
+            "editorial": { "suspicion": 2 },
+            "evidenceIds": ["E_TRANSLATION_DELAY_STRONG"],
+            "claimIds": ["HIS-004"],
+            "set": { "translationTime": "days" }
+          }
+        }
+      ],
+      "nextSceneId": "ch02_action_slot"
+    },
+    {
+      "id": "ch02_action_slot",
+      "chapter": "CH02",
+      "title": "译员：动作",
+      "dateLabel": "占领时期，重构",
+      "locationLabel": "军警办公室",
+      "historicalClasses": ["C", "R"],
+      "mode": "standard",
+      "visual": "VIS_POLICE_OFFICE",
+      "entry": [
+        {
+          "id": "ch02_action_p1",
+          "text": "第二个词决定名单怎样离开房间。",
+          "classes": ["R"],
+          "claimIds": ["HIS-004"]
+        }
+      ],
+      "choices": [
+        {
+          "id": "CH02_ACTION_BRING",
+          "label": "带来。",
+          "response": [
+            {
+              "id": "ch02_bring_r1",
+              "text": "命令保持命令。译文没有挡住它。",
+              "classes": ["R"],
+              "claimIds": ["HIS-004"]
+            }
+          ],
+          "effects": { "set": { "translationAction": "bring" } }
+        },
+        {
+          "id": "CH02_ACTION_INVITE",
+          "label": "请来说明情况。",
+          "response": [
+            {
+              "id": "ch02_invite_r1",
+              "text": "语气变软，但门外的人仍会被带进这间房。",
+              "classes": ["R"],
+              "claimIds": ["HIS-004"]
+            }
+          ],
+          "effects": { "editorial": { "care": 1 }, "set": { "translationAction": "invite" } }
+        },
+        {
+          "id": "CH02_ACTION_CHECK_NAMES",
+          "label": "让我先核对姓名。",
+          "response": [
+            {
+              "id": "ch02_check_r1",
+              "text": "名单被留在桌上。字还在，脚步暂时没有出去。",
+              "classes": ["C", "R"],
+              "evidenceIds": ["E_NAME_REMOVED"],
+              "claimIds": ["HIS-004"]
+            }
+          ],
+          "effects": {
+            "editorial": { "rigor": 1 },
+            "evidenceIds": ["E_NAME_REMOVED"],
+            "claimIds": ["HIS-004"],
+            "set": { "translationAction": "check" }
+          }
+        }
+      ],
+      "nextSceneId": "ch02_purpose_slot"
+    },
+    {
+      "id": "ch02_purpose_slot",
+      "chapter": "CH02",
+      "title": "译员：目的",
+      "dateLabel": "占领时期，重构",
+      "locationLabel": "军警办公室",
+      "historicalClasses": ["C", "R"],
+      "mode": "standard",
+      "visual": "VIS_POLICE_OFFICE",
+      "entry": [
+        {
+          "id": "ch02_purpose_p1",
+          "text": "最后一个词决定门外的人以为自己要去哪里。",
+          "classes": ["R"],
+          "claimIds": ["HIS-018"]
+        }
+      ],
+      "choices": [
+        {
+          "id": "CH02_PURPOSE_INTERROGATE",
+          "label": "审问。",
+          "response": [
+            {
+              "id": "ch02_interrogate_r1",
+              "text": "这个词贴近命令，也把危险直说出来。",
+              "classes": ["R"],
+              "claimIds": ["HIS-018"]
+            }
+          ],
+          "effects": { "editorial": { "rigor": 1 }, "set": { "translationPurpose": "interrogate" } }
+        },
+        {
+          "id": "CH02_PURPOSE_REGISTER",
+          "label": "登记。",
+          "response": [
+            {
+              "id": "ch02_register_r1",
+              "text": "登记听上去像一张表。表格有时比铁门更容易让人走近。",
+              "classes": ["R"],
+              "claimIds": ["HIS-018"]
+            }
+          ],
+          "effects": { "editorial": { "closure": 1 }, "set": { "translationPurpose": "register" } }
+        },
+        {
+          "id": "CH02_PURPOSE_TALK",
+          "label": "谈一谈。",
+          "response": [
+            {
+              "id": "ch02_talk_r1",
+              "text": "这个词温和到危险。你把温和也记录下来。",
+              "classes": ["R"],
+              "claimIds": ["HIS-018"]
+            }
+          ],
+          "effects": { "editorial": { "care": 1 }, "set": { "translationPurpose": "talk" } }
+        }
+      ],
+      "nextSceneId": "ch02_followup"
+    },
+    {
+      "id": "ch02_followup",
+      "chapter": "CH02",
+      "title": "译员：追问",
+      "dateLabel": "占领时期，重构",
+      "locationLabel": "军警办公室",
+      "historicalClasses": ["C", "R"],
+      "mode": "standard",
+      "visual": "VIS_POLICE_OFFICE",
+      "entry": [
+        {
+          "id": "ch02_follow_p1",
+          "text": "军警问：“我说的是明天吗？”",
+          "classes": ["R"],
+          "claimIds": ["HIS-004"]
+        }
+      ],
+      "choices": [
+        {
+          "id": "CH02_RESPONSE_ACCENT",
+          "label": "说口音太重。",
+          "response": [
+            {
+              "id": "ch02_accent_r1",
+              "text": "错误被推给耳朵。房间里每个人都知道这不是完整解释。",
+              "classes": ["R"],
+              "claimIds": ["HIS-004"]
+            }
+          ],
+          "effects": { "editorial": { "suspicion": 1, "rigor": 1 } }
+        },
+        {
+          "id": "CH02_RESPONSE_REEXPLAIN",
+          "label": "拿起名单重新解释。",
+          "response": [
+            {
+              "id": "ch02_reexplain_r1",
+              "text": "他又说了一遍。这次每个字都像被盯住。",
+              "classes": ["R"],
+              "claimIds": ["HIS-004"]
+            }
+          ],
+          "effects": { "editorial": { "rigor": 1 } }
+        },
+        {
+          "id": "CH02_RESPONSE_WINE",
+          "label": "倒酒，转开话题。",
+          "response": [
+            {
+              "id": "ch02_wine_r1",
+              "text": "酒液碰到杯壁。话题没有消失，只被盖住一会儿。",
+              "classes": ["R"],
+              "evidenceIds": ["E_WINE_AS_SHIELD"],
+              "claimIds": ["HIS-004"]
+            }
+          ],
+          "effects": {
+            "editorial": { "care": 1, "suspicion": 1 },
+            "evidenceIds": ["E_WINE_AS_SHIELD"],
+            "claimIds": ["HIS-004"]
+          }
+        }
+      ],
+      "completion": [
+        {
+          "id": "ch02_locked",
+          "text": "白天，他替别人翻译。夜里，他担心自己的话被别人翻译。",
+          "classes": ["L", "R"],
+          "lockedId": "LOCK_DAY_NIGHT_TRANSLATION",
+          "claimIds": ["HIS-003", "HIS-004"]
+        }
+      ],
+      "nextSceneId": "ch03_dream_speech"
+    },
+    {
+      "id": "ch03_dream_speech",
+      "chapter": "CH03",
+      "title": "梦话",
+      "dateLabel": "夜间，证言衍生",
+      "locationLabel": "家中",
+      "historicalClasses": ["T", "R"],
+      "mode": "standard",
+      "visual": "VIS_NIGHT_ROOM",
+      "ambience": "AMB_ROOM_FAN",
+      "entry": [
+        {
+          "id": "ch03_p1",
+          "text": "风扇转得很慢。灯芯旁边有一圈黑。材料说，他担心睡着以后说出不该说的话。",
+          "classes": ["T", "R"],
+          "evidenceIds": ["E_DREAM_SPEECH_TESTIMONY"],
+          "claimIds": ["HIS-003"]
+        },
+        {
+          "id": "ch03_p2",
+          "text": "材料所说的：他担心说梦话。你所写的：＿＿＿＿。",
+          "classes": ["T", "R"],
+          "claimIds": ["HIS-003"]
+        }
+      ],
+      "choices": [
+        {
+          "id": "CH03_EXPOSED_FEAR",
+          "label": "身份暴露的恐惧。",
+          "response": [
+            {
+              "id": "ch03_exposed_r1",
+              "text": "你写下一种解释。案卷把它标为解释，而不是材料原句。",
+              "classes": ["R"],
+              "claimIds": ["HIS-003"]
+            }
+          ],
+          "effects": {
+            "editorial": { "closure": 1 },
+            "evidenceIds": ["E_DREAM_SPEECH_TESTIMONY"],
+            "claimIds": ["HIS-003"]
+          }
+        },
+        {
+          "id": "CH03_COMPANION_FEAR",
+          "label": "牵连同伴的恐惧。",
+          "response": [
+            {
+              "id": "ch03_companion_r1",
+              "text": "你把危险从一个人身上挪到关系中。材料仍没有替他说明梦的内容。",
+              "classes": ["R"],
+              "claimIds": ["HIS-003"]
+            }
+          ],
+          "effects": {
+            "editorial": { "care": 1 },
+            "evidenceIds": ["E_DREAM_SPEECH_TESTIMONY"],
+            "claimIds": ["HIS-003"]
+          }
+        },
+        {
+          "id": "CH03_LANGUAGE_FEAR",
+          "label": "语言失去控制的恐惧。",
+          "response": [
+            {
+              "id": "ch03_language_r1",
+              "text": "你写下一个主题性的解释。它可以照亮材料，但不能替代材料。",
+              "classes": ["R"],
+              "claimIds": ["HIS-003"]
+            }
+          ],
+          "effects": { "evidenceIds": ["E_DREAM_SPEECH_TESTIMONY"], "claimIds": ["HIS-003"] }
+        },
+        {
+          "id": "CH03_NO_EXPLANATION",
+          "label": "不作解释。",
+          "response": [
+            {
+              "id": "ch03_none_r1",
+              "text": "空白留在方框里。它不漂亮，但干净。",
+              "classes": ["R"],
+              "claimIds": ["HIS-022"]
+            }
+          ],
+          "effects": {
+            "editorial": { "rigor": 1 },
+            "evidenceIds": ["E_DREAM_SPEECH_TESTIMONY"],
+            "claimIds": ["HIS-022"]
+          }
+        }
+      ],
+      "nextSceneId": "ch04_yu_sensei_action"
+    },
+    {
+      "id": "ch04_yu_sensei_action",
+      "chapter": "CH04",
+      "title": "郁先生",
+      "dateLabel": "身份暴露证言",
+      "locationLabel": "酒桌",
+      "historicalClasses": ["T", "R"],
+      "mode": "standard",
+      "visual": "VIS_YU_SENSEI_TABLE",
+      "ambience": "AMB_ROOM_FAN",
+      "sfx": "SFX_SILENCE_FADE",
+      "entry": [
+        {
+          "id": "ch04_p1",
+          "text": "军警把杯子推过去。",
+          "classes": ["R"],
+          "claimIds": ["HIS-005"]
+        },
+        { "id": "ch04_p2", "text": "“赵先生。”", "classes": ["T", "R"], "claimIds": ["HIS-005"] },
+        {
+          "id": "ch04_p3",
+          "text": "赵廉给他倒酒。军警看了一会儿杯中的酒。",
+          "classes": ["T", "R"],
+          "claimIds": ["HIS-005"]
+        },
+        {
+          "id": "ch04_p4",
+          "text": "“不对。”他重新抬起头。",
+          "classes": ["T", "R"],
+          "claimIds": ["HIS-005"]
+        },
+        {
+          "id": "ch04_locked",
+          "text": "郁先生。",
+          "classes": ["T"],
+          "lockedId": "LOCK_YU_SENSEI",
+          "evidenceIds": ["E_NAME_EXPOSED"],
+          "claimIds": ["HIS-005"]
+        }
+      ],
+      "choices": [
+        {
+          "id": "CH04_ACTION_HAND_STOPS",
+          "label": "记录：他的手停了一下。",
+          "response": [
+            {
+              "id": "ch04_hand_r1",
+              "text": "这是一种重构。你把它放进可读场面，也让它带着重构标签。",
+              "classes": ["R"],
+              "claimIds": ["HIS-005"]
+            }
+          ],
+          "effects": {
+            "editorial": { "closure": 1 },
+            "evidenceIds": ["E_NAME_EXPOSED"],
+            "claimIds": ["HIS-005"]
+          }
+        },
+        {
+          "id": "CH04_ACTION_POURS",
+          "label": "记录：他继续斟酒。",
+          "response": [
+            {
+              "id": "ch04_pours_r1",
+              "text": "这个动作来自场面推定，不证明镇定，也不证明无惧。",
+              "classes": ["R"],
+              "claimIds": ["HIS-005"]
+            }
+          ],
+          "effects": { "evidenceIds": ["E_NAME_EXPOSED"], "claimIds": ["HIS-005"] }
+        },
+        {
+          "id": "CH04_ACTION_SMILES",
+          "label": "记录：他笑了。",
+          "response": [
+            {
+              "id": "ch04_smiles_r1",
+              "text": "笑会让场面更完整，也更危险。案卷给它加上重构边框。",
+              "classes": ["R"],
+              "claimIds": ["HIS-005"]
+            }
+          ],
+          "effects": {
+            "editorial": { "closure": 1 },
+            "evidenceIds": ["E_NAME_EXPOSED"],
+            "claimIds": ["HIS-005"]
+          }
+        },
+        {
+          "id": "CH04_ACTION_UNRECORDED",
+          "label": "记录：证言没有记录他的动作。",
+          "response": [
+            {
+              "id": "ch04_unrecorded_r1",
+              "text": "你留下动作空白。场面因此少了一点戏剧性，多了一点边界。",
+              "classes": ["U"],
+              "claimIds": ["HIS-005"]
+            }
+          ],
+          "effects": {
+            "editorial": { "rigor": 2 },
+            "evidenceIds": ["E_NAME_EXPOSED"],
+            "claimIds": ["HIS-005"]
+          }
+        }
+      ],
+      "nextSceneId": "ch04_yu_sensei_note"
+    },
+    {
+      "id": "ch04_yu_sensei_note",
+      "chapter": "CH04",
+      "title": "案注",
+      "dateLabel": "身份暴露证言",
+      "locationLabel": "酒桌",
+      "historicalClasses": ["T", "R"],
+      "mode": "standard",
+      "visual": "VIS_YU_SENSEI_TABLE",
+      "entry": [
+        {
+          "id": "ch04_note_p1",
+          "text": "军警说，为了调查他，他们花了半年，还查到上海和东京。赵廉回答，若早问，他早会说明，何必花这些钱。随后仍请对方喝酒。",
+          "classes": ["T"],
+          "claimIds": ["HIS-005"]
+        }
+      ],
+      "choices": [
+        {
+          "id": "CH04_NOTE_ADDRESS",
+          "label": "写入：称呼由“赵”变为“郁”。",
+          "response": [
+            {
+              "id": "ch04_note_address_r1",
+              "text": "案卷把称呼变化列为强证言，而不是同步录音。",
+              "classes": ["T"],
+              "evidenceIds": ["E_NAME_EXPOSED"],
+              "claimIds": ["HIS-005", "HIS-019"]
+            }
+          ],
+          "effects": { "evidenceIds": ["E_NAME_EXPOSED"], "claimIds": ["HIS-005", "HIS-019"] }
+        },
+        {
+          "id": "CH04_NOTE_HALF_YEAR",
+          "label": "写入：调查持续约半年。",
+          "response": [
+            {
+              "id": "ch04_note_half_r1",
+              "text": "半年这个说法进入证言层，等待外部版本核验。",
+              "classes": ["T"],
+              "evidenceIds": ["E_INVESTIGATION_DURATION"],
+              "claimIds": ["HIS-005"]
+            }
+          ],
+          "effects": { "evidenceIds": ["E_INVESTIGATION_DURATION"], "claimIds": ["HIS-005"] }
+        },
+        {
+          "id": "CH04_NOTE_CALM",
+          "label": "写入：他表现得镇定。",
+          "response": [
+            {
+              "id": "ch04_note_calm_r1",
+              "text": "这是解释。你可以写，但报告会提示它不是材料原句。",
+              "classes": ["R"],
+              "claimIds": ["HIS-005"]
+            }
+          ],
+          "effects": { "editorial": { "closure": 1 }, "claimIds": ["HIS-005"] }
+        },
+        {
+          "id": "CH04_NOTE_HOSTING",
+          "label": "写入：他继续招待对方。",
+          "response": [
+            {
+              "id": "ch04_note_hosting_r1",
+              "text": "行动进入证据，解释留在旁边。",
+              "classes": ["T"],
+              "evidenceIds": ["E_HOSTING_AFTER_EXPOSURE"],
+              "claimIds": ["HIS-005"]
+            }
+          ],
+          "effects": { "evidenceIds": ["E_HOSTING_AFTER_EXPOSURE"], "claimIds": ["HIS-005"] }
+        }
+      ],
+      "completion": [
+        {
+          "id": "ch04_after_locked",
+          "text": "那天以后，日本人知道赵廉是谁。赵廉也知道，日本人知道。第二天，酒厂仍然开门。",
+          "classes": ["L", "T"],
+          "lockedId": "LOCK_AFTER_EXPOSURE",
+          "claimIds": ["HIS-005", "HIS-006"]
+        }
+      ],
+      "nextSceneId": "ch05_radio_surrender"
+    },
+    {
+      "id": "ch05_radio_surrender",
+      "chapter": "CH05",
+      "title": "广播里的胜利",
+      "dateLabel": "1945-08-15 至 1945-08-28",
+      "locationLabel": "家中",
+      "historicalClasses": ["L", "R"],
+      "mode": "standard",
+      "visual": "VIS_RADIO_OBJECTS",
+      "ambience": "AMB_ROOM_FAN",
+      "sfx": "SFX_RADIO_STATIC",
+      "requiredChoiceCount": 3,
+      "entry": [
+        {
+          "id": "ch05_p1",
+          "text": "收音机里的投降消息断断续续。屋里没有胜利进行曲，只有电流声和听不清的句尾。",
+          "classes": ["L", "R"],
+          "claimIds": ["HIS-006"]
+        },
+        {
+          "id": "ch05_p2",
+          "text": "妻子把米袋口重新扎紧，又把一笔账从左页挪到右页。她问：“走以前，这些要不要结清？”这是她的第一个决定：先让明天还能开门。",
+          "classes": ["R"],
+          "claimIds": ["HIS-016"]
+        },
+        {
+          "id": "ch05_p3",
+          "text": "你可以检查三件未来物。每一件都说明人们在计划生活，却不证明危险已经结束。",
+          "classes": ["R"],
+          "claimIds": ["HIS-006", "HIS-021"]
+        }
+      ],
+      "choices": [
+        {
+          "id": "CH05_ROUTE_MAP",
+          "label": "查看回国路线图。",
+          "response": [
+            {
+              "id": "ch05_route_r1",
+              "text": "铅笔线在海上断开，又在纸的另一边续上。路线不是逃生按钮，只是一种期待。",
+              "classes": ["R"],
+              "evidenceIds": ["E_RETURN_ROUTE"],
+              "claimIds": ["HIS-006"]
+            }
+          ],
+          "effects": { "evidenceIds": ["E_RETURN_ROUTE"], "claimIds": ["HIS-006"] }
+        },
+        {
+          "id": "CH05_ACCOUNTS",
+          "label": "查看农场和酒厂账目。",
+          "response": [
+            {
+              "id": "ch05_accounts_r1",
+              "text": "妻子用指甲压住一行数，说先不要把欠款写死。她决定明天仍按赵廉的名义开账。",
+              "classes": ["R"],
+              "evidenceIds": ["E_UNFINISHED_ACCOUNTS"],
+              "claimIds": ["HIS-016", "HIS-021"]
+            }
+          ],
+          "effects": {
+            "editorial": { "care": 1 },
+            "evidenceIds": ["E_UNFINISHED_ACCOUNTS"],
+            "claimIds": ["HIS-016", "HIS-021"]
+          }
+        },
+        {
+          "id": "CH05_ALIAS_PAPER",
+          "label": "查看写有赵廉的证件。",
+          "response": [
+            {
+              "id": "ch05_alias_r1",
+              "text": "证件上的赵廉很清楚。妻子说，出去问事时先用这个名字，免得把另一个名字递给不该听的人。",
+              "classes": ["R"],
+              "evidenceIds": ["E_ALIAS_DOCUMENT"],
+              "claimIds": ["HIS-016", "HIS-019"]
+            }
+          ],
+          "effects": {
+            "editorial": { "care": 1 },
+            "evidenceIds": ["E_ALIAS_DOCUMENT"],
+            "claimIds": ["HIS-016", "HIS-019"]
+          }
+        },
+        {
+          "id": "CH05_CASE",
+          "label": "查看未装满的箱子。",
+          "response": [
+            {
+              "id": "ch05_case_r1",
+              "text": "箱子里有衣物和书，没有神秘夹层。妻子把一本书拿出来，决定先给孩子留一块干净布。",
+              "classes": ["R"],
+              "evidenceIds": ["E_PARTLY_PACKED_CASE"],
+              "claimIds": ["HIS-016", "HIS-021"]
+            }
+          ],
+          "effects": {
+            "editorial": { "care": 1 },
+            "evidenceIds": ["E_PARTLY_PACKED_CASE"],
+            "claimIds": ["HIS-016", "HIS-021"]
+          }
+        }
+      ],
+      "completion": [
+        {
+          "id": "ch05_locked",
+          "text": "战争在广播里结束了。街上的汽车、枪和档案，还在日本人手中。",
+          "classes": ["L"],
+          "lockedId": "LOCK_RADIO_STREETS",
+          "claimIds": ["HIS-006"]
+        }
+      ],
+      "nextSceneId": "ch06_address"
+    },
+    {
+      "id": "ch06_address",
+      "chapter": "CH06",
+      "title": "出去一趟",
+      "dateLabel": "1945-08-29 夜",
+      "locationLabel": "家门口",
+      "historicalClasses": ["T", "U", "R"],
+      "mode": "standard",
+      "visual": "VIS_DOORWAY",
+      "ambience": "AMB_NIGHT_INSECTS",
+      "sfx": "SFX_THREE_KNOCKS",
+      "entry": [
+        {
+          "id": "ch06_p1",
+          "text": "三下敲门声落在门板上。屋里有人停住筷子。门外的青年压低声音。",
+          "classes": ["T", "R"],
+          "claimIds": ["HIS-007", "HIS-014"]
+        },
+        { "id": "ch06_p2", "text": "“……先生。”", "classes": ["U"], "claimIds": ["HIS-013"] },
+        {
+          "id": "ch06_p3",
+          "text": "现有材料不能恢复第一个音节。你可以写下猜测，也可以让缺口保持缺口。",
+          "classes": ["U"],
+          "claimIds": ["HIS-013"]
+        }
+      ],
+      "choices": [
+        {
+          "id": "CH06_ADDRESS_ZHAO",
+          "label": "记录为“赵先生”。",
+          "response": [
+            {
+              "id": "ch06_zhao_r1",
+              "text": "你把门外的称呼写成赵。报告会记住这个补全。",
+              "classes": ["R", "U"],
+              "claimIds": ["HIS-013"]
+            }
+          ],
+          "effects": {
+            "editorial": { "closure": 1 },
+            "set": { "addressRecord": "zhao" },
+            "claimIds": ["HIS-013"]
+          }
+        },
+        {
+          "id": "CH06_ADDRESS_YU",
+          "label": "记录为“郁先生”。",
+          "response": [
+            {
+              "id": "ch06_yu_r1",
+              "text": "你把门外的称呼写成郁。这个补全会让叙事更紧，也更需要警告。",
+              "classes": ["R", "U"],
+              "claimIds": ["HIS-013"]
+            }
+          ],
+          "effects": {
+            "editorial": { "closure": 2 },
+            "set": { "addressRecord": "yu" },
+            "claimIds": ["HIS-013"]
+          }
+        },
+        {
+          "id": "CH06_ADDRESS_BLANK",
+          "label": "记录为“……先生”。",
+          "response": [
+            {
+              "id": "ch06_blank_r1",
+              "text": "你留下了听不见的部分。空白不漂亮，但它没有假装听见。",
+              "classes": ["U"],
+              "evidenceIds": ["E_DOOR_ADDRESS_UNRESOLVED"],
+              "claimIds": ["HIS-013"]
+            }
+          ],
+          "effects": {
+            "editorial": { "rigor": 2 },
+            "evidenceIds": ["E_DOOR_ADDRESS_UNRESOLVED"],
+            "claimIds": ["HIS-013"],
+            "set": { "addressRecord": "blank" }
+          }
+        }
+      ],
+      "nextSceneId": "ch06_departure_focus"
+    },
+    {
+      "id": "ch06_departure_focus",
+      "chapter": "CH06",
+      "title": "门槛",
+      "dateLabel": "1945-08-29 夜",
+      "locationLabel": "家门口",
+      "historicalClasses": ["T", "U", "R"],
+      "mode": "standard",
+      "visual": "VIS_DOORWAY",
+      "ambience": "AMB_NIGHT_INSECTS",
+      "entry": [
+        {
+          "id": "ch06_focus_p1",
+          "text": "赵廉到门外，同青年用印尼语低声说了几句。他回来时没有坐下。",
+          "classes": ["T"],
+          "evidenceIds": ["E_INDONESIAN_CONVERSATION"],
+          "claimIds": ["HIS-007", "HIS-014"]
+        },
+        {
+          "id": "ch06_focus_p2",
+          "text": "有点事情，我出去一趟。",
+          "classes": ["T"],
+          "lockedId": "LOCK_OUT_FOR_A_WHILE",
+          "claimIds": ["HIS-007"]
+        },
+        {
+          "id": "ch06_focus_p3",
+          "text": "他没有换衣服。脚上仍是木屐。",
+          "classes": ["T"],
+          "evidenceIds": ["E_CLOGS", "E_SLEEPWEAR"],
+          "claimIds": ["HIS-007", "HIS-021"]
+        },
+        {
+          "id": "ch06_focus_p4",
+          "text": "妻子把灯拨亮，问要不要带一件外衣。赵廉说不用。她决定不让孩子被这句话吵醒。",
+          "classes": ["R"],
+          "claimIds": ["HIS-016"]
+        },
+        {
+          "id": "ch06_focus_p5",
+          "text": "你只能选择最后的注视位置。没有阻止、警告、尾随、战斗或重开时间的选择。",
+          "classes": ["R"],
+          "claimIds": ["HIS-017", "HIS-023"]
+        }
+      ],
+      "choices": [
+        {
+          "id": "CH06_FOCUS_DOORWAY",
+          "label": "记录门口：睡衣、木屐、门槛。",
+          "response": [
+            {
+              "id": "ch06_door_r1",
+              "text": "门槛把屋内和屋外分开。案卷能记录衣着，不能替他跨过去。",
+              "classes": ["T", "R"],
+              "evidenceIds": ["E_CLOGS", "E_SLEEPWEAR", "E_THRESHOLD_RULE"],
+              "claimIds": ["HIS-007", "HIS-017"]
+            }
+          ],
+          "effects": {
+            "editorial": { "care": 1 },
+            "evidenceIds": ["E_CLOGS", "E_SLEEPWEAR", "E_THRESHOLD_RULE"],
+            "claimIds": ["HIS-007", "HIS-017"],
+            "set": { "lastFocus": "doorway" }
+          }
+        },
+        {
+          "id": "CH06_FOCUS_COFFEE",
+          "label": "记录咖啡店方向。",
+          "response": [
+            {
+              "id": "ch06_coffee_r1",
+              "text": "你把注意力留在语言和方向上。青年仍没有身份。",
+              "classes": ["T", "U"],
+              "evidenceIds": ["E_INDONESIAN_CONVERSATION", "E_THRESHOLD_RULE"],
+              "claimIds": ["HIS-014", "HIS-017"]
+            }
+          ],
+          "effects": {
+            "evidenceIds": ["E_INDONESIAN_CONVERSATION", "E_THRESHOLD_RULE"],
+            "claimIds": ["HIS-014", "HIS-017"],
+            "set": { "lastFocus": "coffee_shop" }
+          }
+        },
+        {
+          "id": "CH06_FOCUS_ROAD",
+          "label": "记录道路方向。",
+          "response": [
+            {
+              "id": "ch06_road_r1",
+              "text": "道路在夜里没有给你答案。远处可能有车，也可能只是后来证言的影子。",
+              "classes": ["U", "R"],
+              "evidenceIds": ["E_THRESHOLD_RULE"],
+              "claimIds": ["HIS-015", "HIS-017"]
+            }
+          ],
+          "effects": {
+            "evidenceIds": ["E_THRESHOLD_RULE"],
+            "claimIds": ["HIS-015", "HIS-017"],
+            "set": { "lastFocus": "road" }
+          }
+        }
+      ],
+      "nextSceneId": "ch06_wait"
+    },
+    {
+      "id": "ch06_wait",
+      "chapter": "CH06",
+      "title": "等待",
+      "dateLabel": "1945-08-29 夜至 1945-08-30 黎明",
+      "locationLabel": "家中",
+      "historicalClasses": ["R"],
+      "mode": "wait",
+      "visual": "VIS_DAWN_ROOM",
+      "ambience": "AMB_NIGHT_INSECTS",
+      "entry": [
+        {
+          "id": "ch06_wait_p1",
+          "text": "门关上。叙事到这里失去跟随他的权利。",
+          "classes": ["R"],
+          "claimIds": ["HIS-017"]
+        },
+        {
+          "id": "ch06_wait_p2",
+          "text": "故事仍在继续；当前动作是等待。",
+          "classes": ["R"],
+          "claimIds": ["HIS-017"]
+        }
+      ],
+      "waitSteps": [
+        {
+          "id": "WAIT_1",
+          "label": "等。",
+          "text": "十分钟过去。桌上的话题已经换了一个。",
+          "caption": "[屋外只剩夜虫声]"
+        },
+        {
+          "id": "WAIT_2",
+          "label": "再等一会儿。",
+          "text": "饭菜失去了热气。",
+          "caption": "[碗沿轻轻碰到桌面]"
+        },
+        {
+          "id": "WAIT_3",
+          "label": "继续等。",
+          "text": "有人走到门口看了一次。",
+          "caption": "[门闩没有再响]"
+        },
+        { "id": "WAIT_4", "label": "还等。", "text": "灯芯短了。", "caption": "[灯火变小]" },
+        {
+          "id": "WAIT_5",
+          "label": "等到天亮。",
+          "text": "天色把每个人的脸分出来。赵廉仍没有回来。",
+          "caption": "[清晨声响慢慢出现]"
+        }
+      ],
+      "nextSceneId": "ch07_status"
+    },
+    {
+      "id": "ch07_status",
+      "chapter": "CH07",
+      "title": "八月三十日",
+      "dateLabel": "1945-08-30",
+      "locationLabel": "家中和街面",
+      "historicalClasses": ["T", "R"],
+      "mode": "standard",
+      "visual": "VIS_DAWN_ROOM",
+      "ambience": "AMB_DAWN",
+      "entry": [
+        {
+          "id": "ch07_p1",
+          "text": "女儿出生：1945年8月30日。父亲状态：尚未归来。",
+          "classes": ["T"],
+          "lockedId": "LOCK_DAUGHTER_STATUS",
+          "evidenceIds": ["E_DAUGHTER_BIRTH"],
+          "claimIds": ["HIS-008"]
+        },
+        {
+          "id": "ch07_p2",
+          "text": "妻子没有把孩子递给叙事当象征。她先问谁去咖啡店，谁去岗哨，谁留在家里等消息。这是她的第二个实际决定。",
+          "classes": ["R"],
+          "evidenceIds": ["E_WIFE_SEARCH_DECISION"],
+          "claimIds": ["HIS-016"]
+        },
+        {
+          "id": "ch07_p3",
+          "text": "你先给当前状态一个词。这个词不改变昨夜，只改变报告开始的时间。",
+          "classes": ["R"],
+          "claimIds": ["HIS-022"]
+        }
+      ],
+      "choices": [
+        {
+          "id": "CH07_STATUS_LATE",
+          "label": "写作：迟归。",
+          "response": [
+            {
+              "id": "ch07_late_r1",
+              "text": "家庭语言暂时保留了归来的可能。它谨慎，也可能太慢。",
+              "classes": ["R"],
+              "claimIds": ["HIS-022"]
+            }
+          ],
+          "effects": {
+            "editorial": { "care": 1 },
+            "set": { "householdStatus": "late" },
+            "evidenceIds": ["E_DAUGHTER_BIRTH", "E_WIFE_SEARCH_DECISION"],
+            "claimIds": ["HIS-008", "HIS-016"]
+          }
+        },
+        {
+          "id": "CH07_STATUS_MISSING",
+          "label": "写作：失踪。",
+          "response": [
+            {
+              "id": "ch07_missing_r1",
+              "text": "行政词汇开始工作。它让人行动，也让一些私人恐惧变成表格。",
+              "classes": ["R"],
+              "claimIds": ["HIS-022"]
+            }
+          ],
+          "effects": {
+            "editorial": { "closure": 1 },
+            "set": { "householdStatus": "missing" },
+            "evidenceIds": ["E_DAUGHTER_BIRTH", "E_WIFE_SEARCH_DECISION"],
+            "claimIds": ["HIS-008", "HIS-016"]
+          }
+        },
+        {
+          "id": "CH07_STATUS_UNKNOWN",
+          "label": "写作：尚不能判断。",
+          "response": [
+            {
+              "id": "ch07_unknown_r1",
+              "text": "你让状态停在判断之前。这个词不会让人舒服，但它诚实。",
+              "classes": ["R"],
+              "evidenceIds": ["E_DAUGHTER_BIRTH"],
+              "claimIds": ["HIS-022"]
+            }
+          ],
+          "effects": {
+            "editorial": { "rigor": 1 },
+            "set": { "householdStatus": "unknown" },
+            "evidenceIds": ["E_DAUGHTER_BIRTH", "E_WIFE_SEARCH_DECISION"],
+            "claimIds": ["HIS-008", "HIS-016"]
+          }
+        }
+      ],
+      "nextSceneId": "ch07_search"
+    },
+    {
+      "id": "ch07_search",
+      "chapter": "CH07",
+      "title": "寻找",
+      "dateLabel": "1945-08-30",
+      "locationLabel": "咖啡店、道路、朋友家、岗哨",
+      "historicalClasses": ["T", "R", "U"],
+      "mode": "standard",
+      "visual": "VIS_COFFEE_SHOP",
+      "ambience": "AMB_DAWN",
+      "requiredChoiceCount": 2,
+      "entry": [
+        {
+          "id": "ch07_search_p1",
+          "text": "你只能优先询问两处。每条路都会留下材料，也会留下没问到的部分。",
+          "classes": ["R"],
+          "claimIds": ["HIS-024"]
+        },
+        {
+          "id": "ch07_search_p2",
+          "text": "妻子把一只木屐没有放回原处。她说，问话时先说赵廉，若对方已经知道另一个名字，再记下来。",
+          "classes": ["R"],
+          "claimIds": ["HIS-016", "HIS-019"]
+        }
+      ],
+      "choices": [
+        {
+          "id": "CH07_SEARCH_COFFEE",
+          "label": "去咖啡店。",
+          "response": [
+            {
+              "id": "ch07_coffee_r1",
+              "text": "“他们说的是印尼话。”",
+              "classes": ["T"],
+              "claimIds": ["HIS-014"]
+            },
+            {
+              "id": "ch07_coffee_r2",
+              "text": "“谁先走的？”“我不记得。也可能是一起。”",
+              "classes": ["T"],
+              "evidenceIds": ["E_COFFEE_SHOP_TESTIMONY"],
+              "claimIds": ["HIS-014"]
+            }
+          ],
+          "effects": { "evidenceIds": ["E_COFFEE_SHOP_TESTIMONY"], "claimIds": ["HIS-014"] }
+        },
+        {
+          "id": "CH07_SEARCH_ROAD",
+          "label": "去道路方向。",
+          "response": [
+            {
+              "id": "ch07_road_r1",
+              "text": "“有一辆车。”",
+              "classes": ["T"],
+              "claimIds": ["HIS-015"]
+            },
+            {
+              "id": "ch07_road_r2",
+              "text": "“什么颜色？”“晚上看不清。”",
+              "classes": ["T"],
+              "evidenceIds": ["E_CAR", "E_TWO_SHADOWS"],
+              "claimIds": ["HIS-015"]
+            },
+            {
+              "id": "ch07_road_r3",
+              "text": "有人说是日本人。你把这句话写为转述，而不是眼睛亲自看见。",
+              "classes": ["T", "U"],
+              "claimIds": ["HIS-015"]
+            }
+          ],
+          "effects": { "evidenceIds": ["E_CAR", "E_TWO_SHADOWS"], "claimIds": ["HIS-015"] }
+        },
+        {
+          "id": "CH07_SEARCH_FRIENDS",
+          "label": "去朋友家。",
+          "response": [
+            {
+              "id": "ch07_friends_r1",
+              "text": "朋友们说没有约好远行，也没有听他说要躲起来。案卷不能把这句话扩成所有秘密计划都不存在。",
+              "classes": ["T"],
+              "evidenceIds": ["E_NO_PLANNED_ABSENCE"],
+              "claimIds": ["HIS-021"]
+            }
+          ],
+          "effects": { "evidenceIds": ["E_NO_PLANNED_ABSENCE"], "claimIds": ["HIS-021"] }
+        },
+        {
+          "id": "CH07_SEARCH_POST",
+          "label": "去军警岗哨。",
+          "response": [
+            {
+              "id": "ch07_post_r1",
+              "text": "岗哨说不知道。有人低头看了一眼桌上的纸。这个低头只是重构，不是证明。",
+              "classes": ["R"],
+              "evidenceIds": ["E_OFFICIAL_DENIAL"],
+              "claimIds": ["HIS-020"]
+            }
+          ],
+          "effects": { "evidenceIds": ["E_OFFICIAL_DENIAL"], "claimIds": ["HIS-020"] }
+        }
+      ],
+      "nextSceneId": "ch08_questioning_method"
+    },
+    {
+      "id": "ch08_questioning_method",
+      "chapter": "CH08",
+      "title": "问话的方法",
+      "dateLabel": "后来整理",
+      "locationLabel": "访谈记录",
+      "historicalClasses": ["T", "R"],
+      "mode": "interview",
+      "visual": "VIS_COFFEE_SHOP",
+      "entry": [
+        {
+          "id": "ch08_p1",
+          "text": "你要问三名证人。每名证人最多两问。按钮只显示问句；证据质量会在回答后进入案卷。",
+          "classes": ["R"],
+          "claimIds": ["HIS-018"]
+        }
+      ],
+      "interviewRules": { "totalRequired": 6, "maxPerWitness": 2 },
+      "choices": [
+        {
+          "id": "CH08_COFFEE_LEADING",
+          "witness": "coffee",
+          "questionMode": "leading",
+          "label": "那个青年是不是日本人的密探？",
+          "response": [
+            {
+              "id": "ch08_cl_r1",
+              "text": "“我不知道。你这样问，我只能说，也许有人这么说。”案卷标记：诱导问法，回答被问题污染。",
+              "classes": ["R", "T"],
+              "evidenceIds": ["E_INTERVIEW_LEADING_WARNING"],
+              "claimIds": ["HIS-018"]
+            }
+          ],
+          "effects": {
+            "editorial": { "closure": 1 },
+            "evidenceIds": ["E_INTERVIEW_LEADING_WARNING"],
+            "claimIds": ["HIS-018"],
+            "questionQuality": { "coffee": "leading" }
+          }
+        },
+        {
+          "id": "CH08_COFFEE_NEUTRAL",
+          "witness": "coffee",
+          "questionMode": "neutral",
+          "label": "你以前见过那个青年吗？",
+          "response": [
+            {
+              "id": "ch08_cn_r1",
+              "text": "“也许见过。小镇不大，但我不能说认得。”案卷标记：中性问法，保留不确定。",
+              "classes": ["T"],
+              "evidenceIds": ["E_INTERVIEW_NEUTRAL_METHOD"],
+              "claimIds": ["HIS-014", "HIS-018"]
+            }
+          ],
+          "effects": {
+            "editorial": { "rigor": 1 },
+            "evidenceIds": ["E_INTERVIEW_NEUTRAL_METHOD"],
+            "claimIds": ["HIS-014", "HIS-018"],
+            "questionQuality": { "coffee": "neutral" }
+          }
+        },
+        {
+          "id": "CH08_COFFEE_NARRATIVE",
+          "witness": "coffee",
+          "questionMode": "narrative",
+          "label": "请从赵老板走出家门以前说起。",
+          "response": [
+            {
+              "id": "ch08_cna_r1",
+              "text": "“我先听见门响，后来才有人说他们去了路边。那时我还在擦桌子。”案卷标记：叙述式问法，琐碎细节保留。",
+              "classes": ["T"],
+              "evidenceIds": ["E_INTERVIEW_NARRATIVE_METHOD"],
+              "claimIds": ["HIS-018"]
+            }
+          ],
+          "effects": {
+            "editorial": { "care": 1 },
+            "evidenceIds": ["E_INTERVIEW_NARRATIVE_METHOD"],
+            "claimIds": ["HIS-018"],
+            "questionQuality": { "coffee": "narrative" }
+          }
+        },
+        {
+          "id": "CH08_ROAD_LEADING",
+          "witness": "road",
+          "questionMode": "leading",
+          "label": "车里坐的是日本宪兵，对不对？",
+          "response": [
+            {
+              "id": "ch08_rl_r1",
+              "text": "“我没有看清。你这样说，我也不敢说不是。”案卷标记：诱导问法。",
+              "classes": ["T", "R"],
+              "evidenceIds": ["E_INTERVIEW_LEADING_WARNING"],
+              "claimIds": ["HIS-015", "HIS-018"]
+            }
+          ],
+          "effects": {
+            "editorial": { "closure": 1 },
+            "evidenceIds": ["E_INTERVIEW_LEADING_WARNING"],
+            "claimIds": ["HIS-015", "HIS-018"],
+            "questionQuality": { "road": "leading" }
+          }
+        },
+        {
+          "id": "CH08_ROAD_NEUTRAL",
+          "witness": "road",
+          "questionMode": "neutral",
+          "label": "你怎样判断车里的人可能是日本人？",
+          "response": [
+            {
+              "id": "ch08_rn_r1",
+              "text": "“车和说话的样子让我这样想。但夜里看不清。”案卷标记：中性问法，身份仍为推断。",
+              "classes": ["T"],
+              "evidenceIds": ["E_INTERVIEW_NEUTRAL_METHOD"],
+              "claimIds": ["HIS-015", "HIS-018"]
+            }
+          ],
+          "effects": {
+            "editorial": { "rigor": 1 },
+            "evidenceIds": ["E_INTERVIEW_NEUTRAL_METHOD"],
+            "claimIds": ["HIS-015", "HIS-018"],
+            "questionQuality": { "road": "neutral" }
+          }
+        },
+        {
+          "id": "CH08_ROAD_NARRATIVE",
+          "witness": "road",
+          "questionMode": "narrative",
+          "label": "请从你走到那条路上时说起。",
+          "response": [
+            {
+              "id": "ch08_rna_r1",
+              "text": "“我先看见灯，再看见影子。车在远处，不在我脚边。”案卷标记：叙述式问法。",
+              "classes": ["T"],
+              "evidenceIds": ["E_INTERVIEW_NARRATIVE_METHOD"],
+              "claimIds": ["HIS-015", "HIS-018"]
+            }
+          ],
+          "effects": {
+            "editorial": { "care": 1 },
+            "evidenceIds": ["E_INTERVIEW_NARRATIVE_METHOD"],
+            "claimIds": ["HIS-015", "HIS-018"],
+            "questionQuality": { "road": "narrative" }
+          }
+        },
+        {
+          "id": "CH08_HOUSE_LAST",
+          "witness": "house",
+          "questionMode": "neutral",
+          "label": "他最后一句话是什么？",
+          "response": [
+            {
+              "id": "ch08_hl_r1",
+              "text": "“有点事情，我出去一趟。”案卷标记：中性问法，锁定句保留。",
+              "classes": ["T"],
+              "evidenceIds": ["E_INTERVIEW_NEUTRAL_METHOD"],
+              "claimIds": ["HIS-007", "HIS-018"]
+            }
+          ],
+          "effects": {
+            "editorial": { "rigor": 1 },
+            "evidenceIds": ["E_INTERVIEW_NEUTRAL_METHOD"],
+            "claimIds": ["HIS-007", "HIS-018"],
+            "questionQuality": { "house": "neutral" }
+          }
+        },
+        {
+          "id": "CH08_HOUSE_CLOTHING",
+          "witness": "house",
+          "questionMode": "narrative",
+          "label": "请从他起身时说起，包括衣服和鞋。",
+          "response": [
+            {
+              "id": "ch08_hc_r1",
+              "text": "“他没有换衣服，脚上还是木屐。”这可以被理解为毫无戒备，也可以被理解为不愿让屋里的人担心。档案不能替他决定是哪一种。",
+              "classes": ["T"],
+              "evidenceIds": ["E_INTERVIEW_NARRATIVE_METHOD", "E_CLOGS", "E_SLEEPWEAR"],
+              "claimIds": ["HIS-007", "HIS-018", "HIS-021"]
+            }
+          ],
+          "effects": {
+            "editorial": { "care": 1, "rigor": 1 },
+            "evidenceIds": ["E_INTERVIEW_NARRATIVE_METHOD", "E_CLOGS", "E_SLEEPWEAR"],
+            "claimIds": ["HIS-007", "HIS-018", "HIS-021"],
+            "questionQuality": { "house": "narrative" }
+          }
+        },
+        {
+          "id": "CH08_HOUSE_ADDRESS",
+          "witness": "house",
+          "questionMode": "neutral",
+          "label": "门外称呼听清了吗？",
+          "response": [
+            {
+              "id": "ch08_ha_r1",
+              "text": "“没有。只听见……先生。”案卷标记：未决称呼。",
+              "classes": ["U"],
+              "evidenceIds": ["E_DOOR_ADDRESS_UNRESOLVED"],
+              "claimIds": ["HIS-013", "HIS-018"]
+            }
+          ],
+          "effects": {
+            "editorial": { "rigor": 1 },
+            "evidenceIds": ["E_DOOR_ADDRESS_UNRESOLVED"],
+            "claimIds": ["HIS-013", "HIS-018"],
+            "questionQuality": { "house": "neutral" }
+          }
+        }
+      ],
+      "completion": [
+        {
+          "id": "ch08_done",
+          "text": "问话结束后，案卷里多了几种声音，也多了几种污染。证言不是越整齐越真实。",
+          "classes": ["R"],
+          "claimIds": ["HIS-018"]
+        }
+      ],
+      "nextSceneId": "ch09_two_dates"
+    },
+    {
+      "id": "ch09_two_dates",
+      "chapter": "CH09",
+      "title": "两个日期",
+      "dateLabel": "后来材料比较",
+      "locationLabel": "档案对照页",
+      "historicalClasses": ["L", "U"],
+      "mode": "comparison",
+      "visual": "VIS_DATE_COMPARISON",
+      "requiredChoiceCount": 2,
+      "entry": [
+        {
+          "id": "ch09_p1",
+          "text": "左页写着早期流传簇：1945年9月17日，枪杀，可能埋葬地点。",
+          "classes": ["L"],
+          "evidenceIds": ["E_EARLY_REPORT_CLUSTER"],
+          "claimIds": ["HIS-010"]
+        },
+        {
+          "id": "ch09_p2",
+          "text": "右页写着后来调查簇：8月29日夜至30日凌晨，另一种死亡方式，地点仍未决。",
+          "classes": ["L"],
+          "evidenceIds": ["E_LATER_INVESTIGATION_CLUSTER"],
+          "claimIds": ["HIS-011"]
+        },
+        {
+          "id": "ch09_p3",
+          "text": "中间只有几条能并列：29日晚离家未归；日本宪兵有知识、动机和能力；没有遗骸；没有完整司法记录。",
+          "classes": ["L", "U"],
+          "evidenceIds": ["E_NO_REMAINS", "E_NO_COMPLETE_JUDICIAL_RECORD"],
+          "claimIds": ["HIS-009", "HIS-012"]
+        }
+      ],
+      "choices": [
+        {
+          "id": "CH09_PIN_EARLY",
+          "label": "固定早期报告簇。",
+          "response": [
+            {
+              "id": "ch09_early_r1",
+              "text": "你固定左页，也在旁边写下“早期流传／间接材料”。",
+              "classes": ["L"],
+              "evidenceIds": ["E_EARLY_REPORT_CLUSTER"],
+              "claimIds": ["HIS-010"]
+            }
+          ],
+          "effects": {
+            "editorial": { "closure": 1 },
+            "evidenceIds": ["E_EARLY_REPORT_CLUSTER"],
+            "claimIds": ["HIS-010"]
+          }
+        },
+        {
+          "id": "CH09_PIN_LATER",
+          "label": "固定后来调查簇。",
+          "response": [
+            {
+              "id": "ch09_later_r1",
+              "text": "你固定右页，也写下“后来调查／仍需核原始材料”。",
+              "classes": ["L"],
+              "evidenceIds": ["E_LATER_INVESTIGATION_CLUSTER"],
+              "claimIds": ["HIS-011"]
+            }
+          ],
+          "effects": {
+            "editorial": { "rigor": 1 },
+            "evidenceIds": ["E_LATER_INVESTIGATION_CLUSTER"],
+            "claimIds": ["HIS-011"]
+          }
+        },
+        {
+          "id": "CH09_MARK_CONFLICT",
+          "label": "把两个日期标为冲突。",
+          "response": [
+            {
+              "id": "ch09_conflict_r1",
+              "text": "你没有合并它们。冲突被放在读者能看见的位置。",
+              "classes": ["U"],
+              "evidenceIds": ["E_NO_REMAINS", "E_NO_COMPLETE_JUDICIAL_RECORD"],
+              "claimIds": ["HIS-012"]
+            }
+          ],
+          "effects": {
+            "editorial": { "rigor": 2 },
+            "evidenceIds": ["E_NO_REMAINS", "E_NO_COMPLETE_JUDICIAL_RECORD"],
+            "claimIds": ["HIS-012"]
+          }
+        }
+      ],
+      "nextSceneId": "ch10_final_report"
+    },
+    {
+      "id": "ch10_final_report",
+      "chapter": "CH10",
+      "title": "编目",
+      "dateLabel": "现在",
+      "locationLabel": "最终报告桌",
+      "historicalClasses": ["L", "U", "R"],
+      "mode": "report",
+      "visual": "VIS_REPORT_DESK",
+      "entry": [
+        {
+          "id": "ch10_p1",
+          "text": "最终报告不是谜底输入框。它是一张会留下边框、空白和警告的表。",
+          "classes": ["R"],
+          "claimIds": ["HIS-022", "HIS-023"]
+        },
+        {
+          "id": "ch10_p2",
+          "text": "每个字段都会显示证据支持、冲突和材料等级。未知是合法值。",
+          "classes": ["R"],
+          "evidenceIds": ["E_REPORT_UNKNOWN_FIELDS"],
+          "claimIds": ["HIS-022"]
+        }
+      ]
+    }
+  ],
+  "reportFields": [
+    {
+      "id": "name",
+      "legend": "姓名",
+      "options": [
+        {
+          "id": "yu_alias_zhao",
+          "label": "郁达夫（化名赵廉）",
+          "warning": "公共纪念清晰，但地方身份被放在括号中。",
+          "closure": 1
+        },
+        {
+          "id": "zhao_real_yu",
+          "label": "赵廉（本名郁达夫）",
+          "warning": "保留地方称呼，但文学史主名后置。",
+          "care": 1
+        },
+        {
+          "id": "dual",
+          "label": "郁达夫／赵廉",
+          "warning": "并列能保留双重身份，也可能显得不够简洁。",
+          "rigor": 1
+        },
+        {
+          "id": "no_priority",
+          "label": "暂不规定主次",
+          "warning": "主次留白会让纪念文本不够圆整。",
+          "rigor": 1
+        }
+      ]
+    },
+    {
+      "id": "status",
+      "legend": "状态",
+      "options": [
+        {
+          "id": "missing",
+          "label": "失踪",
+          "warning": "最克制，但可能弱化强责任归因。",
+          "rigor": 1
+        },
+        {
+          "id": "abducted_killed",
+          "label": "被绑架后遇害",
+          "warning": "需要同时显示证词和后续调查支持。",
+          "closure": 1
+        },
+        {
+          "id": "highly_likely",
+          "label": "高度可能被日本宪兵绑架并杀害",
+          "warning": "强归因并保留推断边界。",
+          "rigor": 1,
+          "care": 1
+        }
+      ]
+    },
+    {
+      "id": "deathDate",
+      "legend": "死亡日期",
+      "options": [
+        {
+          "id": "night_29_30",
+          "label": "1945年8月29日夜至30日凌晨",
+          "warning": "属于后来调查簇，不能作为唯一正确答案。",
+          "closure": 1,
+          "disputed": true
+        },
+        {
+          "id": "sep_17",
+          "label": "1945年9月17日",
+          "warning": "属于早期流传簇，和后续调查冲突。",
+          "closure": 1,
+          "disputed": true
+        },
+        {
+          "id": "unknown",
+          "label": "不详",
+          "warning": "保留冲突，文本不完整。",
+          "rigor": 1,
+          "blank": true
+        }
+      ]
+    },
+    {
+      "id": "method",
+      "legend": "死亡方式",
+      "options": [
+        {
+          "id": "strangle_source_wording",
+          "label": "绞杀／扼杀（依来源措辞）",
+          "warning": "需核原始措辞；不能视觉化。",
+          "closure": 1,
+          "disputed": true
+        },
+        {
+          "id": "shooting",
+          "label": "枪杀",
+          "warning": "早期流传簇；不能配枪声音效。",
+          "closure": 1,
+          "disputed": true
+        },
+        { "id": "unknown", "label": "不详", "warning": "保留材料边界。", "rigor": 1, "blank": true }
+      ]
+    },
+    {
+      "id": "remains",
+      "legend": "遗骸",
+      "options": [
+        {
+          "id": "not_found",
+          "label": "未发现",
+          "warning": "固定字段；不得填写墓址。",
+          "rigor": 1,
+          "blank": true
+        }
+      ]
+    }
+  ],
+  "endings": [
+    {
+      "id": "monument",
+      "title": "纪念碑",
+      "conditionLabel": "叙事封闭较高且争议字段精确",
+      "paragraphs": [
+        {
+          "id": "end_a_p1",
+          "text": "郁达夫，化名赵廉，于1945年8月29日被日本宪兵诱捕，旋遭杀害。",
+          "classes": ["L"],
+          "claimIds": ["HIS-009", "HIS-011"]
+        },
+        {
+          "id": "end_a_p2",
+          "text": "这段文字容易被记住。为了让它成为完整的一句话，你缩短了两个日期之间的距离。",
+          "classes": ["R"],
+          "claimIds": ["HIS-023"]
+        }
+      ]
+    },
+    {
+      "id": "case_file",
+      "title": "赵廉失踪案",
+      "conditionLabel": "平衡默认",
+      "paragraphs": [
+        {
+          "id": "end_b_p1",
+          "text": "赵廉，本名郁达夫，于1945年8月29日晚离家后失踪。现有证词和后续调查强烈指向日本宪兵绑架并杀害；具体死亡时间、方式与地点未获完整司法确认。",
+          "classes": ["T", "L", "U"],
+          "claimIds": ["HIS-007", "HIS-009", "HIS-012"]
+        },
+        {
+          "id": "end_b_p2",
+          "text": "这份记录没有提供一个完整现场。因为历史没有留下完整现场。",
+          "classes": ["R"],
+          "claimIds": ["HIS-017"]
+        }
+      ]
+    },
+    {
+      "id": "home",
+      "title": "家中未归者",
+      "conditionLabel": "关怀和家庭证据较高",
+      "paragraphs": [
+        {
+          "id": "end_c_p1",
+          "text": "1945年8月29日晚，赵廉穿睡衣和木屐离开家中，说很快回来。8月30日，家人开始寻找。女儿于同日出生。他没有回来。",
+          "classes": ["T"],
+          "claimIds": ["HIS-007", "HIS-008"]
+        },
+        {
+          "id": "end_c_p2",
+          "text": "对文学史，失踪的是郁达夫。对屋里等待的人，失踪的是赵廉。",
+          "classes": ["R"],
+          "claimIds": ["HIS-019"]
+        }
+      ]
+    },
+    {
+      "id": "untranslated",
+      "title": "未译之词",
+      "conditionLabel": "证据克制高且保留多个空白",
+      "paragraphs": [
+        {
+          "id": "end_d_p1",
+          "text": "敲门者的称呼：＿＿先生。死亡日期：＿＿。死亡方式：＿＿。遗骸：未发现。",
+          "classes": ["U", "L"],
+          "claimIds": ["HIS-012", "HIS-013"]
+        },
+        {
+          "id": "end_d_p2",
+          "text": "你没有把空白误写成答案。但空白也不能替死者作证。",
+          "classes": ["R"],
+          "claimIds": ["HIS-022", "HIS-023"]
+        }
+      ]
+    }
+  ],
+  "methodology": [
+    "门槛规则：赵廉跨过门槛后，叙事不再跟随他，也不展示车辆、处决、尸体或墓址。",
+    "材料层级：文献、证言、后来调查、复合、重构和未决在 UI 中以文字和图案显示，不能互相升级。",
+    "日本宪兵责任：游戏可强烈写出机构责任，但日期、方式、地点、遗骸和青年身份保持材料差异。",
+    "妻子与家庭：妻子在账目、命名、搜索和家庭安排中有行动；新生儿记录不被诗化成交换。",
+    "外部审核：胡愈之版本、铃木正夫材料、印尼地方语境、日语/印尼语术语与无障碍人工测试仍需真实人类签字。"
+  ]
+}
