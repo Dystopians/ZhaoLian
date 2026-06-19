@@ -71,7 +71,7 @@ The production bundle is emitted to `dist/`. Playwright E2E uses `vite build` pl
 
 ## Deploy
 
-Any static host can serve `dist/`. For GitHub Pages, use `.github/workflows/deploy-pages.yml` by pushing a `v*` tag or running the workflow manually. The app assumes local static assets only and does not require environment variables.
+Any static host can serve `dist/`. For GitHub Pages, set **Settings -> Pages -> Build and deployment -> Source** to **GitHub Actions**. The `.github/workflows/deploy-pages.yml` workflow deploys automatically whenever `main` is pushed, and it can also be run manually from the workflow page. The app assumes local static assets only and does not require environment variables.
 
 ## Project Map
 

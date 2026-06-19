@@ -83,6 +83,16 @@ Record decisions as immutable entries. Supersede rather than silently rewrite ol
 - **Consequences:** MUST gates remain stable; SHOULD cross-browser evidence is stronger than single-browser coverage and honestly documents the focus limitations.
 - **Requirements affected:** AC-050, AC-052, AC-063, AC-064, AC-081.
 
+## DEC-012 - Default-Branch Pages Deployment Trigger
+
+- **Status:** accepted.
+- **Date:** 2026-06-19.
+- **Context:** GitHub Pages deployment from a release tag built successfully but failed during the Pages deploy job, while the repository had already been configured to use GitHub Actions as the Pages source.
+- **Options considered:** Keep tag-only deployment and require manual UI dispatch; add default-branch deployment; replace Pages with another static host.
+- **Decision:** Deploy GitHub Pages from pushes to the protected/default `main` branch, while keeping manual workflow dispatch available.
+- **Consequences:** Online play can be published by a normal `main` push after the owner selects GitHub Actions as the Pages source. Release tags can still be used for versioning, but they are no longer required to create the Pages deployment.
+- **Requirements affected:** CI/CD GitHub Pages deployment requirement in `docs/20_CI_CD_AND_DEPLOYMENT.md`.
+
 ## Template For New Decisions
 
 ```text
