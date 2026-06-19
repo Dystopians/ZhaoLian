@@ -1,7 +1,10 @@
 import type { SettingsState } from '../types/content';
+import type { MusicTrackDefinition } from '../content/mediaAssets';
 
 export class AudioController {
   private settings: SettingsState;
+  private readonly elements = new Map<string, HTMLAudioElement>();
+  private activeTrackId: string | null = null;
 
   constructor(settings: SettingsState) {
     this.settings = settings;
@@ -9,6 +12,9 @@ export class AudioController {
 
   update(settings: SettingsState): void {
     this.settings = settings;
+    for (const [trackId, element] of this.elements) {
+      element.volume = this.effectiveVolume(trackId);
+    }
   }
 
   captionFor(cueId: string | undefined): string | null {
@@ -27,5 +33,64 @@ export class AudioController {
 
   isAudible(): boolean {
     return this.settings.masterVolume > 0;
+  }
+
+  isPlaying(trackId: string): boolean {
+    const element = this.elements.get(trackId);
+    return Boolean(element && !element.paused);
+  }
+
+  async toggleLoop(track: MusicTrackDefinition): Promise<'playing' | 'paused' | 'muted'> {
+    if (!this.isAudible() || this.settings.ambienceVolume <= 0) {
+      return 'muted';
+    }
+
+    const element = this.elementFor(track);
+    if (this.isPlaying(track.id)) {
+      element.pause();
+      this.activeTrackId = null;
+      return 'paused';
+    }
+
+    this.pauseActiveTrack();
+    element.volume = this.effectiveVolume(track.id);
+    await element.play();
+    this.activeTrackId = track.id;
+    return 'playing';
+  }
+
+  stopAll(): void {
+    for (const element of this.elements.values()) {
+      element.pause();
+    }
+    this.activeTrackId = null;
+  }
+
+  private elementFor(track: MusicTrackDefinition): HTMLAudioElement {
+    const existing = this.elements.get(track.id);
+    if (existing) return existing;
+
+    const element = new Audio(track.url);
+    element.loop = true;
+    element.preload = 'none';
+    element.volume = this.effectiveVolume(track.id);
+    element.addEventListener('ended', () => {
+      if (this.activeTrackId === track.id) this.activeTrackId = null;
+    });
+    this.elements.set(track.id, element);
+    return element;
+  }
+
+  private pauseActiveTrack(): void {
+    if (!this.activeTrackId) return;
+    this.elements.get(this.activeTrackId)?.pause();
+    this.activeTrackId = null;
+  }
+
+  private effectiveVolume(trackId: string): number {
+    const channelVolume = trackId.startsWith('MUSIC_')
+      ? this.settings.ambienceVolume
+      : this.settings.effectsVolume;
+    return Math.max(0, Math.min(1, this.settings.masterVolume * channelVolume));
   }
 }

@@ -6,5 +6,12 @@ test-results/
 .vite/
 .tmp/
 generated/
+!assets/generated/
+!assets/generated/**
 *.local
 CODEX_MASTER_PROMPT.md
+
+# Local rights-pending reference assets. Runtime media lives under assets/generated/ and assets/audio/.
+assets/*.png
+assets/*.mp3
+!assets/audio/*.mp3

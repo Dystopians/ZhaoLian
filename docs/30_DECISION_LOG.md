@@ -93,6 +93,27 @@ Record decisions as immutable entries. Supersede rather than silently rewrite ol
 - **Consequences:** Online play can be published by a normal `main` push after the owner selects GitHub Actions as the Pages source. Release tags can still be used for versioning, but they are no longer required to create the Pages deployment.
 - **Requirements affected:** CI/CD GitHub Pages deployment requirement in `docs/20_CI_CD_AND_DEPLOYMENT.md`.
 
+## DEC-013 - AI-Assisted Silhouette Visuals And Licensed Local Music
+
+- **Status:** accepted.
+- **Date:** 2026-06-19.
+- **Context:** The project owner supplied historical-looking portrait, invasion, and map references, requested a unified silhouette art direction, a western-Pacific map background, and staged music. Repository policy still forbids shipping unlicensed photos/audio or fake archival photos.
+- **Options considered:** Ship the supplied reference images directly; continue with CSS-only blockouts; generate original non-photographic visuals and use only music with redistribution-friendly licenses.
+- **Decision:** Use the supplied images only as local references, generate project-owned low-color silhouette WebP art, and bundle OpenGameArt tracks with license metadata. Do not bundle the local `相対性理論 - スマトラ警備隊.mp3` file unless redistribution rights are later added.
+- **Consequences:** The runtime gains portraits, scene illustrations, context art, map background, and music while preserving asset provenance and historical-photo boundaries. The requested commercial track remains a rights-pending owner asset rather than a shipped runtime dependency.
+- **Requirements affected:** AC-044, AC-055, AC-066, AC-071, AC-072.
+- **Supersedes/superseded by:** Extends DEC-009 by replacing CSS-only visuals with reviewed AI-assisted local images and licensed local audio.
+
+## DEC-014 - Initial Bundle Budget With Lazy Media Accounting
+
+- **Status:** accepted.
+- **Date:** 2026-06-19.
+- **Context:** The visual/audio pass adds WebP illustrations and two local music files. The performance specification allows large appendix images and audio to load lazily and states that audio decoding must not block first text.
+- **Options considered:** Count every emitted media byte against the initial 1.5 MB budget; remove media; separate initial critical transfer from lazy media in the performance report.
+- **Decision:** Keep the 1.5 MB budget for initial JS/CSS/critical media and add a separate lazy-media compressed budget/report for stage illustrations and audio.
+- **Consequences:** First readable content remains protected while the release report honestly tracks media weight. Runtime UI loads scene images lazily and audio only after explicit user interaction.
+- **Requirements affected:** AC-055, AC-065, AC-066.
+
 ## Template For New Decisions
 
 ```text

@@ -6,7 +6,7 @@ Status: engineering RC is complete and deployable to a static host. Public publi
 
 ## Code And Build
 
-- [x] Repository clean and release tag/version agreed. Version is `1.0.0-rc.0`; release candidate tag `v1.0.0-rc.0` is prepared for the deployed commit.
+- [x] Repository clean and version agreed. Version remains `1.0.0-rc.0`; the existing `v1.0.0-rc.0` tag is not moved, and current online deployment follows `main`.
 - [x] `npm ci` succeeds in a clean environment. Evidence: clean temporary checkout with official Node `24.14.0` and npm `11.9.0`.
 - [x] `npm run verify` passes. Evidence: clean temporary checkout and local pnpm verification.
 - [x] Production build generated and locally previewed. Evidence: Playwright web server runs `vite build` and `vite preview`.
@@ -68,6 +68,7 @@ Status: engineering RC is complete and deployable to a static host. Public publi
 
 - [x] Every image/audio/font has provenance. Evidence: `content/assets.json`, `ATTRIBUTIONS.md`.
 - [x] No hotlinked asset. Evidence: asset validator and no external request E2E.
+- [x] User-supplied historical-looking images and commercial MP3 are not bundled without redistribution rights. Evidence: runtime imports use generated WebP assets and OpenGameArt audio only.
 - [x] Credits and licenses generated. Evidence: `dist/reports/attributions.json`.
 - [x] Real-person images used only with verified rights. Evidence: no real-person images included.
 - [x] Alt text/text alternatives complete for shipped non-photographic assets. Evidence: asset register and semantic UI.

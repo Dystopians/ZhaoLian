@@ -122,6 +122,16 @@ test('dossier and source mode are available without blocking progress', async ({
   await expect(page.getByRole('button', { name: /重构：查看材料层级说明/ }).first()).toBeVisible();
 });
 
+test('generated visuals and local music controls render in the app shell', async ({ page }) => {
+  await page.goto('/');
+  await expect(page.locator('.title-visual img')).toHaveAttribute('src', /scene-archive-desk/);
+  await page.getByRole('button', { name: '开始新案卷' }).click();
+  await expect(page.locator('.context-visual img')).toHaveAttribute('src', /scene-archive-desk/);
+  await expect(page.getByRole('button', { name: '播放配乐' })).toBeVisible();
+  await page.getByRole('button', { name: '方法与史料' }).click();
+  await expect(page.locator('.visual-gallery img')).toHaveCount(5);
+});
+
 test('bad save import is rejected as controlled text', async ({ page }) => {
   await page.goto('/');
   await page.getByRole('button', { name: '设置' }).click();

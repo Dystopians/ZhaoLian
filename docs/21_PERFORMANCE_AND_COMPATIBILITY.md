@@ -15,6 +15,8 @@ Targets on a mid-range mobile device and a throttled reasonable network profile:
 
 Large appendix images and audio should load lazily. Audio decoding must not block first text.
 
+Implementation note: the release budget script reports initial compressed transfer separately from lazy media. The western-Pacific map and title image count as critical initial media; scene illustrations and music are tracked under the lazy-media budget.
+
 ## Asset optimization
 
 - Use modern web image formats with fallback only where needed.

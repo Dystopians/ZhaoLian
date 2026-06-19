@@ -5,8 +5,8 @@ Generated attribution data is written by `scripts/generate-attributions.mjs` to 
 ## Project-Created Content
 
 - Narrative, UI copy, content data, validators, tests, and source code: project-created for this repository.
-- Original visual assets: project-created CSS/document-style scene art listed in `content/assets.json`.
-- Audio: no bundled audio files; meaningful sound cues are represented as text captions.
+- Original visual assets: project-owned AI-assisted WebP scene art listed in `content/assets.json`.
+- Audio: local, lazy-loaded OpenGameArt music files listed in `content/assets.json`; meaningful sound cues still have text captions and audio is not required.
 - Fonts: system font stack only; no remote fonts.
 
 ## Historical Sources
@@ -45,8 +45,9 @@ License metadata should be reviewed from package distributions during final lega
 
 ## Visual Assets
 
-All shipped visual assets are project-owned CSS/document-style assets with `reviewStatus: REVIEWED` in `content/assets.json`:
+All shipped visual assets are project-owned AI-assisted, non-photographic WebP illustrations with provenance entries in `content/assets.json`:
 
+- `VIS_MAP_WESTERN_PACIFIC`
 - `VIS_ARCHIVE_DESK`
 - `VIS_WINE_FACTORY`
 - `VIS_POLICE_OFFICE`
@@ -59,5 +60,16 @@ All shipped visual assets are project-owned CSS/document-style assets with `revi
 - `VIS_ROAD_VEHICLE`
 - `VIS_DATE_COMPARISON`
 - `VIS_REPORT_DESK`
+- `VIS_PORTRAIT_YU_DAFU`
+- `VIS_PORTRAIT_ZHAO_LIAN`
+- `VIS_CONTEXT_SUMATRA_INVASION`
+- `VIS_CONTEXT_PAYAKUMBUH_ADMIN`
 
-No hotlinked, unlicensed, or real-person image assets are included.
+The user-provided historical-looking portrait and map/reference images in the local workspace were treated as reference material only and are not imported into the runtime bundle unless provenance and redistribution rights are added later. No hotlinked, unlicensed, or real-person image assets are included in the shipped runtime.
+
+## Audio Assets
+
+- `AUD_MYSTERIOUS_AMBIENCE_SONG21`: "Mysterious Ambience Song21" by OpenGameArt user `yd`, available from <https://opengameart.org/content/mysterious-ambience-song21> under CC0 1.0 / OGA-BY 3.0 / CC-BY 3.0 multi-license.
+- `AUD_SOFT_MYSTERIOUS_HARP`: "Soft Mysterious Harp Loop" by OpenGameArt user `cynicmusic`, available from <https://opengameart.org/content/soft-mysterious-harp-loop> under CC-BY 3.0.
+
+The locally supplied `相対性理論 - スマトラ警備隊.mp3` file is not bundled because no redistribution license is present in the repository.

@@ -55,7 +55,9 @@ Deliver the complete static web interactive narrative described by the specifica
 ### M5 - Visual And Audio Production
 
 - [x] Implemented original local CSS scene art and document-style visual states.
+- [x] Generated and integrated 17 consistent low-color silhouette WebP visuals, including portraits, context art, scene art, and a western-Pacific map background.
 - [x] Implemented no-audio-required captions and audio-control affordances.
+- [x] Added local lazy-loaded OpenGameArt stage music and ending-coda music controls.
 - [x] Added text equivalents and independent user settings.
 - [x] Verified no graphic death scene or fabricated execution representation.
 
@@ -92,12 +94,12 @@ Deliver the complete static web interactive narrative described by the specifica
 
 ## Current Risks And Mitigations
 
-| Risk                                                                        | Mitigation                                                                                                                                             |
-| --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Historical primary-source gaps cannot be closed by code                     | Data classes, source links, unresolved labels, and historian packet prevent unresolved claims from becoming certainty.                                 |
-| External human review cannot be fabricated                                  | Release checklist and review packets list pending human sign-off as publication blockers.                                                              |
-| Non-Chromium headless focus behavior is unstable for the deep keyboard test | Firefox, WebKit, and mobile still run dossier, save, network, reflow, completion, and axe smoke tests; desktop keyboard completion passes in Chromium. |
-| Asset/audio rights                                                          | Only project-created CSS/document-style assets and text sound captions ship in the RC.                                                                 |
+| Risk                                                                        | Mitigation                                                                                                                                                                                 |
+| --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Historical primary-source gaps cannot be closed by code                     | Data classes, source links, unresolved labels, and historian packet prevent unresolved claims from becoming certainty.                                                                     |
+| External human review cannot be fabricated                                  | Release checklist and review packets list pending human sign-off as publication blockers.                                                                                                  |
+| Non-Chromium headless focus behavior is unstable for the deep keyboard test | Firefox, WebKit, and mobile still run dossier, save, network, reflow, completion, and axe smoke tests; desktop keyboard completion passes in Chromium.                                     |
+| Asset/audio rights                                                          | Shipped runtime assets are project-generated WebP visuals and OpenGameArt tracks with license metadata; user-supplied commercial/reference files remain unbundled unless rights are added. |
 
 ## Progress Log
 
@@ -109,32 +111,34 @@ Deliver the complete static web interactive narrative described by the specifica
 | 2026-06-19 | M7        | Added keyboard, save-restore, network, 320px, 200% text-scale, and cross-browser smoke E2E             | `pnpm run test:e2e`: 28 passed, 4 skipped       |
 | 2026-06-19 | M9        | Generated npm lock in clean copy, ran clean install and full verify                                    | `npm ci`: pass; `npm run verify`: pass          |
 | 2026-06-19 | M9        | Published GitHub Pages from `main` after switching deployment trigger from tag-only to default branch  | Deploy Pages run succeeded; remote smoke passed |
+| 2026-06-19 | M5        | Generated silhouette visual set, added map background, visual gallery, scene figures, and local music  | `pnpm run verify`: pass; screenshot QA passed   |
 
 ## Decisions And Surprises
 
 Full entries live in `docs/30_DECISION_LOG.md`.
 
-| Date       | Topic          | Summary                                                                                                         | Decision |
-| ---------- | -------------- | --------------------------------------------------------------------------------------------------------------- | -------- |
-| 2026-06-19 | Static app     | Framework-free Vite + TypeScript + inkjs runtime baseline                                                       | DEC-001  |
-| 2026-06-19 | Local runtime  | Use bundled Node/pnpm locally while preserving npm lock and scripts                                             | DEC-008  |
-| 2026-06-19 | Asset strategy | Original local CSS/document assets only; no hotlinks                                                            | DEC-009  |
-| 2026-06-19 | Ink authoring  | Validate `.ink` author sources into a manifest because inkjs does not expose a CLI compiler in this package     | DEC-010  |
-| 2026-06-19 | Browser matrix | Chromium desktop keyboard path, WebKit/mobile completion/reflow, and Firefox smoke/a11y after focus instability | DEC-011  |
+| Date       | Topic          | Summary                                                                                                         | Decision    |
+| ---------- | -------------- | --------------------------------------------------------------------------------------------------------------- | ----------- |
+| 2026-06-19 | Static app     | Framework-free Vite + TypeScript + inkjs runtime baseline                                                       | DEC-001     |
+| 2026-06-19 | Local runtime  | Use bundled Node/pnpm locally while preserving npm lock and scripts                                             | DEC-008     |
+| 2026-06-19 | Asset strategy | Original local CSS/document assets only; no hotlinks                                                            | DEC-009     |
+| 2026-06-19 | Ink authoring  | Validate `.ink` author sources into a manifest because inkjs does not expose a CLI compiler in this package     | DEC-010     |
+| 2026-06-19 | Browser matrix | Chromium desktop keyboard path, WebKit/mobile completion/reflow, and Firefox smoke/a11y after focus instability | DEC-011     |
+| 2026-06-19 | Media update   | AI-assisted non-photographic visuals, OpenGameArt music, and lazy-media performance accounting                  | DEC-013/014 |
 
 ## Final Verification Evidence
 
-| Gate                     | Command or procedure                                                                         | Result                                | Evidence/location                                                                |
-| ------------------------ | -------------------------------------------------------------------------------------------- | ------------------------------------- | -------------------------------------------------------------------------------- |
-| Clean npm lock           | clean temp copy, official Node `24.14.0`, `npm install --package-lock-only --ignore-scripts` | PASS                                  | `package-lock.json` generated                                                    |
-| Clean install            | clean temp copy, official Node `24.14.0`, `npm ci`                                           | PASS                                  | 260 packages installed, 0 vulnerabilities                                        |
-| Clean npm verify         | clean temp copy, `npm run verify`                                                            | PASS                                  | formatting, lint, coverage, narrative, validators, build, E2E, a11y, attribution |
-| Local install            | bundled Node + `pnpm install --frozen-lockfile`                                              | PASS                                  | lockfile up to date                                                              |
-| Full local verify        | `pnpm run verify`                                                                            | PASS after final documentation update | see latest terminal run                                                          |
-| Production build         | `npm run build` / `pnpm run build`                                                           | PASS                                  | `dist/`, gzip total under budget                                                 |
-| Remote Pages smoke       | `https://dystopians.github.io/ZhaoLian/` plus Chromium smoke                                 | PASS                                  | HTTP 200, JS/CSS 200, title/H1 rendered, no console errors                       |
-| Narrative traversal      | `npm run test:narrative`                                                                     | PASS                                  | 6 narrative tests                                                                |
-| E2E                      | `npm run test:e2e`                                                                           | PASS                                  | 28 passed, 4 documented deep-interaction skips                                   |
-| Accessibility automation | `npm run test:a11y`                                                                          | PASS                                  | 7 passed, 1 Firefox deep-state skip                                              |
-| Historical lint          | `npm run test:history`                                                                       | PASS                                  | historical content lint passed                                                   |
-| Release checklist        | manual evidence record                                                                       | PASS for RC documentation             | `docs/28_RELEASE_CHECKLIST.md`                                                   |
+| Gate                     | Command or procedure                                                                         | Result                    | Evidence/location                                                                |
+| ------------------------ | -------------------------------------------------------------------------------------------- | ------------------------- | -------------------------------------------------------------------------------- |
+| Clean npm lock           | clean temp copy, official Node `24.14.0`, `npm install --package-lock-only --ignore-scripts` | PASS                      | `package-lock.json` generated                                                    |
+| Clean install            | clean temp copy, official Node `24.14.0`, `npm ci`                                           | PASS                      | 260 packages installed, 0 vulnerabilities                                        |
+| Clean npm verify         | clean temp copy, `npm run verify`                                                            | PASS                      | formatting, lint, coverage, narrative, validators, build, E2E, a11y, attribution |
+| Local install            | bundled Node + `pnpm install --frozen-lockfile`                                              | PASS                      | lockfile up to date                                                              |
+| Full local verify        | `pnpm run verify`                                                                            | PASS after media update   | formatting, lint, coverage, narrative, validators, build, E2E, a11y, attribution |
+| Production build         | `npm run build` / `pnpm run build`                                                           | PASS                      | initial gzip 321,373 bytes; lazy media gzip 2,646,243 bytes                      |
+| Remote Pages smoke       | `https://dystopians.github.io/ZhaoLian/` plus Chromium smoke                                 | PASS                      | HTTP 200, JS/CSS 200, title/H1 rendered, no console errors                       |
+| Narrative traversal      | `npm run test:narrative`                                                                     | PASS                      | 6 narrative tests                                                                |
+| E2E                      | `npm run test:e2e`                                                                           | PASS                      | 32 passed, 4 documented deep-interaction skips                                   |
+| Accessibility automation | `npm run test:a11y`                                                                          | PASS                      | 7 passed, 1 Firefox deep-state skip                                              |
+| Historical lint          | `npm run test:history`                                                                       | PASS                      | historical content lint passed                                                   |
+| Release checklist        | manual evidence record                                                                       | PASS for RC documentation | `docs/28_RELEASE_CHECKLIST.md`                                                   |

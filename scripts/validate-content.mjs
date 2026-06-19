@@ -35,6 +35,28 @@ assertUnique(glossary, 'glossary');
 assertUnique(timeline, 'timeline');
 assertUnique(assets, 'asset');
 
+for (const asset of assets) {
+  for (const field of [
+    'filePath',
+    'type',
+    'creator',
+    'sourceUrlOrContract',
+    'license',
+    'attributionText',
+    'altTextOrDecorative',
+    'reviewStatus',
+  ]) {
+    if (!String(asset[field] ?? '').trim()) fail(`Asset ${asset.id} is missing ${field}`);
+  }
+  if (/unknown|unreviewed/i.test(`${asset.license} ${asset.reviewStatus}`)) {
+    fail(`Asset ${asset.id} has unresolved license or review status`);
+  }
+  if (asset.filePath.startsWith('assets/')) {
+    const assetPath = path.join(root, asset.filePath);
+    if (!fs.existsSync(assetPath)) fail(`Asset ${asset.id} file is missing: ${asset.filePath}`);
+  }
+}
+
 for (const sourceClass of ['D', 'T', 'L', 'C', 'R', 'U']) {
   if (!evidence.some((record) => record.sourceClass === sourceClass)) {
     fail(`Missing evidence source class ${sourceClass}`);

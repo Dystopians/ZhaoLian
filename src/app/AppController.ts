@@ -14,6 +14,15 @@ import {
 import { ClaimGraph } from '../evidence/ClaimGraph';
 import { EvidenceStore } from '../evidence/EvidenceStore';
 import { StoryEngine } from '../engine/StoryEngine';
+import {
+  contextVisualAssetIds,
+  endingMusicTrack,
+  getVisualAsset,
+  musicTrackForScene,
+  resolveSceneVisualId,
+  type MusicTrackDefinition,
+  type VisualAssetDefinition,
+} from '../content/mediaAssets';
 import { buildReportResult } from '../report/ReportBuilder';
 import { SaveRepository } from '../save/SaveRepository';
 import { decodeSave } from '../save/SaveCodec';
@@ -134,6 +143,7 @@ export class AppController {
 
   private renderTitle(): HTMLElement {
     const section = el('section', { className: 'title-screen scene-art archive-desk' });
+    const titleVisual = this.renderVisualFigure(getVisualAsset('VIS_ARCHIVE_DESK'), 'title-visual');
     section.append(
       el('p', { className: 'eyebrow', text: '历史互动叙事' }),
       el('h1', { text: '出去一趟：赵廉案卷' }),
@@ -143,6 +153,7 @@ export class AppController {
       }),
       this.renderContentNotice(),
     );
+    if (titleVisual) section.append(titleVisual);
     const actions = el('div', { className: 'actions' });
     actions.append(
       button(
@@ -179,7 +190,9 @@ export class AppController {
       el('p', {
         text: '本作涉及战时占领、政治暴力、失踪与被害推定、胁迫性问话和与失踪同时发生的分娩记录；不含图像化死亡、处决现场、尸体、跳吓或可玩的救援路线。',
       }),
-      el('p', { text: '声音默认关闭；所有关键声音都有文字字幕。存档留在本机，除非你主动导出。' }),
+      el('p', {
+        text: '声音不会自动播放；所有关键声音都有文字字幕。存档留在本机，除非你主动导出。',
+      }),
     );
     return notice;
   }
@@ -192,10 +205,17 @@ export class AppController {
       attrs: { 'aria-label': '当前章节语境' },
     });
     if (state.completedEnding) {
+      const endingVisual = this.renderVisualFigure(
+        getVisualAsset('VIS_REPORT_DESK'),
+        'context-visual',
+      );
       context.append(
         el('h2', { text: '案卷已完成' }),
         el('p', { text: `结局：${state.completedEnding}` }),
+        ...(endingVisual ? [endingVisual] : []),
+        this.renderMusicControl(endingMusicTrack),
         button('重新开始', () => {
+          this.audio.stopAll();
           this.engine = new StoryEngine(createInitialGameState());
           this.state = this.engine.snapshot();
           this.draft = { ...defaultReportDraft };
@@ -204,12 +224,18 @@ export class AppController {
       );
     } else {
       const scene = getScene(state.currentSceneId);
+      const visual = this.renderVisualFigure(
+        getVisualAsset(resolveSceneVisualId(scene, state.flags.lastFocus)),
+        'context-visual',
+      );
       context.append(
         el('p', { className: 'chapter-code', text: scene.chapter }),
         el('h2', { text: scene.title }),
         el('p', { text: scene.dateLabel }),
         el('p', { text: scene.locationLabel }),
+        ...(visual ? [visual] : []),
         this.renderSourceClassList(scene.historicalClasses),
+        this.renderMusicControl(musicTrackForScene(scene)),
         button('打开案卷抽屉', () => {
           this.lastDossierOpener =
             document.activeElement instanceof HTMLElement ? document.activeElement : null;
@@ -229,7 +255,11 @@ export class AppController {
       el('h2', { text: '阅读记录', attrs: { id: 'reading-title' } }),
       this.renderTranscript(),
     );
-    if (!state.completedEnding) reading.append(this.renderInteraction());
+    if (state.completedEnding) {
+      reading.append(this.renderEndingCoda());
+    } else {
+      reading.append(this.renderInteraction());
+    }
 
     const dossier = el('aside', { className: 'dossier-rail', attrs: { 'aria-label': '案卷摘要' } });
     const acquired = this.evidenceStore.acquired(state);
@@ -245,6 +275,90 @@ export class AppController {
     );
     wrapper.append(context, reading, dossier);
     return wrapper;
+  }
+
+  private renderVisualFigure(
+    asset: VisualAssetDefinition | undefined,
+    variant = 'scene-visual',
+  ): HTMLElement | null {
+    if (!asset) return null;
+
+    const figure = el('figure', { className: `visual-frame ${variant}` });
+    const image = document.createElement('img');
+    image.src = asset.url;
+    image.alt = asset.alt;
+    image.width = asset.width;
+    image.height = asset.height;
+    image.loading = variant.includes('gallery') ? 'eager' : 'lazy';
+    image.decoding = 'async';
+    figure.append(image);
+    return figure;
+  }
+
+  private renderMusicControl(track: MusicTrackDefinition): HTMLElement {
+    const playing = this.audio.isPlaying(track.id);
+    const section = el('section', {
+      className: 'music-control',
+      attrs: { 'aria-label': '阶段配乐' },
+    });
+    section.append(
+      el('p', { className: 'music-title', text: track.title }),
+      button(
+        playing ? '暂停配乐' : '播放配乐',
+        () => {
+          void this.toggleMusic(track);
+        },
+        'button music-button',
+      ),
+    );
+    return section;
+  }
+
+  private async toggleMusic(track: MusicTrackDefinition): Promise<void> {
+    try {
+      const status = await this.audio.toggleLoop(track);
+      if (status === 'muted') {
+        this.announce('当前音量为零；请在设置中调高主音量和环境声。');
+      } else if (status === 'playing') {
+        this.announce(`正在播放：${track.title}`);
+      } else {
+        this.announce('配乐已暂停。');
+      }
+    } catch {
+      this.announce('浏览器阻止了本次音频播放；请再次按播放配乐。');
+    }
+    this.render();
+  }
+
+  private renderEndingCoda(): HTMLElement {
+    const section = el('section', {
+      className: 'ending-coda',
+      attrs: { 'aria-labelledby': 'ending-coda-title' },
+    });
+    const portrait = this.renderVisualFigure(
+      getVisualAsset('VIS_PORTRAIT_YU_DAFU'),
+      'coda-portrait',
+    );
+    const alias = this.renderVisualFigure(
+      getVisualAsset('VIS_PORTRAIT_ZHAO_LIAN'),
+      'coda-portrait',
+    );
+    const portraits = el('div', { className: 'coda-portraits' });
+    if (portrait) portraits.append(portrait);
+    if (alias) portraits.append(alias);
+    section.append(
+      el('h2', { text: '案卷完成后的余音', attrs: { id: 'ending-coda-title' } }),
+      portraits,
+      el('blockquote', { className: 'literary-excerpt' }, [
+        el('p', { text: '“秋天，这北国的秋天，若留得住的话……”' }),
+        el('footer', { text: '郁达夫《故都的秋》短引。' }),
+      ]),
+      el('p', {
+        className: 'meta',
+        text: '这段文字不被写成遗言；它只在结算页保留一种挽留的语气。',
+      }),
+    );
+    return section;
   }
 
   private renderTranscript(): HTMLElement {
@@ -679,7 +793,34 @@ export class AppController {
       el('h2', { text: '材料层级' }),
       this.renderSourceClassList(['D', 'T', 'L', 'C', 'R', 'U']),
     );
+    section.append(this.renderContextVisualGallery());
     section.append(el('h2', { text: '公开附录主张' }), this.renderClaimList());
+    return section;
+  }
+
+  private renderContextVisualGallery(): HTMLElement {
+    const section = el('section', {
+      className: 'visual-gallery-section',
+      attrs: { 'aria-labelledby': 'visual-gallery-title' },
+    });
+    section.append(
+      el('h2', { text: '视觉资料', attrs: { id: 'visual-gallery-title' } }),
+      el('p', {
+        className: 'meta',
+        text: '以下均为原创艺术示意图或 AI 辅助生成图，不作为历史照片或精确地图使用。',
+      }),
+    );
+    const gallery = el('div', { className: 'visual-gallery' });
+    for (const id of contextVisualAssetIds) {
+      const asset = getVisualAsset(id);
+      if (!asset) continue;
+      const card = el('article', { className: `visual-card visual-card-${asset.role}` });
+      const figure = this.renderVisualFigure(asset, 'gallery-visual');
+      if (figure) card.append(figure);
+      card.append(el('h3', { text: asset.title }), el('p', { text: asset.alt }));
+      gallery.append(card);
+    }
+    section.append(gallery);
     return section;
   }
 
