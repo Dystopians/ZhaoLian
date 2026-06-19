@@ -136,7 +136,21 @@ for (const chapter of [
   if (!chapters.has(chapter)) fail(`Missing chapter ${chapter}`);
 }
 
-if (story.endings.length !== 4) fail('Exactly four endings are required.');
+if (story.endings.length !== 6) fail('Exactly six endings are required.');
+const endingCodes = new Set();
+const endingNumberLabels = new Set();
+for (const ending of story.endings) {
+  if (!/^END-[A-F]$/.test(ending.code ?? '')) {
+    fail(`Ending ${ending.id} must have an END-A through END-F code.`);
+  }
+  if (!/^结局 [A-F]$/.test(ending.numberLabel ?? '')) {
+    fail(`Ending ${ending.id} must have a localized ending number label.`);
+  }
+  endingCodes.add(ending.code);
+  endingNumberLabels.add(ending.numberLabel);
+}
+if (endingCodes.size !== story.endings.length) fail('Ending codes must be unique.');
+if (endingNumberLabels.size !== story.endings.length) fail('Ending number labels must be unique.');
 if (evidence.length < 35)
   fail('At least 35 evidence cards are required for this release candidate.');
 if (claims.length < 25) fail('At least 25 claims are required for this release candidate.');

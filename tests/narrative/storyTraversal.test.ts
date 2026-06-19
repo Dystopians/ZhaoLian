@@ -3,9 +3,11 @@ import { storyContent } from '../../src/content/content';
 import { StoryEngine } from '../../src/engine/StoryEngine';
 import {
   caseFilePath,
+  delayShadowPath,
   homePath,
   monumentPath,
   playChoicePath,
+  testimonyWeavePath,
   untranslatedPath,
 } from '../helpers/playPaths';
 
@@ -36,7 +38,7 @@ describe('narrative traversal', () => {
     }
   });
 
-  it('reaches all four endings through golden paths', () => {
+  it('reaches all six endings through golden paths', () => {
     const monument = playChoicePath(monumentPath, {
       name: 'yu_alias_zhao',
       status: 'abducted_killed',
@@ -59,11 +61,31 @@ describe('narrative traversal', () => {
       method: 'unknown',
       remains: 'not_found',
     });
+    const testimonyWeave = playChoicePath(testimonyWeavePath);
+    const delayShadow = playChoicePath(delayShadowPath);
 
     expect(monument.completedEnding).toBe('monument');
     expect(caseFile.completedEnding).toBe('case_file');
     expect(home.completedEnding).toBe('home');
     expect(untranslated.completedEnding).toBe('untranslated');
+    expect(testimonyWeave.completedEnding).toBe('testimony_weave');
+    expect(delayShadow.completedEnding).toBe('delay_shadow');
+  });
+
+  it('gives every ending its own expanded verbal settlement', () => {
+    const codes = new Set<string>();
+    const numberLabels = new Set<string>();
+
+    for (const ending of storyContent.endings) {
+      expect(ending.paragraphs.length).toBeGreaterThanOrEqual(6);
+      expect(ending.code).toMatch(/^END-[A-F]$/);
+      expect(ending.numberLabel).toMatch(/^结局 [A-F]$/);
+      codes.add(ending.code);
+      numberLabels.add(ending.numberLabel);
+    }
+
+    expect(codes.size).toBe(6);
+    expect(numberLabels.size).toBe(6);
   });
 
   it('does not offer rescue, follow, combat, or execution choices in CH06', () => {

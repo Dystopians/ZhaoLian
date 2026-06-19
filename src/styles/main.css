@@ -408,6 +408,11 @@ small {
   aspect-ratio: 16 / 9;
 }
 
+.ending-visual {
+  border-color: rgb(184 117 31 / 34%);
+  box-shadow: 0 0.6rem 1.5rem rgb(31 37 38 / 18%);
+}
+
 .context-visual img,
 .title-visual img,
 .gallery-visual img {
@@ -634,6 +639,24 @@ pre {
 
 .literary-excerpt footer {
   color: var(--muted);
+}
+
+.yu-excerpt {
+  background: rgb(242 236 222 / 72%);
+}
+
+.ending-echoes {
+  display: grid;
+  gap: 0.65rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ending-echoes li {
+  padding-left: 1rem;
+  border-left: 0.2rem solid rgb(31 37 38 / 18%);
+  color: var(--ink);
 }
 
 .site-footer {

@@ -4,6 +4,7 @@ import {
   claimRecords,
   creditsContent,
   evidenceRecords,
+  getEnding,
   getScene,
   glossaryEntries,
   sourceClassLabels,
@@ -20,6 +21,7 @@ import {
   getVisualAsset,
   musicTrackForScene,
   resolveSceneVisualId,
+  visualAssetForEnding,
   type MusicTrackDefinition,
   type VisualAssetDefinition,
 } from '../content/mediaAssets';
@@ -32,6 +34,7 @@ import type {
   AssetRecord,
   ClaimRecord,
   GameState,
+  EndingId,
   ReportDraft,
   SettingsState,
   SourceClass,
@@ -42,6 +45,109 @@ import { button, clearAndAppend, el, fieldLabel } from './dom';
 
 type ViewName = 'title' | 'game' | 'dossier' | 'settings' | 'methodology' | 'credits';
 type DossierTab = 'evidence' | 'claims' | 'timeline' | 'sources' | 'glossary';
+
+interface EndingCodaContent {
+  heading: string;
+  riverLine: string;
+  note: string;
+  echoes: string[];
+  yuExcerpt: string;
+  yuSource: string;
+  yuNote: string;
+}
+
+const endingCodaContent: Record<EndingId, EndingCodaContent> = {
+  monument: {
+    heading: '碑面与水面',
+    riverLine: '一句话立起来，另一条时间从碑后流过。',
+    note: '这个结局让名字更容易被共同记住，也让争议字段更容易被压低。',
+    echoes: [
+      '碑面需要清晰，水面仍在动。',
+      '门外的夜被读成一句完整的话。',
+      '你把责任举高，也把空白折进阴影。',
+      '被刻下的句子仍要允许脚注站在旁边。',
+      '纪念不该要求空白沉默。',
+    ],
+    yuExcerpt: '“清，静，悲凉。”',
+    yuSource: '郁达夫《故都的秋》短引。',
+    yuNote: '这句秋意给碑面以冷光：清晰不是圆满，静也不是终止。',
+  },
+  case_file: {
+    heading: '案卷与河床',
+    riverLine: '纸页压住水声，但压不住水向前走。',
+    note: '这个结局把可确认、可怀疑和不能补写的部分并置起来。',
+    echoes: [
+      '报告桌、夜门、黎明窗同时在一页纸上。',
+      '案卷不是终点；案卷是边界。',
+      '编号让材料可复核，不让材料变成谜底。',
+      '每一次编号都提醒你：可查不等于可替代。',
+      '河床露出来时，水仍带着夜色。',
+    ],
+    yuExcerpt: '“孤冷得可怜。”',
+    yuSource: '郁达夫《沉沦》短引。',
+    yuNote: '这句孤冷落在案卷边缘：编号可以相互参照，人的缺席仍然单独。',
+  },
+  home: {
+    heading: '门槛仍在屋里',
+    riverLine: '同一夜分成两条时间：一条出去，一条留下。',
+    note: '这个结局把家庭时间放到正面，但不把家庭写成牺牲的装饰。',
+    echoes: [
+      '木屐没有走进报告，它留在门边。',
+      '出生记录和搜索记录不是象征，它们是生活继续发生。',
+      '对屋里等待的人，失踪不是文学史条目。',
+      '屋里的人不是等待的名词，而是继续做事的动词。',
+      '新生儿不解释失踪；她只是同时来到这一天。',
+    ],
+    yuExcerpt: '“天还未暗。”',
+    yuSource: '郁达夫《春风沉醉的晚上》短引。',
+    yuNote: '这句未暗的光留给屋内时间：等待没有被写成结尾，它仍在安排生活。',
+  },
+  untranslated: {
+    heading: '空白的语法',
+    riverLine: '没有译出的词仍在发声，只是不替任何人说完。',
+    note: '这个结局保留多个未决处，让责任明确而细节不被伪造。',
+    echoes: [
+      '称呼停在括号里。',
+      '日期和方式靠近，却不合并。',
+      '空白不是答案；空白也不是逃避。',
+      '没有译出的地方，也需要被准确登记。',
+      '克制不是撤退，是把手从空白上拿开。',
+    ],
+    yuExcerpt: '“若留得住的话……”',
+    yuSource: '郁达夫《故都的秋》短引。',
+    yuNote: '这句挽留不替空白发言：想留住的愿望和不能补写的事实并排存在。',
+  },
+  testimony_weave: {
+    heading: '三处反光',
+    riverLine: '证词像水面上的光，靠近时互相照亮，重合时反而失真。',
+    note: '这个结局把访谈方法放到正面，让多处证词互校而不互相吞并。',
+    echoes: [
+      '咖啡店、道路、家门各自保留边界。',
+      '一条线连起纸页，不把纸页缝死。',
+      '提问越轻，留下的犹疑越能被听见。',
+      '互校不是消除差异，是让差异可复核。',
+      '水面上的三处光不必合成一个太阳。',
+    ],
+    yuExcerpt: '“有话说不出来。”',
+    yuSource: '郁达夫《春风沉醉的晚上》短引。',
+    yuNote: '这句说不出的话落在证词之间：沉默和迟疑同样需要被登记。',
+  },
+  delay_shadow: {
+    heading: '延宕的阴影',
+    riverLine: '被推迟的词没有离开案卷；它们在灯下把时间拉长。',
+    note: '这个结局前置翻译延宕和身份风险，同时拒绝把疑点改写成完整答案。',
+    echoes: [
+      '名单上的时间起皱。',
+      '灯照见权力，也照见证据的缺口。',
+      '疑云不能替代责任。',
+      '未明身份者不承担集体罪名。',
+      '延宕是线索，不是谜底。',
+    ],
+    yuExcerpt: '“愈筑愈高了。”',
+    yuSource: '郁达夫《沉沦》短引。',
+    yuNote: '这句屏障感落在翻译和权力之间：阻隔越高，越要分清线索和推断。',
+  },
+};
 
 export class AppController {
   private readonly root: HTMLElement;
@@ -61,6 +167,7 @@ export class AppController {
   private liveRegion: HTMLDivElement;
   private musicPausedByUser = false;
   private musicSyncSerial = 0;
+  private lastRenderedEnding: EndingId | null = null;
 
   constructor(root: HTMLElement) {
     this.root = root;
@@ -91,13 +198,22 @@ export class AppController {
   }
 
   private render(): void {
+    const shouldScrollToEnding =
+      this.view === 'game' &&
+      Boolean(this.state.completedEnding) &&
+      this.lastRenderedEnding !== this.state.completedEnding;
     const shell = el('div', { className: 'app-shell' });
     shell.append(this.renderHeader(), this.renderMain(), this.renderFooter(), this.liveRegion);
     if (this.dossierOpen) shell.append(this.renderDossierDialog());
     clearAndAppend(this.root, shell);
+    this.lastRenderedEnding = this.view === 'game' ? (this.state.completedEnding ?? null) : null;
     if (this.dossierOpen) {
       const close = this.root.querySelector<HTMLButtonElement>('[data-dialog-close]');
       close?.focus();
+    } else if (shouldScrollToEnding) {
+      window.requestAnimationFrame(() => {
+        this.root.querySelector('.context-rail')?.scrollIntoView({ block: 'start' });
+      });
     }
     void this.syncMusicForCurrentView();
   }
@@ -208,13 +324,16 @@ export class AppController {
       attrs: { 'aria-label': '当前章节语境' },
     });
     if (state.completedEnding) {
+      const ending = getEnding(state.completedEnding);
       const endingVisual = this.renderVisualFigure(
-        getVisualAsset('VIS_REPORT_DESK'),
-        'context-visual',
+        visualAssetForEnding(state.completedEnding),
+        'context-visual ending-visual',
       );
       context.append(
         el('h2', { text: '案卷已完成' }),
-        el('p', { text: `结局：${state.completedEnding}` }),
+        el('p', { className: 'chapter-code', text: ending.code }),
+        el('p', { text: `结局：${ending.numberLabel}｜${ending.title}` }),
+        el('p', { className: 'meta', text: ending.conditionLabel }),
         ...(endingVisual ? [endingVisual] : []),
         this.renderMusicControl(endingMusicTrack),
         button('重新开始', () => {
@@ -260,7 +379,7 @@ export class AppController {
       this.renderTranscript(),
     );
     if (state.completedEnding) {
-      reading.append(this.renderEndingCoda());
+      reading.append(this.renderEndingCoda(state.completedEnding));
     } else {
       reading.append(this.renderInteraction());
     }
@@ -293,7 +412,8 @@ export class AppController {
     image.alt = asset.alt;
     image.width = asset.width;
     image.height = asset.height;
-    image.loading = variant.includes('gallery') ? 'eager' : 'lazy';
+    image.loading =
+      variant.includes('gallery') || variant.includes('ending-visual') ? 'eager' : 'lazy';
     image.decoding = 'async';
     figure.append(image);
     return figure;
@@ -365,9 +485,10 @@ export class AppController {
     }
   }
 
-  private renderEndingCoda(): HTMLElement {
+  private renderEndingCoda(endingId: EndingId): HTMLElement {
+    const coda = endingCodaContent[endingId];
     const section = el('section', {
-      className: 'ending-coda',
+      className: `ending-coda ending-coda-${endingId}`,
       attrs: { 'aria-labelledby': 'ending-coda-title' },
     });
     const portrait = this.renderVisualFigure(
@@ -382,18 +503,29 @@ export class AppController {
     if (portrait) portraits.append(portrait);
     if (alias) portraits.append(alias);
     section.append(
-      el('h2', { text: '案卷完成后的余音', attrs: { id: 'ending-coda-title' } }),
+      el('h2', { text: coda.heading, attrs: { id: 'ending-coda-title' } }),
       portraits,
       el('blockquote', { className: 'literary-excerpt' }, [
-        el('p', { text: '“秋天，这北国的秋天，若留得住的话……”' }),
-        el('footer', { text: '郁达夫《故都的秋》短引。' }),
+        el('p', { text: coda.riverLine }),
+        el('footer', { text: '结算余韵。' }),
+      ]),
+      this.renderEndingEchoes(coda.echoes),
+      el('blockquote', { className: 'literary-excerpt yu-excerpt' }, [
+        el('p', { text: coda.yuExcerpt }),
+        el('footer', { text: coda.yuSource }),
       ]),
       el('p', {
         className: 'meta',
-        text: '这段文字不被写成遗言；它只在结算页保留一种挽留的语气。',
+        text: `${coda.note} ${coda.yuNote} 郁达夫文字不被写成遗言；它只在结算页保留一种气氛上的回声。`,
       }),
     );
     return section;
+  }
+
+  private renderEndingEchoes(echoes: string[]): HTMLElement {
+    const list = el('ul', { className: 'ending-echoes' });
+    for (const echo of echoes) list.append(el('li', { text: echo }));
+    return list;
   }
 
   private renderTranscript(): HTMLElement {
@@ -942,9 +1074,8 @@ export class AppController {
 
   private async persistAndRender(message: string): Promise<void> {
     this.announce(message);
-    void this.syncMusicForCurrentView();
-    await this.saveRepository.saveAutosave(this.state);
     this.render();
+    await this.saveRepository.saveAutosave(this.state);
   }
 
   private announce(message: string): void {

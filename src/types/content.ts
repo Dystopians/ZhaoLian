@@ -1,7 +1,13 @@
 export type SourceClass = 'D' | 'T' | 'L' | 'C' | 'R' | 'U';
 export type Confidence = 'high' | 'medium' | 'low' | 'disputed';
 export type SceneMode = 'standard' | 'wait' | 'interview' | 'report' | 'comparison';
-export type EndingId = 'monument' | 'case_file' | 'home' | 'untranslated';
+export type EndingId =
+  | 'monument'
+  | 'case_file'
+  | 'home'
+  | 'untranslated'
+  | 'testimony_weave'
+  | 'delay_shadow';
 export type QuestionMode = 'leading' | 'neutral' | 'narrative';
 
 export interface TextBlock {
@@ -81,6 +87,8 @@ export interface ReportField {
 
 export interface EndingContent {
   id: EndingId;
+  code: string;
+  numberLabel: string;
   title: string;
   conditionLabel: string;
   paragraphs: TextBlock[];

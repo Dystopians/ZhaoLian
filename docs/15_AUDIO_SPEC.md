@@ -73,3 +73,12 @@ Examples:
 ## Licensing
 
 All audio must be original, commissioned, public-domain, or licensed for redistribution. Store source/license metadata in the asset manifest.
+
+## Sourcing Expansion
+
+Future music and ambience expansion should use the candidate-source matrix in
+`36_AUDIO_LIBRARY_RESEARCH.md`. The matrix does not approve any individual
+track for release. Before runtime use, each audio file must be reviewed at the
+track page level, downloaded into `assets/audio/`, registered in
+`content/assets.json`, credited through the attribution path, checked for
+looping/loudness, and verified against the prohibited-effects list above.

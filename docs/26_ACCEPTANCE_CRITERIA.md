@@ -7,7 +7,7 @@ This is the primary pass/fail contract. **All MUST criteria are release blockers
 - **AC-001 MUST:** A clean install can start the development server and produce a production build using documented commands.
 - **AC-002 MUST:** A player can start a new run and reach an ending without developer tools or manual state edits.
 - **AC-003 MUST:** CH00 through CH10 are implemented with all fixed beats in `05_FULL_GAME_SCRIPT.md`.
-- **AC-004 MUST:** All four endings are reachable through legitimate UI choices.
+- **AC-004 MUST:** All six endings are reachable through legitimate UI choices.
 - **AC-005 MUST:** Every ending ends with the locked shared final line.
 - **AC-006 MUST:** No choice can save Zhao, prevent his departure, follow him past the threshold, or witness an execution.
 - **AC-007 MUST:** No placeholder copy such as TODO, lorem ipsum, “coming soon,” inactive button, or empty required screen remains.

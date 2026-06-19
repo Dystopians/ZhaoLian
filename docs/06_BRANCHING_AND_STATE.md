@@ -45,10 +45,14 @@ Each run should generally end with values in 0–12. Clamp at 0–20 to simplify
 Use deterministic, documented logic with test fixtures. Suggested order:
 
 ```text
-if rigor >= 8 and closure <= 3 and preserved_blank_count >= 2:
+if address_record == blank and rigor >= 8 and closure <= 3 and preserved_blank_count >= 2:
     END-D untranslated
+else if address_record != blank and careful_witness_question_count >= 3 and rigor >= 7 and care <= 8 and closure <= 4:
+    END-E testimony_weave
 else if care >= 7 and household_evidence_count >= 3:
     END-C home
+else if suspicion >= 3 and translation_time == days and translation_delay_is_editorialized and precise_disputed_fields <= 1:
+    END-F delay_shadow
 else if closure >= 8 and precise_disputed_fields >= 2:
     END-A monument
 else:

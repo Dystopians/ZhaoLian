@@ -61,6 +61,29 @@ This register begins with available secondary/institutional sources and technica
 - Required action: add Indonesian-language primary/secondary sources.
 - Status: **missing; release blocker for full cultural review**.
 
+## Literary coda sources
+
+### SRC-L001 — 郁达夫：《故都的秋》
+
+- URL: https://paper.people.com.cn/rmrbhwb/html/2014-10/14/content_1487525.htm
+- Use: very short ending-coda excerpts for atmosphere only.
+- Status: registered source text; not historical evidence.
+- Policy: short excerpt only; do not reprint the text.
+
+### SRC-L002 — 郁达夫：《沉沦》
+
+- URL: https://zh.wikisource.org/wiki/%E6%B2%89%E6%B7%AA_%28%E9%83%81%E9%81%94%E5%A4%AB%29
+- Use: very short ending-coda excerpt for the case-file coda.
+- Status: registered source text; version-level human review still welcome before public publication.
+- Policy: short excerpt only; do not reprint the text.
+
+### SRC-L003 — 郁达夫：《春风沉醉的晚上》
+
+- URL: https://zh.wikisource.org/wiki/%E6%98%A5%E9%A2%A8%E6%B2%89%E9%86%89%E7%9A%84%E6%99%9A%E4%B8%8A
+- Use: very short ending-coda excerpt for the household coda.
+- Status: registered source text; not historical evidence.
+- Policy: short excerpt only; do not reprint the text.
+
 ## Technical sources
 
 ### SRC-T001 — ink official repository/documentation

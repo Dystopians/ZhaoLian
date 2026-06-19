@@ -96,6 +96,44 @@
     "licenseOrQuotationPolicy": "项目内部规范。"
   },
   {
+    "id": "SRC-L001",
+    "title": "故都的秋",
+    "authorOrInstitution": "郁达夫",
+    "publication": "人民日报海外版转载文本",
+    "date": "1934",
+    "url": "https://paper.people.com.cn/rmrbhwb/html/2014-10/14/content_1487525.htm",
+    "language": "zh",
+    "sourceType": "primary",
+    "accessStatus": "verified",
+    "notes": "用于结局 coda 的极短文学气氛短引；不作为历史案情证据。",
+    "licenseOrQuotationPolicy": "仅使用极短短引并署名；不重印原文。"
+  },
+  {
+    "id": "SRC-L002",
+    "title": "沉沦",
+    "authorOrInstitution": "郁达夫",
+    "publication": "维基文库公开文本",
+    "url": "https://zh.wikisource.org/wiki/%E6%B2%89%E6%B7%AA_%28%E9%83%81%E9%81%94%E5%A4%AB%29",
+    "language": "zh",
+    "sourceType": "primary",
+    "accessStatus": "verified",
+    "notes": "用于结局 coda 的极短文学气氛短引；版本级校勘仍留给发布前人工复核。",
+    "licenseOrQuotationPolicy": "仅使用极短短引并署名；不重印原文。"
+  },
+  {
+    "id": "SRC-L003",
+    "title": "春风沉醉的晚上",
+    "authorOrInstitution": "郁达夫",
+    "publication": "维基文库公开文本",
+    "date": "1923-07-15",
+    "url": "https://zh.wikisource.org/wiki/%E6%98%A5%E9%A2%A8%E6%B2%89%E9%86%89%E7%9A%84%E6%99%9A%E4%B8%8A",
+    "language": "zh",
+    "sourceType": "primary",
+    "accessStatus": "verified",
+    "notes": "用于结局 coda 的极短文学气氛短引；不作为历史案情证据。",
+    "licenseOrQuotationPolicy": "仅使用极短短引并署名；不重印原文。"
+  },
+  {
     "id": "SRC-T001",
     "title": "ink official repository and documentation",
     "authorOrInstitution": "inkle",

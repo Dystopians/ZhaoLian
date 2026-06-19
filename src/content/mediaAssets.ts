@@ -1,5 +1,11 @@
 import contextPayakumbuhAdministrationUrl from '../../assets/generated/visuals/context-payakumbuh-administration.webp';
 import contextSumatraInvasionUrl from '../../assets/generated/visuals/context-sumatra-invasion.webp';
+import endingCaseFileUrl from '../../assets/generated/visuals/ending-case-file.webp';
+import endingDelayShadowUrl from '../../assets/generated/visuals/ending-delay-shadow.webp';
+import endingHomeUrl from '../../assets/generated/visuals/ending-home.webp';
+import endingMonumentUrl from '../../assets/generated/visuals/ending-monument.webp';
+import endingTestimonyWeaveUrl from '../../assets/generated/visuals/ending-testimony-weave.webp';
+import endingUntranslatedUrl from '../../assets/generated/visuals/ending-untranslated.webp';
 import mapWesternPacificUrl from '../../assets/generated/visuals/map-western-pacific.webp';
 import portraitYuDafuUrl from '../../assets/generated/visuals/portrait-yu-dafu.webp';
 import portraitZhaoLianUrl from '../../assets/generated/visuals/portrait-zhao-lian.webp';
@@ -18,7 +24,7 @@ import sceneYuSenseiTableUrl from '../../assets/generated/visuals/scene-yu-sense
 import musicMysteriousAmbienceUrl from '../../assets/audio/mysterious-ambience-song21.mp3';
 import musicSoftHarpUrl from '../../assets/audio/soft-mysterious-harp.ogg';
 import musicSumatraKeibitaiUrl from '../../assets/audio/ending-sumatra-keibitai.mp3';
-import type { StoryScene } from '../types/content';
+import type { EndingId, StoryScene } from '../types/content';
 
 export interface VisualAssetDefinition {
   id: string;
@@ -27,7 +33,7 @@ export interface VisualAssetDefinition {
   alt: string;
   width: number;
   height: number;
-  role: 'background' | 'scene' | 'portrait' | 'context';
+  role: 'background' | 'scene' | 'portrait' | 'context' | 'ending';
 }
 
 export interface MusicTrackDefinition {
@@ -193,6 +199,69 @@ export const visualAssetMap: Record<string, VisualAssetDefinition> = {
     height: 720,
     role: 'context',
   },
+  VIS_ENDING_MONUMENT: {
+    id: 'VIS_ENDING_MONUMENT',
+    url: endingMonumentUrl,
+    title: '纪念碑结局',
+    alt: '结算图：地图、报告纸与暗色纪念碑交叠，河面般的光线穿过门槛，表现纪念文本对不确定性的折叠。',
+    width: 1280,
+    height: 720,
+    role: 'ending',
+  },
+  VIS_ENDING_CASE_FILE: {
+    id: 'VIS_ENDING_CASE_FILE',
+    url: endingCaseFileUrl,
+    title: '赵廉失踪案结局',
+    alt: '结算图：打开的案卷、抽屉、地图与夜门倒影重叠，表现可复核但未闭合的档案边界。',
+    width: 1280,
+    height: 720,
+    role: 'ending',
+  },
+  VIS_ENDING_HOME: {
+    id: 'VIS_ENDING_HOME',
+    url: endingHomeUrl,
+    title: '家中未归者结局',
+    alt: '结算图：清晨室内的空椅、门槛、木屐、衣物和家庭物件交叠，表现离家未归后的家庭时间。',
+    width: 1280,
+    height: 720,
+    role: 'ending',
+  },
+  VIS_ENDING_UNTRANSLATED: {
+    id: 'VIS_ENDING_UNTRANSLATED',
+    url: endingUntranslatedUrl,
+    title: '未译之词结局',
+    alt: '结算图：深色档案室、空白纸片、括号和人形缺口被河流般的空白切开，表现保留未译之处。',
+    width: 1280,
+    height: 720,
+    role: 'ending',
+  },
+  VIS_ENDING_TESTIMONY_WEAVE: {
+    id: 'VIS_ENDING_TESTIMONY_WEAVE',
+    url: endingTestimonyWeaveUrl,
+    title: '证词互校结局',
+    alt: '结算图：三张证词纸、针线、地图与河面反光交叠，表现多处见证互校但不合并成唯一答案。',
+    width: 1280,
+    height: 720,
+    role: 'ending',
+  },
+  VIS_ENDING_DELAY_SHADOW: {
+    id: 'VIS_ENDING_DELAY_SHADOW',
+    url: endingDelayShadowUrl,
+    title: '延宕疑云结局',
+    alt: '结算图：灯下译稿、账册、时钟、窗外阴影与名单交叠，表现翻译延宕和身份风险形成的疑云。',
+    width: 1280,
+    height: 720,
+    role: 'ending',
+  },
+};
+
+export const endingVisualAssetIds: Record<EndingId, string> = {
+  monument: 'VIS_ENDING_MONUMENT',
+  case_file: 'VIS_ENDING_CASE_FILE',
+  home: 'VIS_ENDING_HOME',
+  untranslated: 'VIS_ENDING_UNTRANSLATED',
+  testimony_weave: 'VIS_ENDING_TESTIMONY_WEAVE',
+  delay_shadow: 'VIS_ENDING_DELAY_SHADOW',
 };
 
 export const contextVisualAssetIds = [
@@ -240,6 +309,10 @@ export function resolveSceneVisualId(scene: StoryScene, lastFocus: string): stri
     return 'VIS_COFFEE_SHOP';
   }
   return scene.visual;
+}
+
+export function visualAssetForEnding(endingId: EndingId): VisualAssetDefinition | undefined {
+  return getVisualAsset(endingVisualAssetIds[endingId]);
 }
 
 export function musicTrackForScene(scene: StoryScene): MusicTrackDefinition {

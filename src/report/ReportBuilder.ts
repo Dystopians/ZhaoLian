@@ -64,6 +64,7 @@ export function buildReportResult(state: GameState, draft: ReportDraft): ReportR
     editorial: state.editorial,
     evidenceIds: state.evidenceIds,
     flags: state.flags,
+    questionQuality: state.questionQuality,
     reportDraft: draft,
   });
 

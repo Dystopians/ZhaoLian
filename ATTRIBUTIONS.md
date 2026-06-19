@@ -13,6 +13,10 @@ Generated attribution data is written by `scripts/generate-attributions.mjs` to 
 
 Historical source citation metadata is maintained in `content/sources.json` and `docs/29_SOURCE_REGISTER.md`. Source citation does not grant redistribution rights to article text or images, and no external historical images are bundled.
 
+## Literary Coda Excerpts
+
+Ending coda pages use only very short excerpts from Yu Dafu works, registered as `SRC-L001` through `SRC-L003` in `content/sources.json`. These excerpts are presented as atmospheric literary echoes, not as last words, last thoughts, or historical evidence.
+
 ## Software Dependencies
 
 Runtime dependencies:
@@ -60,6 +64,12 @@ All shipped visual assets are project-owned AI-assisted, non-photographic WebP i
 - `VIS_ROAD_VEHICLE`
 - `VIS_DATE_COMPARISON`
 - `VIS_REPORT_DESK`
+- `VIS_ENDING_MONUMENT`
+- `VIS_ENDING_CASE_FILE`
+- `VIS_ENDING_HOME`
+- `VIS_ENDING_UNTRANSLATED`
+- `VIS_ENDING_TESTIMONY_WEAVE`
+- `VIS_ENDING_DELAY_SHADOW`
 - `VIS_PORTRAIT_YU_DAFU`
 - `VIS_PORTRAIT_ZHAO_LIAN`
 - `VIS_CONTEXT_SUMATRA_INVASION`
@@ -73,4 +83,4 @@ The user-provided historical-looking portrait and map/reference images in the lo
 - `AUD_SOFT_MYSTERIOUS_HARP`: "Soft Mysterious Harp Loop" by OpenGameArt user `cynicmusic`, available from <https://opengameart.org/content/soft-mysterious-harp-loop> under CC-BY 3.0.
 - `AUD_ENDING_SUMATRA_KEIBITAI`: "相対性理論 - スマトラ警備隊", supplied locally by the project owner for the ending screen and copied to `assets/audio/ending-sumatra-keibitai.mp3` for stable runtime import.
 
-All music is user-activated and non-essential for understanding or completing the game.
+All music begins only after player interaction and remains non-essential for understanding or completing the game.

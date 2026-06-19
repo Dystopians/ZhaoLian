@@ -39,6 +39,15 @@ All text/background combinations must pass required contrast.
 10. Road and distant vehicle impression.
 11. Split archival date comparison.
 12. Final report desk.
+13. Six ending-specific settlement illustrations:
+    - memorial wording / monument surface;
+    - balanced case-file archive;
+    - household absence after departure;
+    - untranslated blanks and preserved uncertainty;
+    - cross-witness testimony comparison;
+    - translation-delay suspicion and identity-risk shadow.
+
+Ending settlement art may layer map fragments, doorframes, paper, waterlike light, night/dawn overlap, and negative space to suggest temporal interlacing. It must remain non-photographic and must not invent a death scene, corpse, grave coordinate, or solved location.
 
 Optional supporting assets:
 

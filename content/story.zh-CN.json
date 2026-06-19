@@ -1803,12 +1803,14 @@
   "endings": [
     {
       "id": "monument",
+      "code": "END-A",
+      "numberLabel": "结局 A",
       "title": "纪念碑",
       "conditionLabel": "叙事封闭较高且争议字段精确",
       "paragraphs": [
         {
           "id": "end_a_p1",
-          "text": "郁达夫，化名赵廉，于1945年8月29日被日本宪兵诱捕，旋遭杀害。",
+          "text": "你生成的碑文写成：郁达夫，化名赵廉，于1945年8月29日被日本宪兵诱捕，旋遭杀害。",
           "classes": ["L"],
           "claimIds": ["HIS-009", "HIS-011"]
         },
@@ -1817,11 +1819,37 @@
           "text": "这段文字容易被记住。为了让它成为完整的一句话，你缩短了两个日期之间的距离。",
           "classes": ["R"],
           "claimIds": ["HIS-023"]
+        },
+        {
+          "id": "end_a_p3",
+          "text": "碑面把名字、日期和责任举到光里；碑背仍有水声，像另一张纸在暗处翻页。",
+          "classes": ["R"],
+          "claimIds": ["HIS-023"]
+        },
+        {
+          "id": "end_a_p4",
+          "text": "门外的夜被压进一句后来可以朗读的话。你听见它站住，也听见被它折叠的空白。",
+          "classes": ["R"],
+          "claimIds": ["HIS-012", "HIS-023"]
+        },
+        {
+          "id": "end_a_p5",
+          "text": "你选择的句法像把河面钉在碑座上：责任被读得更响，日期之间的沙粒却被风吹到背面。",
+          "classes": ["R"],
+          "claimIds": ["HIS-012", "HIS-023"]
+        },
+        {
+          "id": "end_a_p6",
+          "text": "如果有人在下一次路过时只记得这一行，他仍应知道：这不是全部材料，只是公共记忆愿意举起的一面。",
+          "classes": ["R"],
+          "claimIds": ["HIS-022", "HIS-023"]
         }
       ]
     },
     {
       "id": "case_file",
+      "code": "END-B",
+      "numberLabel": "结局 B",
       "title": "赵廉失踪案",
       "conditionLabel": "平衡默认",
       "paragraphs": [
@@ -1836,11 +1864,37 @@
           "text": "这份记录没有提供一个完整现场。因为历史没有留下完整现场。",
           "classes": ["R"],
           "claimIds": ["HIS-017"]
+        },
+        {
+          "id": "end_b_p3",
+          "text": "夜里的门、黎明的房间、后来调查的纸页在同一册案卷里互相照见；没有一页能替另一页闭合。",
+          "classes": ["R"],
+          "claimIds": ["HIS-017", "HIS-023"]
+        },
+        {
+          "id": "end_b_p4",
+          "text": "案卷像一条被夹进文件夹的河：它被压平，仍然流动；它被编号，仍然不肯变成谜底。",
+          "classes": ["R"],
+          "claimIds": ["HIS-022", "HIS-024"]
+        },
+        {
+          "id": "end_b_p5",
+          "text": "你把彼此冲突的证词排在同一桌上，让它们相互照亮，而不是互相吞没。",
+          "classes": ["R"],
+          "claimIds": ["HIS-017", "HIS-022"]
+        },
+        {
+          "id": "end_b_p6",
+          "text": "这个结局没有把夜晚缝合成白天。它只把每一处断线留出线头，好让后来者知道从哪里复核。",
+          "classes": ["R"],
+          "claimIds": ["HIS-017", "HIS-024"]
         }
       ]
     },
     {
       "id": "home",
+      "code": "END-C",
+      "numberLabel": "结局 C",
       "title": "家中未归者",
       "conditionLabel": "关怀和家庭证据较高",
       "paragraphs": [
@@ -1855,11 +1909,37 @@
           "text": "对文学史，失踪的是郁达夫。对屋里等待的人，失踪的是赵廉。",
           "classes": ["R"],
           "claimIds": ["HIS-019"]
+        },
+        {
+          "id": "end_c_p3",
+          "text": "同一夜在家中分成两条时间：一条走向门外，一条留在账本、衣物、搜索和出生记录里。",
+          "classes": ["R", "T"],
+          "claimIds": ["HIS-007", "HIS-008", "HIS-016"]
+        },
+        {
+          "id": "end_c_p4",
+          "text": "你没有把家庭写成注脚。等待也有形状：椅子的空位、门槛的边、第二天仍要被安排的生活。",
+          "classes": ["R"],
+          "claimIds": ["HIS-016", "HIS-023"]
+        },
+        {
+          "id": "end_c_p5",
+          "text": "家里的时间不因案卷结束而停止：有人要询问，有人要照看新生儿，有人要在同一张桌旁反复说起门口。",
+          "classes": ["R", "T"],
+          "claimIds": ["HIS-008", "HIS-016"]
+        },
+        {
+          "id": "end_c_p6",
+          "text": "你把妻子的行动留在句子里，使她不是失踪旁边的背景，而是继续辨认、安排和寻找的人。",
+          "classes": ["R"],
+          "claimIds": ["HIS-016", "HIS-019"]
         }
       ]
     },
     {
       "id": "untranslated",
+      "code": "END-D",
+      "numberLabel": "结局 D",
       "title": "未译之词",
       "conditionLabel": "证据克制高且保留多个空白",
       "paragraphs": [
@@ -1872,6 +1952,120 @@
         {
           "id": "end_d_p2",
           "text": "你没有把空白误写成答案。但空白也不能替死者作证。",
+          "classes": ["R"],
+          "claimIds": ["HIS-022", "HIS-023"]
+        },
+        {
+          "id": "end_d_p3",
+          "text": "称呼、日期、方式在纸上并排停住，像水面上的三处反光：相互接近，却不能被拉成同一条线。",
+          "classes": ["R", "U"],
+          "claimIds": ["HIS-012", "HIS-013", "HIS-022"]
+        },
+        {
+          "id": "end_d_p4",
+          "text": "未译不是沉默。它是一种听法：让缺口留在缺口的位置，让责任留在责任的位置。",
+          "classes": ["R"],
+          "claimIds": ["HIS-009", "HIS-022"]
+        },
+        {
+          "id": "end_d_p5",
+          "text": "这几处空白并非把责任放轻；它们只拒绝用缺失的细节换取一种听上去完整的安慰。",
+          "classes": ["R", "U"],
+          "claimIds": ["HIS-009", "HIS-022", "HIS-023"]
+        },
+        {
+          "id": "end_d_p6",
+          "text": "未译的词在纸上停顿，像河面忽然失去倒影：你知道那里有水，却不能替水说出岸的形状。",
+          "classes": ["R", "U"],
+          "claimIds": ["HIS-012", "HIS-013", "HIS-022"]
+        }
+      ]
+    },
+    {
+      "id": "testimony_weave",
+      "code": "END-E",
+      "numberLabel": "结局 E",
+      "title": "证词互校",
+      "conditionLabel": "三路访谈互校且保留材料边界",
+      "paragraphs": [
+        {
+          "id": "end_e_p1",
+          "text": "你把咖啡店、道路和家门三处证词并排放置。它们彼此照见，也彼此限制。",
+          "classes": ["T", "R"],
+          "claimIds": ["HIS-014", "HIS-015", "HIS-016"]
+        },
+        {
+          "id": "end_e_p2",
+          "text": "没有一位见证人替另一位见证人说完；没有一张纸把夜晚补成完整现场。",
+          "classes": ["R", "U"],
+          "claimIds": ["HIS-017", "HIS-022"]
+        },
+        {
+          "id": "end_e_p3",
+          "text": "问题的顺序像细线穿过纸面：从称呼，到衣物，到道路，再回到屋里仍未收起的日常。",
+          "classes": ["R", "T"],
+          "claimIds": ["HIS-007", "HIS-016", "HIS-021"]
+        },
+        {
+          "id": "end_e_p4",
+          "text": "互校不是把声音合成合唱。互校是让差异留下位置，让相近之处承担相近的重量。",
+          "classes": ["R"],
+          "claimIds": ["HIS-017", "HIS-024"]
+        },
+        {
+          "id": "end_e_p5",
+          "text": "你没有让提问变成逼供的形状。于是证词保留了犹疑、重复和绕开的边缘。",
+          "classes": ["R"],
+          "claimIds": ["HIS-022", "HIS-023"]
+        },
+        {
+          "id": "end_e_p6",
+          "text": "这份案卷不提供唯一镜面。它只把几处反光钉在同一页上，让后来者看见它们如何不重合。",
+          "classes": ["R", "U"],
+          "claimIds": ["HIS-017", "HIS-024"]
+        }
+      ]
+    },
+    {
+      "id": "delay_shadow",
+      "code": "END-F",
+      "numberLabel": "结局 F",
+      "title": "延宕疑云",
+      "conditionLabel": "翻译延宕和身份风险被前置但细节未闭合",
+      "paragraphs": [
+        {
+          "id": "end_f_p1",
+          "text": "你把翻译的延宕、名单在房间里的停留和身份暴露的风险排成一条暗线。它指向占领秩序中的压力，却不替最后一夜补画现场。",
+          "classes": ["C", "R", "U"],
+          "claimIds": ["HIS-003", "HIS-005", "HIS-009"]
+        },
+        {
+          "id": "end_f_p2",
+          "text": "可疑之处不是答案。它像灯下的阴影，提醒你看见谁握有权力，也提醒你别把阴影当成实体。",
+          "classes": ["R"],
+          "claimIds": ["HIS-009", "HIS-022"]
+        },
+        {
+          "id": "end_f_p3",
+          "text": "日本宪兵责任没有被写淡；只是从责任到操作细节之间，仍隔着证言、后来调查和无法复原的空处。",
+          "classes": ["L", "U"],
+          "claimIds": ["HIS-009", "HIS-012", "HIS-017"]
+        },
+        {
+          "id": "end_f_p4",
+          "text": "延宕让时间起皱：今天、明天、过几天，同时压在同一张名单上。",
+          "classes": ["R"],
+          "claimIds": ["HIS-003", "HIS-022"]
+        },
+        {
+          "id": "end_f_p5",
+          "text": "你没有把那个未明身份的青年写成替罪符。案卷只记录他进入材料的方式，不让他承担一个群体的罪名。",
+          "classes": ["R", "U"],
+          "claimIds": ["HIS-014", "HIS-022"]
+        },
+        {
+          "id": "end_f_p6",
+          "text": "这个结局让疑云留在疑云的位置：它遮住了很多事，却也说明光从哪里被挡住。",
           "classes": ["R"],
           "claimIds": ["HIS-022", "HIS-023"]
         }

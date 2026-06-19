@@ -25,7 +25,7 @@
 
 ## Epic E3 — Content
 
-- **CNT-001 P0:** Implement CH00–CH10 and four endings.
+- **CNT-001 P0:** Implement CH00–CH10 and six endings.
 - **CNT-002 P0:** Evidence and claim catalog.
 - **CNT-003 P0:** Source/methodology appendix.
 - **CNT-004 P1:** Wife agency pass and naming note.
@@ -66,6 +66,7 @@
 - **ART-003 P1:** Document/evidence props.
 - **AUD-001 P1:** Ambience system and loops.
 - **AUD-002 P1:** Required SFX and captions.
+- **AUD-003 P1:** Scene-specific open music sourcing matrix and per-track review sheet.
 - **ART-004 P2:** Post-game real-photo gallery with verified rights.
 
 ## Epic E8 — Quality and release

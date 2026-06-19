@@ -33,7 +33,7 @@ Deliver the complete static web interactive narrative described by the specifica
 
 - [x] Added `.ink` authoring files and a deterministic validation/manifest generation pipeline.
 - [x] Implemented tag protocol, story state, serialization, and narrative validation.
-- [x] Added traversal tests for four endings and no-rescue invariants.
+- [x] Added traversal tests for six endings and no-rescue invariants.
 - [x] Implemented source-class and evidence IDs in content and authoring tags.
 
 ### M3 - Core Game Systems
@@ -43,21 +43,22 @@ Deliver the complete static web interactive narrative described by the specifica
 - [x] Timeline, source chips, and source-mode overlays.
 - [x] Finite wait-mode interaction.
 - [x] Interview and final-report systems.
-- [x] Deterministic ending evaluator and ending renderer.
+- [x] Deterministic ending evaluator and ending-specific settlement renderer.
 
 ### M4 - Complete Narrative Content
 
 - [x] Implemented CH00-CH10 content.
-- [x] Implemented four non-ranked endings and shared final line.
+- [x] Implemented four non-ranked endings, expanded verbal settlements, and shared final line.
 - [x] Implemented evidence cards, claims, glossary, timeline, source register links, and methodology.
 - [x] Validated reconstruction labels and locked text.
 
 ### M5 - Visual And Audio Production
 
 - [x] Implemented original local CSS scene art and document-style visual states.
-- [x] Generated and integrated 17 consistent low-color silhouette WebP visuals, including portraits, context art, scene art, and a western-Pacific map background.
+- [x] Generated and integrated 21 consistent low-color silhouette WebP visuals, including portraits, context art, scene art, ending settlement art, and a western-Pacific map background.
 - [x] Implemented no-audio-required captions plus post-interaction auto-fading BGM controls.
 - [x] Added local lazy-loaded OpenGameArt stage music and `相対性理論 - スマトラ警備隊` ending-coda music controls.
+- [x] Added a free/open audio library research matrix for future scene-specific music sourcing.
 - [x] Added text equivalents and independent user settings.
 - [x] Verified no graphic death scene or fabricated execution representation.
 
@@ -94,37 +95,45 @@ Deliver the complete static web interactive narrative described by the specifica
 
 ## Current Risks And Mitigations
 
-| Risk                                                                        | Mitigation                                                                                                                                                                                  |
-| --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Historical primary-source gaps cannot be closed by code                     | Data classes, source links, unresolved labels, and historian packet prevent unresolved claims from becoming certainty.                                                                      |
-| External human review cannot be fabricated                                  | Release checklist and review packets list pending human sign-off as publication blockers.                                                                                                   |
-| Non-Chromium headless focus behavior is unstable for the deep keyboard test | Firefox, WebKit, and mobile still run dossier, save, network, reflow, completion, and axe smoke tests; desktop keyboard completion passes in Chromium.                                      |
-| Asset/audio rights                                                          | Shipped runtime images are project-generated WebP visuals; investigation music uses OpenGameArt tracks; the owner-supplied ending MP3 is registered and used only after player interaction. |
+| Risk                                                                        | Mitigation                                                                                                                                                                                                                                                               |
+| --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Historical primary-source gaps cannot be closed by code                     | Data classes, source links, unresolved labels, and historian packet prevent unresolved claims from becoming certainty.                                                                                                                                                   |
+| External human review cannot be fabricated                                  | Release checklist and review packets list pending human sign-off as publication blockers.                                                                                                                                                                                |
+| Non-Chromium headless focus behavior is unstable for the deep keyboard test | Firefox, WebKit, and mobile still run dossier, save, network, reflow, completion, and axe smoke tests; desktop keyboard completion passes in Chromium.                                                                                                                   |
+| Asset/audio rights                                                          | Shipped runtime images are project-generated WebP visuals; investigation music uses OpenGameArt tracks; the owner-supplied ending MP3 is registered and begins only after player interaction; new music expansion is constrained by `docs/36_AUDIO_LIBRARY_RESEARCH.md`. |
 
 ## Progress Log
 
-| Date       | Milestone | Work completed                                                                                         | Verification                                    |
-| ---------- | --------- | ------------------------------------------------------------------------------------------------------ | ----------------------------------------------- |
-| 2026-06-19 | M0        | Read all indexed Markdown specs and repository rules                                                   | `rg --files`, UTF-8 file reads                  |
-| 2026-06-19 | M0        | Spawned Narrative/History, Engine, UI/A11y, and QA/Release audits                                      | Subagent review findings integrated             |
-| 2026-06-19 | M1-M6     | Implemented app, content data, source system, saves, settings, reports, endings, validators, and tests | Focused `pnpm` commands passed                  |
-| 2026-06-19 | M7        | Added keyboard, save-restore, network, 320px, 200% text-scale, and cross-browser smoke E2E             | `pnpm run test:e2e`: 28 passed, 4 skipped       |
-| 2026-06-19 | M9        | Generated npm lock in clean copy, ran clean install and full verify                                    | `npm ci`: pass; `npm run verify`: pass          |
-| 2026-06-19 | M9        | Published GitHub Pages from `main` after switching deployment trigger from tag-only to default branch  | Deploy Pages run succeeded; remote smoke passed |
-| 2026-06-19 | M5        | Generated silhouette visual set, added map background, visual gallery, scene figures, and local music  | `pnpm run verify`: pass; screenshot QA passed   |
+| Date       | Milestone | Work completed                                                                                                        | Verification                                                                                                                         |
+| ---------- | --------- | --------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| 2026-06-19 | M0        | Read all indexed Markdown specs and repository rules                                                                  | `rg --files`, UTF-8 file reads                                                                                                       |
+| 2026-06-19 | M0        | Spawned Narrative/History, Engine, UI/A11y, and QA/Release audits                                                     | Subagent review findings integrated                                                                                                  |
+| 2026-06-19 | M1-M6     | Implemented app, content data, source system, saves, settings, reports, endings, validators, and tests                | Focused `pnpm` commands passed                                                                                                       |
+| 2026-06-19 | M7        | Added keyboard, save-restore, network, 320px, 200% text-scale, and cross-browser smoke E2E                            | `pnpm run test:e2e`: 28 passed, 4 skipped                                                                                            |
+| 2026-06-19 | M9        | Generated npm lock in clean copy, ran clean install and full verify                                                   | `npm ci`: pass; `npm run verify`: pass                                                                                               |
+| 2026-06-19 | M9        | Published GitHub Pages from `main` after switching deployment trigger from tag-only to default branch                 | Deploy Pages run succeeded; remote smoke passed                                                                                      |
+| 2026-06-19 | M5        | Generated silhouette visual set, added map background, visual gallery, scene figures, and local music                 | `pnpm run verify`: pass; screenshot QA passed                                                                                        |
+| 2026-06-19 | M4/M5     | Added four ending-specific settlement images and expanded the verbal settlement layer                                 | `pnpm run verify`: pass                                                                                                              |
+| 2026-06-19 | M4/M5     | Added `END-A` through `END-D` settlement numbering and unique Yu Dafu atmospheric codas                               | `pnpm run verify`: pass                                                                                                              |
+| 2026-06-19 | M4/M5     | Expanded each ending to six settlement paragraphs and five coda echoes using the existing template                    | `pnpm run verify`: pass                                                                                                              |
+| 2026-06-19 | M4/M5     | Added `END-E` 证词互校 and `END-F` 延宕疑云 with new settlement art and rationalized evaluator paths                  | `pnpm run verify`: pass                                                                                                              |
+| 2026-06-19 | M5        | Researched free/open audio libraries and added a scene-by-scene sourcing matrix                                       | `pnpm run format:check`; `pnpm run markdown:lint`                                                                                    |
+| 2026-06-19 | M4/M5     | Fixed ending settlement image loading so completion scrolls to the ending panel and the main ending art loads eagerly | `pnpm run typecheck`; `pnpm run lint`; `pnpm run test:narrative`; focused Playwright E2E; `pnpm run build`; in-app browser check     |
+| 2026-06-19 | M4/M5     | Audited ending rationale and tightened END-D/END-F conditions and wording to match displayed evidence                 | `pnpm run validate:content`; `pnpm run test:history`; unit/narrative vitest; `pnpm run typecheck`; `pnpm run lint`; `pnpm run build` |
 
 ## Decisions And Surprises
 
 Full entries live in `docs/30_DECISION_LOG.md`.
 
-| Date       | Topic          | Summary                                                                                                                                   | Decision    |
-| ---------- | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| 2026-06-19 | Static app     | Framework-free Vite + TypeScript + inkjs runtime baseline                                                                                 | DEC-001     |
-| 2026-06-19 | Local runtime  | Use bundled Node/pnpm locally while preserving npm lock and scripts                                                                       | DEC-008     |
-| 2026-06-19 | Asset strategy | Original local CSS/document assets only; no hotlinks                                                                                      | DEC-009     |
-| 2026-06-19 | Ink authoring  | Validate `.ink` author sources into a manifest because inkjs does not expose a CLI compiler in this package                               | DEC-010     |
-| 2026-06-19 | Browser matrix | Chromium desktop keyboard path, WebKit/mobile completion/reflow, and Firefox smoke/a11y after focus instability                           | DEC-011     |
-| 2026-06-19 | Media update   | AI-assisted non-photographic visuals, OpenGameArt investigation music, owner-supplied ending music, and lazy-media performance accounting | DEC-013/014 |
+| Date       | Topic          | Summary                                                                                                                                                          | Decision    |
+| ---------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| 2026-06-19 | Static app     | Framework-free Vite + TypeScript + inkjs runtime baseline                                                                                                        | DEC-001     |
+| 2026-06-19 | Local runtime  | Use bundled Node/pnpm locally while preserving npm lock and scripts                                                                                              | DEC-008     |
+| 2026-06-19 | Asset strategy | Original local CSS/document assets only; no hotlinks                                                                                                             | DEC-009     |
+| 2026-06-19 | Ink authoring  | Validate `.ink` author sources into a manifest because inkjs does not expose a CLI compiler in this package                                                      | DEC-010     |
+| 2026-06-19 | Browser matrix | Chromium desktop keyboard path, WebKit/mobile completion/reflow, and Firefox smoke/a11y after focus instability                                                  | DEC-011     |
+| 2026-06-19 | Media update   | AI-assisted non-photographic visuals, ending settlement art, OpenGameArt investigation music, owner-supplied ending music, and lazy-media performance accounting | DEC-013/014 |
+| 2026-06-19 | Audio sourcing | Future music expansion uses a curated open/free source matrix and per-track license review rather than bulk importing library files                              | DEC-016     |
 
 ## Final Verification Evidence
 
@@ -134,10 +143,10 @@ Full entries live in `docs/30_DECISION_LOG.md`.
 | Clean install            | clean temp copy, official Node `24.14.0`, `npm ci`                                           | PASS                      | 260 packages installed, 0 vulnerabilities                                        |
 | Clean npm verify         | clean temp copy, `npm run verify`                                                            | PASS                      | formatting, lint, coverage, narrative, validators, build, E2E, a11y, attribution |
 | Local install            | bundled Node + `pnpm install --frozen-lockfile`                                              | PASS                      | lockfile up to date                                                              |
-| Full local verify        | `pnpm run verify`                                                                            | PASS after media update   | formatting, lint, coverage, narrative, validators, build, E2E, a11y, attribution |
-| Production build         | `npm run build` / `pnpm run build`                                                           | PASS                      | initial gzip 321,624 bytes; lazy media gzip 10,982,437 bytes                     |
+| Full local verify        | `pnpm run verify`                                                                            | PASS after coda numbering | formatting, lint, coverage, narrative, validators, build, E2E, a11y, attribution |
+| Production build         | `npm run build` / `pnpm run build`                                                           | PASS                      | initial gzip 328,293 bytes; lazy media gzip 11,402,080 bytes                     |
 | Remote Pages smoke       | `https://dystopians.github.io/ZhaoLian/` plus Chromium smoke                                 | PASS                      | HTTP 200, JS/CSS 200, title/H1 rendered, no console errors                       |
-| Narrative traversal      | `npm run test:narrative`                                                                     | PASS                      | 6 narrative tests                                                                |
+| Narrative traversal      | `npm run test:narrative`                                                                     | PASS                      | 7 narrative tests                                                                |
 | E2E                      | `npm run test:e2e`                                                                           | PASS                      | 32 passed, 4 documented deep-interaction skips                                   |
 | Accessibility automation | `npm run test:a11y`                                                                          | PASS                      | 7 passed, 1 Firefox deep-state skip                                              |
 | Historical lint          | `npm run test:history`                                                                       | PASS                      | historical content lint passed                                                   |

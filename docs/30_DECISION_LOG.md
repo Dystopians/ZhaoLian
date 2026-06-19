@@ -114,6 +114,38 @@ Record decisions as immutable entries. Supersede rather than silently rewrite ol
 - **Consequences:** First readable content remains protected while the release report honestly tracks media weight. Runtime UI loads scene images lazily and audio only after player interaction, then auto-fades stage BGM as the casefile progresses.
 - **Requirements affected:** AC-055, AC-065, AC-066.
 
+## DEC-015 - Ending-Specific Settlement Art And Verbal Coda
+
+- **Status:** accepted.
+- **Date:** 2026-06-19.
+- **Context:** The four non-ranked endings originally shared a report-desk visual and brief coda. The project owner requested distinct settlement screens and a more language-forward ending layer with a time-space interlacing feeling.
+- **Options considered:** Add ranked endings; keep four endings and only change presentation; add two non-ranked endings for existing but underused state dimensions.
+- **Decision:** Keep the archival-ethics structure and deterministic evaluator, expand each ending's text to the current six-paragraph settlement template, display stable `END-A` through `END-F` catalog markers, and add one original non-photographic WebP settlement image per ending. `END-E` uses careful cross-witness questioning; `END-F` uses translation-delay suspicion without closing death details. The settlement coda also gives each ending a distinct short Yu Dafu atmospheric excerpt and five ending-specific echo lines, explicitly framed as echo rather than last words. The art uses map, paper, threshold, waterlike light, and negative space rather than depicting execution, corpse, grave, or solved death location.
+- **Consequences:** Endings now feel more materially and verbally distinct while preserving the no-true-ending rule and the threshold/uncertainty constraints.
+- **Requirements affected:** AC-004, AC-005, AC-013, AC-066, AC-071.
+
+## DEC-016 - Curated Open Audio Sourcing Before Runtime Import
+
+- **Status:** accepted.
+- **Date:** 2026-06-19.
+- **Context:** The project owner requested richer, more varied music sources for
+  different scene contexts. Asset policy requires provenance and redistribution
+  rights for every shipped file, while many free libraries mix CC0, CC-BY, NC,
+  platform-specific, and unclear terms.
+- **Options considered:** Bulk-download tracks from free libraries; keep the
+  current limited music set until a full composer pass; create a curated
+  source-and-scene matrix and require per-track review before import.
+- **Decision:** Add `docs/36_AUDIO_LIBRARY_RESEARCH.md` as the audio expansion
+  route. It records viable free/open libraries, scene-fit recommendations, and a
+  per-track review checklist. No new runtime music is added until exact track
+  pages, licenses, attribution text, loop quality, file size, and prohibited-cue
+  risks are reviewed and registered.
+- **Consequences:** Future audio expansion can be broader without weakening the
+  release asset gate. Candidate discovery can proceed quickly, but shipped
+  tracks still pass through `content/assets.json`, attribution generation, and
+  playback/accessibility checks.
+- **Requirements affected:** AC-055, AC-066, AC-071, AC-072.
+
 ## Template For New Decisions
 
 ```text

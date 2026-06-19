@@ -11,7 +11,7 @@
 
 ## Implemented Product
 
-The release candidate implements the full zh-CN browser narrative from title screen through CH00-CH10, including finite wait mode, translation and questioning scenes, dossier tabs, source mode, final report drafting, four non-ranked endings, and the locked shared final line.
+The release candidate implements the full zh-CN browser narrative from title screen through CH00-CH10, including finite wait mode, translation and questioning scenes, dossier tabs, source mode, final report drafting, six non-ranked endings with numbered distinct settlement screens, and the locked shared final line. Each ending currently carries six settlement paragraphs and five coda echoes.
 
 The game preserves the fixed historical disappearance. It has no rescue route, no following past the threshold, no execution scene, no invented last words, and no true-answer ending. Historical claims, evidence, timeline entries, glossary terms, source classes, and unresolved clusters live in versioned JSON data under `content/`.
 
@@ -22,24 +22,25 @@ The game preserves the fixed historical disappearance. It has no rescue route, n
 - Ink validation: `scripts/compile-ink.mjs` produces `generated/narrative-manifest.json`.
 - Evidence and claims: `src/evidence/*`, `content/evidence.zh-CN.json`, `content/claims.zh-CN.json`, `content/sources.json`.
 - Report and endings: `src/report/ReportBuilder.ts`, `src/report/EndingEvaluator.ts`.
+- Ending settlement codas: `src/app/AppController.ts`, `src/content/mediaAssets.ts`, `content/story.zh-CN.json`.
 - Saves and settings: `src/save/*`, `src/state/*`.
 - Validation: `scripts/validate-content.mjs`, `scripts/validate-history.mjs`, `scripts/check-performance.mjs`, `scripts/generate-attributions.mjs`.
 - CI/deploy: `.github/workflows/ci.yml`, `.github/workflows/deploy-pages.yml`, `.github/workflows/dependency-review.yml`.
 
 ## Verification
 
-| Check                    | Command/procedure                                           | Result                                | Evidence                                                              |
-| ------------------------ | ----------------------------------------------------------- | ------------------------------------- | --------------------------------------------------------------------- |
-| Clean install            | clean temporary checkout, official Node `24.14.0`, `npm ci` | PASS                                  | 260 packages installed, 0 vulnerabilities                             |
-| Full npm verify          | clean temporary checkout, `npm run verify`                  | PASS                                  | all verify stages completed                                           |
-| Full pnpm verify         | `pnpm run verify`                                           | PASS after final documentation update | latest terminal run                                                   |
-| Production build         | `npm run build` / `vite build` through verify               | PASS                                  | `dist/`, initial gzip 321,624 bytes; lazy media gzip 10,982,437 bytes |
-| Narrative invariants     | `npm run test:narrative`                                    | PASS                                  | 6 tests, four endings and no-rescue invariant                         |
-| Unit coverage            | `npm run test:coverage`                                     | PASS                                  | statements 89.25%, branches 82.58%, functions 94.11%, lines 88.61%    |
-| E2E                      | `npm run test:e2e`                                          | PASS                                  | 32 passed, 4 documented deep-interaction skips                        |
-| Accessibility automation | `npm run test:a11y`                                         | PASS                                  | 7 passed, 1 Firefox deep-state skip                                   |
-| Historical lint          | `npm run test:history`                                      | PASS                                  | source classes, unresolved labels, and prohibited claims checked      |
-| Performance              | `scripts/check-performance.mjs`                             | PASS                                  | initial gzip 321,624 bytes; lazy media gzip 10,982,437 bytes          |
+| Check                    | Command/procedure                                           | Result                       | Evidence                                                                 |
+| ------------------------ | ----------------------------------------------------------- | ---------------------------- | ------------------------------------------------------------------------ |
+| Clean install            | clean temporary checkout, official Node `24.14.0`, `npm ci` | PASS                         | 260 packages installed, 0 vulnerabilities                                |
+| Full npm verify          | clean temporary checkout, `npm run verify`                  | PASS                         | all verify stages completed                                              |
+| Full pnpm verify         | `pnpm run verify`                                           | PASS after six-ending update | latest terminal run                                                      |
+| Production build         | `npm run build` / `vite build` through verify               | PASS                         | `dist/`, initial gzip 328,293 bytes; lazy media gzip 11,402,080 bytes    |
+| Narrative invariants     | `npm run test:narrative`                                    | PASS                         | 7 tests, six endings, six-paragraph settlements, and no-rescue invariant |
+| Unit coverage            | `npm run test:coverage`                                     | PASS                         | statements 89.25%, branches 82.58%, functions 94.11%, lines 88.61%       |
+| E2E                      | `npm run test:e2e`                                          | PASS                         | 32 passed, 4 documented deep-interaction skips                           |
+| Accessibility automation | `npm run test:a11y`                                         | PASS                         | 7 passed, 1 Firefox deep-state skip                                      |
+| Historical lint          | `npm run test:history`                                      | PASS                         | source classes, unresolved labels, and prohibited claims checked         |
+| Performance              | `scripts/check-performance.mjs`                             | PASS                         | initial gzip 328,293 bytes; lazy media gzip 11,402,080 bytes             |
 
 ## Acceptance Status
 
@@ -51,5 +52,6 @@ Public-release human review gates are not fabricated: `HISTORIAN_REVIEW_PACKET.m
 
 - Genuine human historian and accessibility reviewer signatures are pending for public publication.
 - Firefox, WebKit, and mobile headless profiles run smoke, save, network, reflow, completion, and axe checks; the deep keyboard path is limited to desktop Chromium because other headless focus states were unstable.
-- No real historical photos ship in this RC; runtime visuals are project-owned AI-assisted WebP illustrations with prompt records and asset metadata.
+- No real historical photos ship in this RC; runtime visuals are project-owned AI-assisted WebP illustrations with prompt records and asset metadata, including four ending-specific settlement images.
+- Ending screens show `END-A` through `END-F` as non-ranked catalog codes and use short Yu Dafu atmospheric excerpts only as literary echoes, never as last words or interior monologue.
 - Investigation-stage music uses local OpenGameArt audio with attribution metadata; the ending screen uses the owner-supplied `相対性理論 - スマトラ警備隊.mp3` track copied to a stable runtime filename and listed in `content/assets.json`.

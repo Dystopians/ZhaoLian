@@ -46,6 +46,7 @@ This is the authoritative routing map for the specification repository. Codex an
 - `17_LOCALIZATION.md`
 - `33_EDITORIAL_STYLE_GUIDE.md`
 - `34_ASSET_AND_LICENSE_POLICY.md`
+- `36_AUDIO_LIBRARY_RESEARCH.md`
 
 ### Tier 5 — Planning, inventory, and review support
 
@@ -123,6 +124,7 @@ Then read the phase-specific routes below.
 - `16_ACCESSIBILITY.md`
 - `17_LOCALIZATION.md`
 - `34_ASSET_AND_LICENSE_POLICY.md`
+- `36_AUDIO_LIBRARY_RESEARCH.md`
 
 ### Data, saves, security, and performance
 
@@ -192,6 +194,7 @@ Then read the phase-specific routes below.
 | `33_EDITORIAL_STYLE_GUIDE.md`         | Chinese prose, certainty, naming and UI language      | Yes                                     |
 | `34_ASSET_AND_LICENSE_POLICY.md`      | Provenance, licenses, real photos, fonts              | Yes                                     |
 | `35_GLOSSARY.md`                      | Stable product/historical/technical terminology       | Yes                                     |
+| `36_AUDIO_LIBRARY_RESEARCH.md`        | Open audio sourcing matrix and scene-fit research     | Operational                             |
 
 ## Completion audit
 

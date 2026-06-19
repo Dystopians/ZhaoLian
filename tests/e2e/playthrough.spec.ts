@@ -20,13 +20,37 @@ const path = [
 
 async function clickPath(page: import('@playwright/test').Page, labels: readonly string[]) {
   for (const label of labels) {
-    await page.getByRole('button', { name: label }).click();
+    await clickVisibleButton(page, label);
   }
+}
+
+async function clickVisibleButton(page: import('@playwright/test').Page, label: string) {
+  const button = page.getByRole('button', { name: label });
+  await expect(button).toBeVisible();
+  await button.click({ force: true });
 }
 
 async function activateLocatorByKeyboard(locator: import('@playwright/test').Locator) {
   await expect(locator).toBeVisible();
   await locator.press('Enter');
+}
+
+async function expectEndingVisualLoaded(page: import('@playwright/test').Page) {
+  const visual = page.locator('.ending-visual img');
+  await expect(visual).toHaveAttribute(
+    'src',
+    /ending-(monument|case-file|home|untranslated|testimony-weave|delay-shadow)/,
+  );
+  await expect(visual).toHaveJSProperty('naturalWidth', 1280);
+  await expect(visual).toHaveJSProperty('naturalHeight', 720);
+  await expect
+    .poll(async () => {
+      const box = await page.locator('.ending-visual').boundingBox();
+      const viewport = page.viewportSize();
+      if (!box || !viewport) return false;
+      return box.y >= 0 && box.y < viewport.height;
+    })
+    .toBe(true);
 }
 
 test('player can start, wait to dawn, and generate an ending', async ({ page, browserName }) => {
@@ -39,7 +63,7 @@ test('player can start, wait to dawn, and generate an ending', async ({ page, br
   await clickPath(page, path);
   await expect(page.getByRole('button', { name: '等。' })).toBeVisible();
   for (const label of ['等。', '再等一会儿。', '继续等。', '还等。', '等到天亮。']) {
-    await page.getByRole('button', { name: label }).click();
+    await clickVisibleButton(page, label);
   }
   await expect(page.getByRole('heading', { name: '八月三十日' })).toBeVisible();
   await clickPath(page, [
@@ -59,6 +83,9 @@ test('player can start, wait to dawn, and generate an ending', async ({ page, br
   await page.getByRole('button', { name: '确认并生成案卷结局' }).click();
   await expect(page.getByText('无论你如何编目，他都没有从门外回来。')).toBeVisible();
   await expect(page.getByText('案卷完成：相対性理論 - スマトラ警備隊')).toBeVisible();
+  await expect(page.locator('.context-rail')).toContainText(/END-[A-F]/);
+  await expect(page.locator('.yu-excerpt')).toContainText(/郁达夫/);
+  await expectEndingVisualLoaded(page);
 });
 
 test('core path can be completed with keyboard-activated controls and visible focus', async ({
@@ -108,7 +135,12 @@ test('core path can be completed with keyboard-activated controls and visible fo
   await page.keyboard.press('Space');
   await expect(radio).toBeChecked();
   await activateLocatorByKeyboard(page.locator('.report-form button[type="submit"]'));
-  await expect(page.locator('.context-rail')).toContainText(/monument|case_file|home|untranslated/);
+  await expect(page.locator('.context-rail')).toContainText(
+    /纪念碑|赵廉失踪案|家中未归者|未译之词|证词互校|延宕疑云/,
+  );
+  await expect(page.locator('.context-rail')).toContainText(/END-[A-F]/);
+  await expect(page.locator('.yu-excerpt')).toContainText(/郁达夫/);
+  await expectEndingVisualLoaded(page);
 });
 
 test('dossier and source mode are available without blocking progress', async ({ page }) => {

@@ -205,7 +205,7 @@ export class StoryEngine {
       {
         id: `${sceneId}_title`,
         sceneId,
-        text: `结局：${ending.title}`,
+        text: `结局：${ending.code}｜${ending.title}`,
         classes: ['R'],
         claimIds: ['HIS-023'],
       },

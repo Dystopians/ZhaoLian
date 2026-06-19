@@ -497,7 +497,8 @@ Ending evaluation occurs after confirmation.
 
 ## Endings
 
-There is no success/failure label. Each ending shows the generated report, a reflection on what was made visible or erased, then the shared final line.
+There is no success/failure label. Each ending shows the generated report, a six-paragraph reflection on what was made visible or erased, then the shared final line.
+The settlement screen displays both the stable code (`END-A` through `END-F`) and the localized label (`结局 A` through `结局 F`); these are catalog markers, not rankings.
 
 ### END-A — `monument` / 纪念碑
 
@@ -505,11 +506,12 @@ Typical condition: high closure; precise wording chosen despite conflict.
 
 Base text:
 
-> 郁达夫，化名赵廉，于1945年8月29日被日本宪兵诱捕，旋遭杀害。
+> 你生成的碑文写成：郁达夫，化名赵廉，于1945年8月29日被日本宪兵诱捕，旋遭杀害。
 >
 > 这段文字容易被记住。为了让它成为完整的一句话，你缩短了两个日期之间的距离。
 
 Do not accuse the player of wrongdoing; explain public-memory function and evidentiary cost.
+The current settlement coda uses a distinct memorial image and a short Yu Dafu atmospheric excerpt, but it must not present that excerpt as a last word.
 
 ### END-B — `case_file` / 赵廉失踪案
 
@@ -521,6 +523,8 @@ Base text:
 >
 > 这份记录没有提供一个完整现场。因为历史没有留下完整现场。
 
+The current settlement coda uses a distinct case-file image and a short Yu Dafu atmospheric excerpt, but it must not turn isolation into solved interiority.
+
 ### END-C — `home` / 家中未归者
 
 Typical condition: high care and household evidence.
@@ -530,6 +534,8 @@ Base text:
 > 1945年8月29日晚，赵廉穿睡衣和木屐离开家中，说很快回来。8月30日，家人开始寻找。女儿于同日出生。他没有回来。
 >
 > 对文学史，失踪的是郁达夫。对屋里等待的人，失踪的是赵廉。
+
+The current settlement coda uses a distinct home-threshold image and a short Yu Dafu atmospheric excerpt, while preserving household agency.
 
 ### END-D — `untranslated` / 未译之词
 
@@ -543,6 +549,32 @@ Base form:
 > 遗骸：未发现
 >
 > 你没有把空白误写成答案。但空白也不能替死者作证。
+
+The current settlement coda uses a distinct blank-language image and a short Yu Dafu atmospheric excerpt, while keeping unresolved fields unresolved.
+
+### END-E — `testimony_weave` / 证词互校
+
+Typical condition: careful neutral/narrative questioning across three witness zones, high rigor, low closure, and non-blank address record.
+
+Base text:
+
+> 你把咖啡店、道路和家门三处证词并排放置。它们彼此照见，也彼此限制。
+>
+> 没有一位见证人替另一位见证人说完；没有一张纸把夜晚补成完整现场。
+
+The current settlement coda uses a distinct cross-witness image and a short Yu Dafu atmospheric excerpt, while preserving differences between testimony clusters.
+
+### END-F — `delay_shadow` / 延宕疑云
+
+Typical condition: high suspicion from translation delay and identity-risk choices, but final report does not close disputed death details.
+
+Base text:
+
+> 你把翻译的延宕、名单在房间里的停留和身份暴露的风险排成一条暗线。它指向占领秩序中的压力，却不替最后一夜补画现场。
+>
+> 可疑之处不是答案。它像灯下的阴影，提醒你看见谁握有权力，也提醒你别把阴影当成实体。
+
+The current settlement coda uses a distinct delay-shadow image and a short Yu Dafu atmospheric excerpt, while keeping Japanese military-police responsibility distinct from unresolved operational details.
 
 ### Shared final line
 

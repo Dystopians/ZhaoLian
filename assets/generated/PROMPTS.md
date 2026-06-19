@@ -14,24 +14,51 @@ Shared visual constraints for all generated images:
 
 ## Output Map
 
-| File                                                              | Prompt focus                                                                                      |
-| ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| `assets/generated/visuals/map-western-pacific.webp`               | Segmented western Pacific War schematic map with Sumatra/Malaya/Singapore context and route arcs. |
-| `assets/generated/visuals/portrait-yu-dafu.webp`                  | Respectful non-photographic Yu Dafu-inspired portrait, not copied from a historical photo.        |
-| `assets/generated/visuals/portrait-zhao-lian.webp`                | Alias-layer portrait with paperwork and obscured identity.                                        |
-| `assets/generated/visuals/context-sumatra-invasion.webp`          | Restrained Japanese invasion of Sumatra context, distant landing shapes, no close combat.         |
-| `assets/generated/visuals/context-payakumbuh-administration.webp` | Payakumbuh administrative/civic room with ledgers, household papers, and occupation pressure.     |
-| `assets/generated/visuals/scene-archive-desk.webp`                | Archive title desk with blank case folders, map edge, and pencil.                                 |
-| `assets/generated/visuals/scene-wine-factory.webp`                | Rainy wine-factory interior with crates, bottles, ledger, and ordinary work.                      |
-| `assets/generated/visuals/scene-police-office.webp`               | Military-police office, name list, lamp, files, and uniform-fragment shadow.                      |
-| `assets/generated/visuals/scene-night-room.webp`                  | Night room with fan shadow, lamp, shutters, and papers.                                           |
-| `assets/generated/visuals/scene-yu-sensei-table.webp`             | Wine-table identity exposure, cropped figures, cup, bottle, and silence.                          |
-| `assets/generated/visuals/scene-radio-objects.webp`               | Radio, route map, account book, small box, and surrender-period uncertainty.                      |
-| `assets/generated/visuals/scene-doorway.webp`                     | Doorway threshold with wooden clogs; narrative does not follow outside.                           |
-| `assets/generated/visuals/scene-dawn-room.webp`                   | Dawn room after waiting, wife/family agency implied through papers and household action.          |
-| `assets/generated/visuals/scene-coffee-shop.webp`                 | Coffee-shop vicinity and town street used for testimony gathering.                                |
-| `assets/generated/visuals/scene-road-vehicle.webp`                | Distant vehicle impression with unresolved occupants and no make/model certainty.                 |
-| `assets/generated/visuals/scene-date-comparison.webp`             | Abstract split archive date comparison with no photos, portraits, or legible dates.               |
-| `assets/generated/visuals/scene-final-report.webp`                | Final report desk and coda image with documents, map, pencil, and partly covered portrait card.   |
+| File                                                              | Prompt focus                                                                                        |
+| ----------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `assets/generated/visuals/map-western-pacific.webp`               | Segmented western Pacific War schematic map with Sumatra/Malaya/Singapore context and route arcs.   |
+| `assets/generated/visuals/portrait-yu-dafu.webp`                  | Respectful non-photographic Yu Dafu-inspired portrait, not copied from a historical photo.          |
+| `assets/generated/visuals/portrait-zhao-lian.webp`                | Alias-layer portrait with paperwork and obscured identity.                                          |
+| `assets/generated/visuals/context-sumatra-invasion.webp`          | Restrained Japanese invasion of Sumatra context, distant landing shapes, no close combat.           |
+| `assets/generated/visuals/context-payakumbuh-administration.webp` | Payakumbuh administrative/civic room with ledgers, household papers, and occupation pressure.       |
+| `assets/generated/visuals/scene-archive-desk.webp`                | Archive title desk with blank case folders, map edge, and pencil.                                   |
+| `assets/generated/visuals/scene-wine-factory.webp`                | Rainy wine-factory interior with crates, bottles, ledger, and ordinary work.                        |
+| `assets/generated/visuals/scene-police-office.webp`               | Military-police office, name list, lamp, files, and uniform-fragment shadow.                        |
+| `assets/generated/visuals/scene-night-room.webp`                  | Night room with fan shadow, lamp, shutters, and papers.                                             |
+| `assets/generated/visuals/scene-yu-sensei-table.webp`             | Wine-table identity exposure, cropped figures, cup, bottle, and silence.                            |
+| `assets/generated/visuals/scene-radio-objects.webp`               | Radio, route map, account book, small box, and surrender-period uncertainty.                        |
+| `assets/generated/visuals/scene-doorway.webp`                     | Doorway threshold with wooden clogs; narrative does not follow outside.                             |
+| `assets/generated/visuals/scene-dawn-room.webp`                   | Dawn room after waiting, wife/family agency implied through papers and household action.            |
+| `assets/generated/visuals/scene-coffee-shop.webp`                 | Coffee-shop vicinity and town street used for testimony gathering.                                  |
+| `assets/generated/visuals/scene-road-vehicle.webp`                | Distant vehicle impression with unresolved occupants and no make/model certainty.                   |
+| `assets/generated/visuals/scene-date-comparison.webp`             | Abstract split archive date comparison with no photos, portraits, or legible dates.                 |
+| `assets/generated/visuals/scene-final-report.webp`                | Final report desk and coda image with documents, map, pencil, and partly covered portrait card.     |
+| `assets/generated/visuals/ending-monument.webp`                   | Monument ending settlement image: memorial wording, map fragments, doorframe, and folded blanks.    |
+| `assets/generated/visuals/ending-case-file.webp`                  | Case-file ending settlement image: open dossier, drawers, map threads, night door, and dawn window. |
+| `assets/generated/visuals/ending-home.webp`                       | Home ending settlement image: threshold, empty chair, clogs, household objects, and split time.     |
+| `assets/generated/visuals/ending-untranslated.webp`               | Untranslated ending settlement image: blank slips, bracket-like gaps, archive room, and river void. |
+| `assets/generated/visuals/ending-testimony-weave.webp`            | Testimony-weave ending settlement image: three witness sheets, pins, threads, map, and river light. |
+| `assets/generated/visuals/ending-delay-shadow.webp`               | Delay-shadow ending settlement image: translation desk, ledger, clock, lamp, and window pressure.   |
 
 One earlier generated date-comparison candidate was discarded because it introduced photo-like reference panels; it was not copied into the workspace.
+
+## Ending Settlement Prompt Addendum
+
+Date: 2026-06-19.
+
+Mode: built-in `image_gen`, followed by local Pillow resize/compression to WebP.
+
+Shared ending constraints:
+
+- 16:9 game settlement illustration;
+- same low-color silhouette / archival collage style as the rest of the project;
+- time-space interlacing through map layers, doorframes, paper, waterlike light, night/dawn overlap, and negative space;
+- no readable text, logos, watermarks, gore, execution, corpse, grave, exact death scene, or fake documentary photograph;
+- visual language may suggest memory folding and temporal reflection, but must not solve unresolved historical details.
+
+## Additional Ending Prompt Addendum
+
+Date: 2026-06-19.
+
+- `ending-testimony-weave.webp`: generated for `END-E / 证词互校` as an archival desk with three witness sheets, thread pins, coffee-shop/road/household threshold impressions, and waterlike reflections that do not merge into a solved answer.
+- `ending-delay-shadow.webp`: generated for `END-F / 延宕疑云` as a translator's desk with ledger, stopped clock, lamp, name-list fragments, map edge, and outside pressure rendered as indistinct silhouettes rather than identifiable perpetrators or a collective blame symbol.

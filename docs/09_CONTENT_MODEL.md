@@ -106,6 +106,22 @@ interface GameState {
 }
 ```
 
+## Ending content
+
+```ts
+interface EndingContent {
+  id: 'monument' | 'case_file' | 'home' | 'untranslated' | 'testimony_weave' | 'delay_shadow';
+  code: 'END-A' | 'END-B' | 'END-C' | 'END-D' | 'END-E' | 'END-F';
+  numberLabel: string;
+  title: string;
+  conditionLabel: string;
+  paragraphs: TextBlock[];
+}
+```
+
+The settlement UI must display both `code` and `numberLabel`. The ending code is a catalog marker,
+not a rank, route score, or truth hierarchy.
+
 ## Settings state
 
 Story saves and settings are separate.

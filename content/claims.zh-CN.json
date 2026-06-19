@@ -328,7 +328,7 @@
   {
     "id": "HIS-023",
     "shortLabel": "无唯一正确结局",
-    "statement": "四种结局代表不同档案伦理，而不是成功、失败或真相等级。",
+    "statement": "六种结局代表不同档案伦理，而不是成功、失败或真相等级。",
     "sourceClass": "R",
     "confidence": "high",
     "sourceIds": ["SRC-H008"],

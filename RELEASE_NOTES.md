@@ -5,10 +5,10 @@
 ### Added
 
 - Complete zh-CN static browser narrative from CH00 through CH10.
-- Four non-ranked endings with deterministic hidden report evaluation.
+- Six non-ranked endings with deterministic hidden report evaluation, six-paragraph verbal settlements, visible `END-A` through `END-F` catalog markers, ending-specific settlement images, and distinct Yu Dafu atmospheric codas.
 - Source-mode chips, dossier tabs, evidence, claims, timeline, sources, glossary, methodology, credits, and privacy text.
 - Local autosave, restore, export/import validation, settings persistence, and destructive reset confirmation.
-- Original low-color WebP silhouette visual assets, including a western-Pacific map background, chapter scene art, two non-photographic portrait treatments, and context illustrations.
+- Original low-color WebP silhouette visual assets, including a western-Pacific map background, chapter scene art, ending settlement art, two non-photographic portrait treatments, and context illustrations.
 - Local lazy-loaded OpenGameArt stage music plus the owner-supplied `相対性理論 - スマトラ警備隊` ending track, all with text sound captions and post-interaction auto-fading playback controls.
 - Full validation and release toolchain: format, Markdown lint, ESLint, unit coverage, narrative traversal, content/history validators, TypeScript, production build, performance budget, E2E, accessibility scans, and attribution generation.
 - GitHub Actions CI, dependency review, and static Pages deployment workflows.
