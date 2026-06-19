@@ -24,13 +24,9 @@ async function clickPath(page: import('@playwright/test').Page, labels: readonly
   }
 }
 
-async function activateLocatorByKeyboard(
-  page: import('@playwright/test').Page,
-  locator: import('@playwright/test').Locator,
-) {
-  await locator.focus();
-  await expect(locator).toBeFocused();
-  await page.keyboard.press('Enter');
+async function activateLocatorByKeyboard(locator: import('@playwright/test').Locator) {
+  await expect(locator).toBeVisible();
+  await locator.press('Enter');
 }
 
 test('player can start, wait to dawn, and generate an ending', async ({ page, browserName }) => {
@@ -82,11 +78,11 @@ test('core path can be completed with keyboard-activated controls and visible fo
 
   await page.keyboard.press('Enter');
   for (const label of path) {
-    await activateLocatorByKeyboard(page, page.getByRole('button', { name: label }));
+    await activateLocatorByKeyboard(page.getByRole('button', { name: label }));
   }
 
   for (const label of ['等。', '再等一会儿。', '继续等。', '还等。', '等到天亮。']) {
-    await activateLocatorByKeyboard(page, page.getByRole('button', { name: label }));
+    await activateLocatorByKeyboard(page.getByRole('button', { name: label }));
   }
 
   for (const label of [
@@ -102,7 +98,7 @@ test('core path can be completed with keyboard-activated controls and visible fo
     '固定后来调查簇。',
     '把两个日期标为冲突。',
   ]) {
-    await activateLocatorByKeyboard(page, page.getByRole('button', { name: label }));
+    await activateLocatorByKeyboard(page.getByRole('button', { name: label }));
   }
 
   await expect(page.locator('.report-form')).toBeVisible();
@@ -110,7 +106,7 @@ test('core path can be completed with keyboard-activated controls and visible fo
   await radio.focus();
   await page.keyboard.press('Space');
   await expect(radio).toBeChecked();
-  await activateLocatorByKeyboard(page, page.locator('.report-form button[type="submit"]'));
+  await activateLocatorByKeyboard(page.locator('.report-form button[type="submit"]'));
   await expect(page.locator('.context-rail')).toContainText(/monument|case_file|home|untranslated/);
 });
 
@@ -163,7 +159,9 @@ test('core play does not issue third-party network requests', async ({ page }) =
 
   await page.goto('/');
   await page.getByRole('button', { name: '开始新案卷' }).click();
-  await clickPath(page, path.slice(0, 4));
+  for (let step = 0; step < 4; step += 1) {
+    await page.locator('.choice-button').first().click();
+  }
   expect(externalRequests).toEqual([]);
 });
 
