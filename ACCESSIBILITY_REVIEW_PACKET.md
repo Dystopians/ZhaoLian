@@ -4,21 +4,21 @@ This packet records automated evidence and the remaining manual scripts for genu
 
 ## Automated Results
 
-| State/browser        | Tool/command        | Result                                                | Report path          |
-| -------------------- | ------------------- | ----------------------------------------------------- | -------------------- |
-| Title/content notice | `npm run test:a11y` | PASS across Chromium, Firefox, WebKit, mobile profile | `playwright-report/` |
-| Standard reading     | `npm run test:a11y` | PASS representative reading state                     | `playwright-report/` |
-| Wait mode            | `npm run test:a11y` | PASS representative wait state                        | `playwright-report/` |
-| Dossier/source mode  | `npm run test:e2e`  | PASS visibility and non-blocking progression          | `playwright-report/` |
-| Save import errors   | `npm run test:e2e`  | PASS controlled error text                            | `playwright-report/` |
-| Keyboard path        | `npm run test:e2e`  | PASS in desktop Chromium                              | `playwright-report/` |
-| 320px reflow         | `npm run test:e2e`  | PASS                                                  | `playwright-report/` |
-| 200% text scaling    | `npm run test:e2e`  | PASS                                                  | `playwright-report/` |
+| State/browser        | Tool/command        | Result                                                      | Report path          |
+| -------------------- | ------------------- | ----------------------------------------------------------- | -------------------- |
+| Title/content notice | `npm run test:a11y` | PASS across Chromium, Firefox, WebKit, mobile profile       | `playwright-report/` |
+| Standard reading     | `npm run test:a11y` | PASS representative reading state in Chromium/WebKit/mobile | `playwright-report/` |
+| Wait mode            | `npm run test:a11y` | PASS representative wait state in Chromium/WebKit/mobile    | `playwright-report/` |
+| Dossier/source mode  | `npm run test:e2e`  | PASS visibility and non-blocking progression                | `playwright-report/` |
+| Save import errors   | `npm run test:e2e`  | PASS controlled error text                                  | `playwright-report/` |
+| Keyboard path        | `npm run test:e2e`  | PASS in desktop Chromium                                    | `playwright-report/` |
+| 320px reflow         | `npm run test:e2e`  | PASS                                                        | `playwright-report/` |
+| 200% text scaling    | `npm run test:e2e`  | PASS                                                        | `playwright-report/` |
 
 Latest focused evidence:
 
 - `npm run test:e2e`: 28 passed, 4 documented deep-interaction skips.
-- `npm run test:a11y`: 8 passed.
+- `npm run test:a11y`: 7 passed, 1 Firefox deep-state skip.
 
 ## Manual Keyboard Path
 

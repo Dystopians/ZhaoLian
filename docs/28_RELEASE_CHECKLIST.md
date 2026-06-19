@@ -48,7 +48,7 @@ Status: engineering RC is complete and deployable to a static host. Public publi
 
 - [x] Keyboard-only full completion in automated matrix. Evidence: desktop Chromium pass; WebKit/mobile profiles have completion/reflow/a11y smoke coverage.
 - [ ] Screen-reader manual pass documented. Pending NVDA/VoiceOver human review.
-- [x] Automated accessibility suite passes. Evidence: 8 axe tests pass.
+- [x] Automated accessibility suite passes. Evidence: 7 axe tests pass, with 1 documented Firefox deep-state skip.
 - [x] 200% text scale and 320px reflow pass. Evidence: E2E tests pass.
 - [x] Reduced motion, high contrast, texture-free modes pass implementation checks. Evidence: settings controls and E2E/axe smoke.
 - [x] Audio captions and mute-only completion pass. Evidence: text cue implementation; no audio required.

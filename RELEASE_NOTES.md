@@ -28,5 +28,5 @@
 ### Known Limitations
 
 - External historian and manual screen-reader review are pending before public publication.
-- Firefox headless runs smoke/a11y coverage; two deep interaction paths are skipped because local Firefox focus/timing was unstable.
+- Firefox headless runs smoke/a11y coverage; unstable deep interaction paths are documented as skips where focus/timing is unreliable.
 - No real historical photos or audio files are bundled in this RC.

@@ -37,7 +37,7 @@ The game preserves the fixed historical disappearance. It has no rescue route, n
 | Narrative invariants     | `npm run test:narrative`                                    | PASS                                  | 6 tests, four endings and no-rescue invariant                      |
 | Unit coverage            | `npm run test:coverage`                                     | PASS                                  | statements 89.25%, branches 82.58%, functions 94.11%, lines 88.61% |
 | E2E                      | `npm run test:e2e`                                          | PASS                                  | 28 passed, 4 documented deep-interaction skips                     |
-| Accessibility automation | `npm run test:a11y`                                         | PASS                                  | 8 passed                                                           |
+| Accessibility automation | `npm run test:a11y`                                         | PASS                                  | 7 passed, 1 Firefox deep-state skip                                |
 | Historical lint          | `npm run test:history`                                      | PASS                                  | source classes, unresolved labels, and prohibited claims checked   |
 | Performance              | `scripts/check-performance.mjs`                             | PASS                                  | total gzip about 35.9 KB                                           |
 
