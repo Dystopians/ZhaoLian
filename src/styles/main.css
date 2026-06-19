@@ -430,6 +430,12 @@ small {
   font-size: 0.9rem;
 }
 
+.music-status {
+  margin: 0;
+  color: var(--ink);
+  font-size: 0.82rem;
+}
+
 .music-button {
   width: 100%;
 }

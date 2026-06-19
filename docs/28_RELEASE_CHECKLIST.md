@@ -68,7 +68,7 @@ Status: engineering RC is complete and deployable to a static host. Public publi
 
 - [x] Every image/audio/font has provenance. Evidence: `content/assets.json`, `ATTRIBUTIONS.md`.
 - [x] No hotlinked asset. Evidence: asset validator and no external request E2E.
-- [x] User-supplied historical-looking images are not bundled without image rights; the owner-supplied ending MP3 is registered separately and used only as non-essential, user-activated ending music. Evidence: runtime imports use generated WebP assets, OpenGameArt stage audio, and `AUD_ENDING_SUMATRA_KEIBITAI`.
+- [x] User-supplied historical-looking images are not bundled without image rights; the owner-supplied ending MP3 is registered separately and used only as non-essential, post-interaction auto-faded ending music. Evidence: runtime imports use generated WebP assets, OpenGameArt stage audio, and `AUD_ENDING_SUMATRA_KEIBITAI`.
 - [x] Credits and licenses generated. Evidence: `dist/reports/attributions.json`.
 - [x] Real-person images used only with verified rights. Evidence: no real-person images included.
 - [x] Alt text/text alternatives complete for shipped non-photographic assets. Evidence: asset register and semantic UI.

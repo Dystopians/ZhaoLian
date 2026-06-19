@@ -100,7 +100,7 @@ Record decisions as immutable entries. Supersede rather than silently rewrite ol
 - **Context:** The project owner supplied historical-looking portrait, invasion, and map references, requested a unified silhouette art direction, a western-Pacific map background, and staged music. Repository policy still forbids shipping unlicensed photos/audio or fake archival photos.
 - **Options considered:** Ship the supplied reference images directly; continue with CSS-only blockouts; generate original non-photographic visuals and use only music with redistribution-friendly licenses.
 - **Decision:** Use the supplied images only as local references, generate project-owned low-color silhouette WebP art, bundle OpenGameArt tracks for investigation stages, and use the project-owner supplied `相対性理論 - スマトラ警備隊.mp3` track for the ending screen through a stable runtime copy.
-- **Consequences:** The runtime gains portraits, scene illustrations, context art, map background, investigation music, and the requested ending track while preserving asset provenance and historical-photo boundaries. The ending track remains user-activated and non-essential.
+- **Consequences:** The runtime gains portraits, scene illustrations, context art, map background, investigation music, and the requested ending track while preserving asset provenance and historical-photo boundaries. The ending track remains non-essential and begins only after player interaction.
 - **Requirements affected:** AC-044, AC-055, AC-066, AC-071, AC-072.
 - **Supersedes/superseded by:** Extends DEC-009 by replacing CSS-only visuals with reviewed AI-assisted local images and licensed local audio.
 
@@ -111,7 +111,7 @@ Record decisions as immutable entries. Supersede rather than silently rewrite ol
 - **Context:** The visual/audio pass adds WebP illustrations and two local music files. The performance specification allows large appendix images and audio to load lazily and states that audio decoding must not block first text.
 - **Options considered:** Count every emitted media byte against the initial 1.5 MB budget; remove media; separate initial critical transfer from lazy media in the performance report.
 - **Decision:** Keep the 1.5 MB budget for initial JS/CSS/critical media and add a separate lazy-media compressed budget/report for stage illustrations and audio.
-- **Consequences:** First readable content remains protected while the release report honestly tracks media weight. Runtime UI loads scene images lazily and audio only after explicit user interaction.
+- **Consequences:** First readable content remains protected while the release report honestly tracks media weight. Runtime UI loads scene images lazily and audio only after player interaction, then auto-fades stage BGM as the casefile progresses.
 - **Requirements affected:** AC-055, AC-065, AC-066.
 
 ## Template For New Decisions

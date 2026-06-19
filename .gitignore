@@ -9,6 +9,7 @@ generated/
 !assets/generated/
 !assets/generated/**
 *.local
+.codex-dev-server.*.log
 CODEX_MASTER_PROMPT.md
 
 # Local rights-pending reference assets. Runtime media lives under assets/generated/ and assets/audio/.

@@ -25,7 +25,7 @@ On small screens, context becomes a compact header and the dossier opens as a mo
 - Title, subtitle, Start/Continue, Settings, Methodology.
 - Content notice before first play.
 - Explicit interaction contract.
-- No autoplay audio.
+- No audio may begin before player interaction; after the player starts or resumes the casefile, stage BGM should automatically fade in, crossfade on track changes, and fade out on pause.
 
 ### Reading view
 

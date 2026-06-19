@@ -9,7 +9,7 @@
 - Source-mode chips, dossier tabs, evidence, claims, timeline, sources, glossary, methodology, credits, and privacy text.
 - Local autosave, restore, export/import validation, settings persistence, and destructive reset confirmation.
 - Original low-color WebP silhouette visual assets, including a western-Pacific map background, chapter scene art, two non-photographic portrait treatments, and context illustrations.
-- Local lazy-loaded OpenGameArt stage music plus the owner-supplied `相対性理論 - スマトラ警備隊` ending track, all with text sound captions and explicit playback controls.
+- Local lazy-loaded OpenGameArt stage music plus the owner-supplied `相対性理論 - スマトラ警備隊` ending track, all with text sound captions and post-interaction auto-fading playback controls.
 - Full validation and release toolchain: format, Markdown lint, ESLint, unit coverage, narrative traversal, content/history validators, TypeScript, production build, performance budget, E2E, accessibility scans, and attribution generation.
 - GitHub Actions CI, dependency review, and static Pages deployment workflows.
 

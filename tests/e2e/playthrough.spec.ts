@@ -124,11 +124,32 @@ test('dossier and source mode are available without blocking progress', async ({
 });
 
 test('generated visuals and local music controls render in the app shell', async ({ page }) => {
+  await page.addInitScript(() => {
+    const win = window as Window & { __audioPlayCalls?: string[] };
+    win.__audioPlayCalls = [];
+    Object.defineProperty(HTMLMediaElement.prototype, 'paused', {
+      configurable: true,
+      get() {
+        return !(this as HTMLMediaElement & { __playing?: boolean }).__playing;
+      },
+    });
+    HTMLMediaElement.prototype.play = function play() {
+      (this as HTMLMediaElement & { __playing?: boolean }).__playing = true;
+      win.__audioPlayCalls?.push(this.currentSrc || this.src);
+      return Promise.resolve();
+    };
+    HTMLMediaElement.prototype.pause = function pause() {
+      (this as HTMLMediaElement & { __playing?: boolean }).__playing = false;
+    };
+  });
   await page.goto('/');
   await expect(page.locator('.title-visual img')).toHaveAttribute('src', /scene-archive-desk/);
   await page.getByRole('button', { name: '开始新案卷' }).click();
   await expect(page.locator('.context-visual img')).toHaveAttribute('src', /scene-archive-desk/);
-  await expect(page.getByRole('button', { name: '播放配乐' })).toBeVisible();
+  await expect(page.locator('.music-button')).toBeVisible();
+  await page.waitForFunction(
+    () => (window as Window & { __audioPlayCalls?: string[] }).__audioPlayCalls?.length,
+  );
   await page.getByRole('button', { name: '方法与史料' }).click();
   await expect(page.locator('.visual-gallery img')).toHaveCount(5);
 });

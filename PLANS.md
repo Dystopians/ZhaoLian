@@ -56,7 +56,7 @@ Deliver the complete static web interactive narrative described by the specifica
 
 - [x] Implemented original local CSS scene art and document-style visual states.
 - [x] Generated and integrated 17 consistent low-color silhouette WebP visuals, including portraits, context art, scene art, and a western-Pacific map background.
-- [x] Implemented no-audio-required captions and audio-control affordances.
+- [x] Implemented no-audio-required captions plus post-interaction auto-fading BGM controls.
 - [x] Added local lazy-loaded OpenGameArt stage music and `相対性理論 - スマトラ警備隊` ending-coda music controls.
 - [x] Added text equivalents and independent user settings.
 - [x] Verified no graphic death scene or fabricated execution representation.
@@ -94,12 +94,12 @@ Deliver the complete static web interactive narrative described by the specifica
 
 ## Current Risks And Mitigations
 
-| Risk                                                                        | Mitigation                                                                                                                                                                                 |
-| --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Historical primary-source gaps cannot be closed by code                     | Data classes, source links, unresolved labels, and historian packet prevent unresolved claims from becoming certainty.                                                                     |
-| External human review cannot be fabricated                                  | Release checklist and review packets list pending human sign-off as publication blockers.                                                                                                  |
-| Non-Chromium headless focus behavior is unstable for the deep keyboard test | Firefox, WebKit, and mobile still run dossier, save, network, reflow, completion, and axe smoke tests; desktop keyboard completion passes in Chromium.                                     |
-| Asset/audio rights                                                          | Shipped runtime images are project-generated WebP visuals; investigation music uses OpenGameArt tracks; the owner-supplied ending MP3 is registered and used only after explicit playback. |
+| Risk                                                                        | Mitigation                                                                                                                                                                                  |
+| --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Historical primary-source gaps cannot be closed by code                     | Data classes, source links, unresolved labels, and historian packet prevent unresolved claims from becoming certainty.                                                                      |
+| External human review cannot be fabricated                                  | Release checklist and review packets list pending human sign-off as publication blockers.                                                                                                   |
+| Non-Chromium headless focus behavior is unstable for the deep keyboard test | Firefox, WebKit, and mobile still run dossier, save, network, reflow, completion, and axe smoke tests; desktop keyboard completion passes in Chromium.                                      |
+| Asset/audio rights                                                          | Shipped runtime images are project-generated WebP visuals; investigation music uses OpenGameArt tracks; the owner-supplied ending MP3 is registered and used only after player interaction. |
 
 ## Progress Log
 

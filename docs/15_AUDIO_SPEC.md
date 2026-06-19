@@ -12,7 +12,7 @@ Separate channels:
 - ambience;
 - effects.
 
-Settings persist. Default volume is moderate and no audio begins before user interaction.
+Settings persist. Default volume is moderate and no audio begins before user interaction. After the player starts or resumes the casefile, the current stage BGM auto-starts, fades in, crossfades on track changes, and fades out when paused.
 
 ## Required ambience loops
 

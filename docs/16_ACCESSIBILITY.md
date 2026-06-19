@@ -57,7 +57,7 @@ Target: WCAG 2.2 Level AA for the production web application, plus narrative-spe
 
 - Independent volume controls.
 - Captions for meaningful sound cues.
-- No autoplay before interaction.
+- No autoplay before interaction; after a start/resume/choice interaction, stage BGM may auto-start and must remain non-essential.
 - Muting audio never hides a choice or evidence.
 
 ## Automated checks

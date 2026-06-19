@@ -59,6 +59,8 @@ export class AppController {
   private lastDossierOpener: HTMLElement | null = null;
   private draft: ReportDraft = { ...defaultReportDraft };
   private liveRegion: HTMLDivElement;
+  private musicPausedByUser = false;
+  private musicSyncSerial = 0;
 
   constructor(root: HTMLElement) {
     this.root = root;
@@ -97,6 +99,7 @@ export class AppController {
       const close = this.root.querySelector<HTMLButtonElement>('[data-dialog-close]');
       close?.focus();
     }
+    void this.syncMusicForCurrentView();
   }
 
   private renderHeader(): HTMLElement {
@@ -191,7 +194,7 @@ export class AppController {
         text: '本作涉及战时占领、政治暴力、失踪与被害推定、胁迫性问话和与失踪同时发生的分娩记录；不含图像化死亡、处决现场、尸体、跳吓或可玩的救援路线。',
       }),
       el('p', {
-        text: '声音不会自动播放；所有关键声音都有文字字幕。存档留在本机，除非你主动导出。',
+        text: '配乐会在你开始互动后自动淡入；所有关键声音都有文字字幕。存档留在本机，除非你主动导出。',
       }),
     );
     return notice;
@@ -216,6 +219,7 @@ export class AppController {
         this.renderMusicControl(endingMusicTrack),
         button('重新开始', () => {
           this.audio.stopAll();
+          this.musicPausedByUser = false;
           this.engine = new StoryEngine(createInitialGameState());
           this.state = this.engine.snapshot();
           this.draft = { ...defaultReportDraft };
@@ -297,12 +301,18 @@ export class AppController {
 
   private renderMusicControl(track: MusicTrackDefinition): HTMLElement {
     const playing = this.audio.isPlaying(track.id);
+    const status = playing
+      ? '自动播放中；切换阶段时会淡出淡入。'
+      : this.musicPausedByUser
+        ? '已暂停；点击恢复后继续自动播放。'
+        : '将在你开始互动后自动淡入。';
     const section = el('section', {
       className: 'music-control',
       attrs: { 'aria-label': '阶段配乐' },
     });
     section.append(
       el('p', { className: 'music-title', text: track.title }),
+      el('p', { className: 'music-status', text: status }),
       button(
         playing ? '暂停配乐' : '播放配乐',
         () => {
@@ -316,18 +326,43 @@ export class AppController {
 
   private async toggleMusic(track: MusicTrackDefinition): Promise<void> {
     try {
+      this.musicPausedByUser = this.audio.isPlaying(track.id);
       const status = await this.audio.toggleLoop(track);
       if (status === 'muted') {
+        this.musicPausedByUser = false;
         this.announce('当前音量为零；请在设置中调高主音量和环境声。');
       } else if (status === 'playing') {
+        this.musicPausedByUser = false;
         this.announce(`正在播放：${track.title}`);
       } else {
+        this.musicPausedByUser = true;
         this.announce('配乐已暂停。');
       }
     } catch {
-      this.announce('浏览器阻止了本次音频播放；请再次按播放配乐。');
+      this.musicPausedByUser = false;
+      this.announce('浏览器需要一次互动才能播放音频；下一次点击后会自动重试。');
     }
     this.render();
+  }
+
+  private currentMusicTrack(): MusicTrackDefinition | null {
+    if (this.view !== 'game') return null;
+    if (this.state.completedEnding) return endingMusicTrack;
+    return musicTrackForScene(getScene(this.state.currentSceneId));
+  }
+
+  private async syncMusicForCurrentView(): Promise<void> {
+    const serial = ++this.musicSyncSerial;
+    const track = this.currentMusicTrack();
+    if (!track || this.musicPausedByUser) return;
+
+    try {
+      await this.audio.syncLoop(track);
+    } catch {
+      if (serial === this.musicSyncSerial) {
+        this.announce('浏览器需要一次互动才能播放音频；下一次点击后会自动重试。');
+      }
+    }
   }
 
   private renderEndingCoda(): HTMLElement {
@@ -906,8 +941,9 @@ export class AppController {
   }
 
   private async persistAndRender(message: string): Promise<void> {
-    await this.saveRepository.saveAutosave(this.state);
     this.announce(message);
+    void this.syncMusicForCurrentView();
+    await this.saveRepository.saveAutosave(this.state);
     this.render();
   }
 
