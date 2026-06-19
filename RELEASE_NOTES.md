@@ -9,7 +9,7 @@
 - Source-mode chips, dossier tabs, evidence, claims, timeline, sources, glossary, methodology, credits, and privacy text.
 - Local autosave, restore, export/import validation, settings persistence, and destructive reset confirmation.
 - Original low-color WebP silhouette visual assets, including a western-Pacific map background, chapter scene art, two non-photographic portrait treatments, and context illustrations.
-- Local lazy-loaded OpenGameArt stage music with text sound captions and explicit playback controls.
+- Local lazy-loaded OpenGameArt stage music plus the owner-supplied `相対性理論 - スマトラ警備隊` ending track, all with text sound captions and explicit playback controls.
 - Full validation and release toolchain: format, Markdown lint, ESLint, unit coverage, narrative traversal, content/history validators, TypeScript, production build, performance budget, E2E, accessibility scans, and attribution generation.
 - GitHub Actions CI, dependency review, and static Pages deployment workflows.
 
@@ -31,4 +31,4 @@
 - External historian and manual screen-reader review are pending before public publication.
 - Firefox headless runs smoke/a11y coverage; unstable deep interaction paths are documented as skips where focus/timing is unreliable.
 - No real historical photos are bundled in this RC.
-- The local `相対性理論 - スマトラ警備隊.mp3` reference file is not bundled without redistribution rights; ending music uses a licensed OpenGameArt track.
+- The ending screen uses the owner-supplied local `相対性理論 - スマトラ警備隊.mp3` track via a stable runtime copy under `assets/audio/`.

@@ -283,5 +283,20 @@
     "reviewStatus": "REVIEWED",
     "reviewer": "Codex license and accessibility pass",
     "date": "2026-06-19"
+  },
+  {
+    "id": "AUD_ENDING_SUMATRA_KEIBITAI",
+    "filePath": "assets/audio/ending-sumatra-keibitai.mp3",
+    "type": "audio/mpeg",
+    "creator": "相対性理論",
+    "sourceUrlOrContract": "project-owner supplied local file assets/相対性理論 - スマトラ警備隊.mp3 and requested ending use in this thread",
+    "license": "project-owner supplied runtime asset for this repository",
+    "attributionText": "相対性理論 - スマトラ警備隊.",
+    "modifications": "Copied to ASCII runtime filename for Vite import; no audio edit applied.",
+    "historicalSubject": "non-diegetic ending music",
+    "altTextOrDecorative": "案卷完成结算页背景音乐；音频不是理解或推进游戏所必需。",
+    "reviewStatus": "REVIEW",
+    "reviewer": "Codex asset provenance pass based on owner-supplied local asset request",
+    "date": "2026-06-19"
   }
 ]

@@ -6,7 +6,7 @@ Generated attribution data is written by `scripts/generate-attributions.mjs` to 
 
 - Narrative, UI copy, content data, validators, tests, and source code: project-created for this repository.
 - Original visual assets: project-owned AI-assisted WebP scene art listed in `content/assets.json`.
-- Audio: local, lazy-loaded OpenGameArt music files listed in `content/assets.json`; meaningful sound cues still have text captions and audio is not required.
+- Audio: local, lazy-loaded OpenGameArt investigation music plus the owner-supplied ending track listed in `content/assets.json`; meaningful sound cues still have text captions and audio is not required.
 - Fonts: system font stack only; no remote fonts.
 
 ## Historical Sources
@@ -71,5 +71,6 @@ The user-provided historical-looking portrait and map/reference images in the lo
 
 - `AUD_MYSTERIOUS_AMBIENCE_SONG21`: "Mysterious Ambience Song21" by OpenGameArt user `yd`, available from <https://opengameart.org/content/mysterious-ambience-song21> under CC0 1.0 / OGA-BY 3.0 / CC-BY 3.0 multi-license.
 - `AUD_SOFT_MYSTERIOUS_HARP`: "Soft Mysterious Harp Loop" by OpenGameArt user `cynicmusic`, available from <https://opengameart.org/content/soft-mysterious-harp-loop> under CC-BY 3.0.
+- `AUD_ENDING_SUMATRA_KEIBITAI`: "相対性理論 - スマトラ警備隊", supplied locally by the project owner for the ending screen and copied to `assets/audio/ending-sumatra-keibitai.mp3` for stable runtime import.
 
-The locally supplied `相対性理論 - スマトラ警備隊.mp3` file is not bundled because no redistribution license is present in the repository.
+All music is user-activated and non-essential for understanding or completing the game.

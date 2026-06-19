@@ -58,6 +58,7 @@ test('player can start, wait to dawn, and generate an ending', async ({ page, br
   await page.getByRole('radio', { name: /暂不规定主次/ }).check();
   await page.getByRole('button', { name: '确认并生成案卷结局' }).click();
   await expect(page.getByText('无论你如何编目，他都没有从门外回来。')).toBeVisible();
+  await expect(page.getByText('案卷完成：相対性理論 - スマトラ警備隊')).toBeVisible();
 });
 
 test('core path can be completed with keyboard-activated controls and visible focus', async ({

@@ -28,18 +28,18 @@ The game preserves the fixed historical disappearance. It has no rescue route, n
 
 ## Verification
 
-| Check                    | Command/procedure                                           | Result                                | Evidence                                                             |
-| ------------------------ | ----------------------------------------------------------- | ------------------------------------- | -------------------------------------------------------------------- |
-| Clean install            | clean temporary checkout, official Node `24.14.0`, `npm ci` | PASS                                  | 260 packages installed, 0 vulnerabilities                            |
-| Full npm verify          | clean temporary checkout, `npm run verify`                  | PASS                                  | all verify stages completed                                          |
-| Full pnpm verify         | `pnpm run verify`                                           | PASS after final documentation update | latest terminal run                                                  |
-| Production build         | `npm run build` / `vite build` through verify               | PASS                                  | `dist/`, initial gzip 321,373 bytes; lazy media gzip 2,646,243 bytes |
-| Narrative invariants     | `npm run test:narrative`                                    | PASS                                  | 6 tests, four endings and no-rescue invariant                        |
-| Unit coverage            | `npm run test:coverage`                                     | PASS                                  | statements 89.25%, branches 82.58%, functions 94.11%, lines 88.61%   |
-| E2E                      | `npm run test:e2e`                                          | PASS                                  | 32 passed, 4 documented deep-interaction skips                       |
-| Accessibility automation | `npm run test:a11y`                                         | PASS                                  | 7 passed, 1 Firefox deep-state skip                                  |
-| Historical lint          | `npm run test:history`                                      | PASS                                  | source classes, unresolved labels, and prohibited claims checked     |
-| Performance              | `scripts/check-performance.mjs`                             | PASS                                  | initial gzip 321,373 bytes; lazy media gzip 2,646,243 bytes          |
+| Check                    | Command/procedure                                           | Result                                | Evidence                                                              |
+| ------------------------ | ----------------------------------------------------------- | ------------------------------------- | --------------------------------------------------------------------- |
+| Clean install            | clean temporary checkout, official Node `24.14.0`, `npm ci` | PASS                                  | 260 packages installed, 0 vulnerabilities                             |
+| Full npm verify          | clean temporary checkout, `npm run verify`                  | PASS                                  | all verify stages completed                                           |
+| Full pnpm verify         | `pnpm run verify`                                           | PASS after final documentation update | latest terminal run                                                   |
+| Production build         | `npm run build` / `vite build` through verify               | PASS                                  | `dist/`, initial gzip 321,624 bytes; lazy media gzip 10,982,437 bytes |
+| Narrative invariants     | `npm run test:narrative`                                    | PASS                                  | 6 tests, four endings and no-rescue invariant                         |
+| Unit coverage            | `npm run test:coverage`                                     | PASS                                  | statements 89.25%, branches 82.58%, functions 94.11%, lines 88.61%    |
+| E2E                      | `npm run test:e2e`                                          | PASS                                  | 32 passed, 4 documented deep-interaction skips                        |
+| Accessibility automation | `npm run test:a11y`                                         | PASS                                  | 7 passed, 1 Firefox deep-state skip                                   |
+| Historical lint          | `npm run test:history`                                      | PASS                                  | source classes, unresolved labels, and prohibited claims checked      |
+| Performance              | `scripts/check-performance.mjs`                             | PASS                                  | initial gzip 321,624 bytes; lazy media gzip 10,982,437 bytes          |
 
 ## Acceptance Status
 
@@ -52,4 +52,4 @@ Public-release human review gates are not fabricated: `HISTORIAN_REVIEW_PACKET.m
 - Genuine human historian and accessibility reviewer signatures are pending for public publication.
 - Firefox, WebKit, and mobile headless profiles run smoke, save, network, reflow, completion, and axe checks; the deep keyboard path is limited to desktop Chromium because other headless focus states were unstable.
 - No real historical photos ship in this RC; runtime visuals are project-owned AI-assisted WebP illustrations with prompt records and asset metadata.
-- The user-supplied commercial MP3 is not bundled without redistribution rights; shipped music is local OpenGameArt audio with attribution metadata.
+- Investigation-stage music uses local OpenGameArt audio with attribution metadata; the ending screen uses the owner-supplied `相対性理論 - スマトラ警備隊.mp3` track copied to a stable runtime filename and listed in `content/assets.json`.

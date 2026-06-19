@@ -17,6 +17,7 @@ import sceneWineFactoryUrl from '../../assets/generated/visuals/scene-wine-facto
 import sceneYuSenseiTableUrl from '../../assets/generated/visuals/scene-yu-sensei-table.webp';
 import musicMysteriousAmbienceUrl from '../../assets/audio/mysterious-ambience-song21.mp3';
 import musicSoftHarpUrl from '../../assets/audio/soft-mysterious-harp.ogg';
+import musicSumatraKeibitaiUrl from '../../assets/audio/ending-sumatra-keibitai.mp3';
 import type { StoryScene } from '../types/content';
 
 export interface VisualAssetDefinition {
@@ -219,9 +220,9 @@ export const musicTracks = {
   },
   MUSIC_ENDING_CODA: {
     id: 'MUSIC_ENDING_CODA',
-    url: musicSoftHarpUrl,
-    title: '案卷完成：Soft Mysterious Harp Loop',
-    credit: 'Soft Mysterious Harp Loop by OpenGameArt user cynicmusic, CC-BY 3.0.',
+    url: musicSumatraKeibitaiUrl,
+    title: '案卷完成：相対性理論 - スマトラ警備隊',
+    credit: '相対性理論 - スマトラ警備隊, local project-owner supplied ending track.',
     channel: 'ambience',
   },
 } satisfies Record<string, MusicTrackDefinition>;

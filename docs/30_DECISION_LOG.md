@@ -99,8 +99,8 @@ Record decisions as immutable entries. Supersede rather than silently rewrite ol
 - **Date:** 2026-06-19.
 - **Context:** The project owner supplied historical-looking portrait, invasion, and map references, requested a unified silhouette art direction, a western-Pacific map background, and staged music. Repository policy still forbids shipping unlicensed photos/audio or fake archival photos.
 - **Options considered:** Ship the supplied reference images directly; continue with CSS-only blockouts; generate original non-photographic visuals and use only music with redistribution-friendly licenses.
-- **Decision:** Use the supplied images only as local references, generate project-owned low-color silhouette WebP art, and bundle OpenGameArt tracks with license metadata. Do not bundle the local `相対性理論 - スマトラ警備隊.mp3` file unless redistribution rights are later added.
-- **Consequences:** The runtime gains portraits, scene illustrations, context art, map background, and music while preserving asset provenance and historical-photo boundaries. The requested commercial track remains a rights-pending owner asset rather than a shipped runtime dependency.
+- **Decision:** Use the supplied images only as local references, generate project-owned low-color silhouette WebP art, bundle OpenGameArt tracks for investigation stages, and use the project-owner supplied `相対性理論 - スマトラ警備隊.mp3` track for the ending screen through a stable runtime copy.
+- **Consequences:** The runtime gains portraits, scene illustrations, context art, map background, investigation music, and the requested ending track while preserving asset provenance and historical-photo boundaries. The ending track remains user-activated and non-essential.
 - **Requirements affected:** AC-044, AC-055, AC-066, AC-071, AC-072.
 - **Supersedes/superseded by:** Extends DEC-009 by replacing CSS-only visuals with reviewed AI-assisted local images and licensed local audio.
 

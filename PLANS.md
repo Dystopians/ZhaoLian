@@ -57,7 +57,7 @@ Deliver the complete static web interactive narrative described by the specifica
 - [x] Implemented original local CSS scene art and document-style visual states.
 - [x] Generated and integrated 17 consistent low-color silhouette WebP visuals, including portraits, context art, scene art, and a western-Pacific map background.
 - [x] Implemented no-audio-required captions and audio-control affordances.
-- [x] Added local lazy-loaded OpenGameArt stage music and ending-coda music controls.
+- [x] Added local lazy-loaded OpenGameArt stage music and `相対性理論 - スマトラ警備隊` ending-coda music controls.
 - [x] Added text equivalents and independent user settings.
 - [x] Verified no graphic death scene or fabricated execution representation.
 
@@ -99,7 +99,7 @@ Deliver the complete static web interactive narrative described by the specifica
 | Historical primary-source gaps cannot be closed by code                     | Data classes, source links, unresolved labels, and historian packet prevent unresolved claims from becoming certainty.                                                                     |
 | External human review cannot be fabricated                                  | Release checklist and review packets list pending human sign-off as publication blockers.                                                                                                  |
 | Non-Chromium headless focus behavior is unstable for the deep keyboard test | Firefox, WebKit, and mobile still run dossier, save, network, reflow, completion, and axe smoke tests; desktop keyboard completion passes in Chromium.                                     |
-| Asset/audio rights                                                          | Shipped runtime assets are project-generated WebP visuals and OpenGameArt tracks with license metadata; user-supplied commercial/reference files remain unbundled unless rights are added. |
+| Asset/audio rights                                                          | Shipped runtime images are project-generated WebP visuals; investigation music uses OpenGameArt tracks; the owner-supplied ending MP3 is registered and used only after explicit playback. |
 
 ## Progress Log
 
@@ -117,14 +117,14 @@ Deliver the complete static web interactive narrative described by the specifica
 
 Full entries live in `docs/30_DECISION_LOG.md`.
 
-| Date       | Topic          | Summary                                                                                                         | Decision    |
-| ---------- | -------------- | --------------------------------------------------------------------------------------------------------------- | ----------- |
-| 2026-06-19 | Static app     | Framework-free Vite + TypeScript + inkjs runtime baseline                                                       | DEC-001     |
-| 2026-06-19 | Local runtime  | Use bundled Node/pnpm locally while preserving npm lock and scripts                                             | DEC-008     |
-| 2026-06-19 | Asset strategy | Original local CSS/document assets only; no hotlinks                                                            | DEC-009     |
-| 2026-06-19 | Ink authoring  | Validate `.ink` author sources into a manifest because inkjs does not expose a CLI compiler in this package     | DEC-010     |
-| 2026-06-19 | Browser matrix | Chromium desktop keyboard path, WebKit/mobile completion/reflow, and Firefox smoke/a11y after focus instability | DEC-011     |
-| 2026-06-19 | Media update   | AI-assisted non-photographic visuals, OpenGameArt music, and lazy-media performance accounting                  | DEC-013/014 |
+| Date       | Topic          | Summary                                                                                                                                   | Decision    |
+| ---------- | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| 2026-06-19 | Static app     | Framework-free Vite + TypeScript + inkjs runtime baseline                                                                                 | DEC-001     |
+| 2026-06-19 | Local runtime  | Use bundled Node/pnpm locally while preserving npm lock and scripts                                                                       | DEC-008     |
+| 2026-06-19 | Asset strategy | Original local CSS/document assets only; no hotlinks                                                                                      | DEC-009     |
+| 2026-06-19 | Ink authoring  | Validate `.ink` author sources into a manifest because inkjs does not expose a CLI compiler in this package                               | DEC-010     |
+| 2026-06-19 | Browser matrix | Chromium desktop keyboard path, WebKit/mobile completion/reflow, and Firefox smoke/a11y after focus instability                           | DEC-011     |
+| 2026-06-19 | Media update   | AI-assisted non-photographic visuals, OpenGameArt investigation music, owner-supplied ending music, and lazy-media performance accounting | DEC-013/014 |
 
 ## Final Verification Evidence
 
@@ -135,7 +135,7 @@ Full entries live in `docs/30_DECISION_LOG.md`.
 | Clean npm verify         | clean temp copy, `npm run verify`                                                            | PASS                      | formatting, lint, coverage, narrative, validators, build, E2E, a11y, attribution |
 | Local install            | bundled Node + `pnpm install --frozen-lockfile`                                              | PASS                      | lockfile up to date                                                              |
 | Full local verify        | `pnpm run verify`                                                                            | PASS after media update   | formatting, lint, coverage, narrative, validators, build, E2E, a11y, attribution |
-| Production build         | `npm run build` / `pnpm run build`                                                           | PASS                      | initial gzip 321,373 bytes; lazy media gzip 2,646,243 bytes                      |
+| Production build         | `npm run build` / `pnpm run build`                                                           | PASS                      | initial gzip 321,624 bytes; lazy media gzip 10,982,437 bytes                     |
 | Remote Pages smoke       | `https://dystopians.github.io/ZhaoLian/` plus Chromium smoke                                 | PASS                      | HTTP 200, JS/CSS 200, title/H1 rendered, no console errors                       |
 | Narrative traversal      | `npm run test:narrative`                                                                     | PASS                      | 6 narrative tests                                                                |
 | E2E                      | `npm run test:e2e`                                                                           | PASS                      | 32 passed, 4 documented deep-interaction skips                                   |
