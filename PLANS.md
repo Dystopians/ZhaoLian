@@ -101,13 +101,14 @@ Deliver the complete static web interactive narrative described by the specifica
 
 ## Progress Log
 
-| Date       | Milestone | Work completed                                                                                         | Verification                              |
-| ---------- | --------- | ------------------------------------------------------------------------------------------------------ | ----------------------------------------- |
-| 2026-06-19 | M0        | Read all indexed Markdown specs and repository rules                                                   | `rg --files`, UTF-8 file reads            |
-| 2026-06-19 | M0        | Spawned Narrative/History, Engine, UI/A11y, and QA/Release audits                                      | Subagent review findings integrated       |
-| 2026-06-19 | M1-M6     | Implemented app, content data, source system, saves, settings, reports, endings, validators, and tests | Focused `pnpm` commands passed            |
-| 2026-06-19 | M7        | Added keyboard, save-restore, network, 320px, 200% text-scale, and cross-browser smoke E2E             | `pnpm run test:e2e`: 28 passed, 4 skipped |
-| 2026-06-19 | M9        | Generated npm lock in clean copy, ran clean install and full verify                                    | `npm ci`: pass; `npm run verify`: pass    |
+| Date       | Milestone | Work completed                                                                                         | Verification                                    |
+| ---------- | --------- | ------------------------------------------------------------------------------------------------------ | ----------------------------------------------- |
+| 2026-06-19 | M0        | Read all indexed Markdown specs and repository rules                                                   | `rg --files`, UTF-8 file reads                  |
+| 2026-06-19 | M0        | Spawned Narrative/History, Engine, UI/A11y, and QA/Release audits                                      | Subagent review findings integrated             |
+| 2026-06-19 | M1-M6     | Implemented app, content data, source system, saves, settings, reports, endings, validators, and tests | Focused `pnpm` commands passed                  |
+| 2026-06-19 | M7        | Added keyboard, save-restore, network, 320px, 200% text-scale, and cross-browser smoke E2E             | `pnpm run test:e2e`: 28 passed, 4 skipped       |
+| 2026-06-19 | M9        | Generated npm lock in clean copy, ran clean install and full verify                                    | `npm ci`: pass; `npm run verify`: pass          |
+| 2026-06-19 | M9        | Published GitHub Pages from `main` after switching deployment trigger from tag-only to default branch  | Deploy Pages run succeeded; remote smoke passed |
 
 ## Decisions And Surprises
 
@@ -131,6 +132,7 @@ Full entries live in `docs/30_DECISION_LOG.md`.
 | Local install            | bundled Node + `pnpm install --frozen-lockfile`                                              | PASS                                  | lockfile up to date                                                              |
 | Full local verify        | `pnpm run verify`                                                                            | PASS after final documentation update | see latest terminal run                                                          |
 | Production build         | `npm run build` / `pnpm run build`                                                           | PASS                                  | `dist/`, gzip total under budget                                                 |
+| Remote Pages smoke       | `https://dystopians.github.io/ZhaoLian/` plus Chromium smoke                                 | PASS                                  | HTTP 200, JS/CSS 200, title/H1 rendered, no console errors                       |
 | Narrative traversal      | `npm run test:narrative`                                                                     | PASS                                  | 6 narrative tests                                                                |
 | E2E                      | `npm run test:e2e`                                                                           | PASS                                  | 28 passed, 4 documented deep-interaction skips                                   |
 | Accessibility automation | `npm run test:a11y`                                                                          | PASS                                  | 7 passed, 1 Firefox deep-state skip                                              |

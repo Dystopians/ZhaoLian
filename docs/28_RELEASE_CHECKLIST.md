@@ -6,7 +6,7 @@ Status: engineering RC is complete and deployable to a static host. Public publi
 
 ## Code And Build
 
-- [x] Repository clean and release tag/version agreed. Version is `1.0.0-rc.0`; release candidate tag `v0.1.0-rc.0` was created from commit `0fa9e88`.
+- [x] Repository clean and release tag/version agreed. Version is `1.0.0-rc.0`; release candidate tag `v1.0.0-rc.0` is prepared for the deployed commit.
 - [x] `npm ci` succeeds in a clean environment. Evidence: clean temporary checkout with official Node `24.14.0` and npm `11.9.0`.
 - [x] `npm run verify` passes. Evidence: clean temporary checkout and local pnpm verification.
 - [x] Production build generated and locally previewed. Evidence: Playwright web server runs `vite build` and `vite preview`.
@@ -74,12 +74,12 @@ Status: engineering RC is complete and deployable to a static host. Public publi
 
 ## Deployment
 
-- [ ] Staging URL smoke-tested. GitHub Pages deployment is configured for `main`; remote smoke test is pending the first successful Pages run.
+- [x] Staging URL smoke-tested. Evidence: GitHub Pages deployment from `main` succeeded and `https://dystopians.github.io/ZhaoLian/` returned HTTP 200 with app title/H1 and no browser console errors.
 - [x] CSP/security headers guidance checked where host permits. Evidence: static no-remote posture and deployment notes.
 - [x] Base path and deep navigation tested. Evidence: single-page static app uses no required deep routes.
 - [ ] Previous release available for rollback. Not applicable to first RC until a hosted release exists.
 - [x] Static release bundle and attribution reports archived locally. Evidence: `dist/`.
-- [x] Production URL and release notes prepared. Evidence: `RELEASE_NOTES.md`; URL pending host deployment.
+- [x] Production URL and release notes prepared. Evidence: `RELEASE_NOTES.md`; URL is `https://dystopians.github.io/ZhaoLian/`.
 
 ## Sign-Off
 
